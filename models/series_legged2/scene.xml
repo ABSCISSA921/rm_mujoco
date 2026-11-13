@@ -1,0 +1,272 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="series_legged2_complete_ros">
+  <compiler angle="radian" inertiafromgeom="false" fusestatic="false" meshdir="../serial_leg_complete/meshes" />
+  <option timestep="0.001" gravity="0 0 -9.81" integrator="implicitfast" solver="Newton" iterations="100" tolerance="1e-10" cone="elliptic" />
+  <default>
+    <geom solref="0.004 1" solimp="0.95 0.99 0.001" density="0" />
+  </default>
+  <asset>
+    <mesh name="right_calf_0" file="right_calf.stl" scale="0.001 0.001 0.001" maxhullvert="64" />
+    <mesh name="right_longbar_0" file="right_longbar.stl" scale="0.001 0.001 0.001" maxhullvert="64" />
+    <mesh name="right_midbar_0" file="right_midbar.stl" scale="0.001 0.001 0.001" maxhullvert="64" />
+    <mesh name="right_output_0" file="right_output.stl" scale="0.001 0.001 0.001" maxhullvert="64" />
+    <mesh name="right_shortbar_0" file="right_shortbar.stl" scale="0.001 0.001 0.001" maxhullvert="64" />
+    <mesh name="right_thigh_0" file="right_thigh.stl" scale="0.001 0.001 0.001" maxhullvert="64" />
+    <mesh name="right_wheel_0" file="right_wheel.stl" scale="0.001 0.001 0.001" maxhullvert="64" />
+    <mesh name="base_0" file="base_hipclean_part00.stl" scale="0.001 0.001 0.001" maxhullvert="64" />
+    <mesh name="base_1" file="base_hipclean_part01.stl" scale="0.001 0.001 0.001" maxhullvert="64" />
+    <mesh name="base_2" file="base_hipclean_part02.stl" scale="0.001 0.001 0.001" maxhullvert="64" />
+    <mesh name="base_3" file="base_hipclean_part03.stl" scale="0.001 0.001 0.001" maxhullvert="64" />
+    <mesh name="base_4" file="base_hipclean_part04.stl" scale="0.001 0.001 0.001" maxhullvert="64" />
+    <mesh name="base_5" file="base_hipclean_part05.stl" scale="0.001 0.001 0.001" maxhullvert="64" />
+    <mesh name="left_calf_0" file="left_calf.stl" scale="0.001 0.001 0.001" maxhullvert="64" />
+    <mesh name="left_longbar_0" file="left_longbar.stl" scale="0.001 0.001 0.001" maxhullvert="64" />
+    <mesh name="left_midbar_0" file="left_midbar.stl" scale="0.001 0.001 0.001" maxhullvert="64" />
+    <mesh name="left_output_0" file="left_output.stl" scale="0.001 0.001 0.001" maxhullvert="64" />
+    <mesh name="left_shortbar_0" file="left_shortbar.stl" scale="0.001 0.001 0.001" maxhullvert="64" />
+    <mesh name="left_thigh_0" file="left_thigh.stl" scale="0.001 0.001 0.001" maxhullvert="64" />
+    <mesh name="left_wheel_0" file="left_wheel.stl" scale="0.001 0.001 0.001" maxhullvert="64" />
+    <mesh name="pitch_0" file="pitch_part00.stl" scale="0.001 0.001 0.001" maxhullvert="64" />
+    <mesh name="pitch_1" file="pitch_part01.stl" scale="0.001 0.001 0.001" maxhullvert="64" />
+    <mesh name="pitch_2" file="pitch_part02.stl" scale="0.001 0.001 0.001" maxhullvert="64" />
+    <mesh name="yaw_0" file="yaw.stl" scale="0.001 0.001 0.001" maxhullvert="64" />
+    <mesh name="right_hardware_output_mid_0" file="right_hardware_output_mid.stl" scale="0.001 0.001 0.001" maxhullvert="64" />
+    <mesh name="right_hardware_mid_long_0" file="right_hardware_mid_long.stl" scale="0.001 0.001 0.001" maxhullvert="64" />
+    <mesh name="right_hardware_thigh_long_0" file="right_hardware_thigh_long.stl" scale="0.001 0.001 0.001" maxhullvert="64" />
+    <mesh name="right_hardware_long_short_0" file="right_hardware_long_short.stl" scale="0.001 0.001 0.001" maxhullvert="64" />
+    <mesh name="right_hardware_knee_0" file="right_hardware_knee.stl" scale="0.001 0.001 0.001" maxhullvert="64" />
+    <mesh name="right_hardware_short_calf_0" file="right_hardware_short_calf.stl" scale="0.001 0.001 0.001" maxhullvert="64" />
+    <mesh name="right_wheel_stator_0" file="right_wheel_stator.stl" scale="0.001 0.001 0.001" maxhullvert="64" />
+    <mesh name="right_wheel_gears_0" file="right_wheel_gears.stl" scale="0.001 0.001 0.001" maxhullvert="64" />
+    <mesh name="right_wheel_cover_0" file="right_wheel_cover.stl" scale="0.001 0.001 0.001" maxhullvert="64" />
+    <mesh name="right_wheel_standard_0" file="right_wheel_standard.stl" scale="0.001 0.001 0.001" maxhullvert="64" />
+    <mesh name="left_hardware_output_mid_0" file="left_hardware_output_mid.stl" scale="0.001 0.001 0.001" maxhullvert="64" />
+    <mesh name="left_hardware_mid_long_0" file="left_hardware_mid_long.stl" scale="0.001 0.001 0.001" maxhullvert="64" />
+    <mesh name="left_hardware_thigh_long_0" file="left_hardware_thigh_long.stl" scale="0.001 0.001 0.001" maxhullvert="64" />
+    <mesh name="left_hardware_long_short_0" file="left_hardware_long_short.stl" scale="0.001 0.001 0.001" maxhullvert="64" />
+    <mesh name="left_hardware_knee_0" file="left_hardware_knee.stl" scale="0.001 0.001 0.001" maxhullvert="64" />
+    <mesh name="left_hardware_short_calf_0" file="left_hardware_short_calf.stl" scale="0.001 0.001 0.001" maxhullvert="64" />
+    <mesh name="left_wheel_stator_0" file="left_wheel_stator.stl" scale="0.001 0.001 0.001" maxhullvert="64" />
+    <mesh name="left_wheel_gears_0" file="left_wheel_gears.stl" scale="0.001 0.001 0.001" maxhullvert="64" />
+    <mesh name="left_wheel_cover_0" file="left_wheel_cover.stl" scale="0.001 0.001 0.001" maxhullvert="64" />
+    <mesh name="left_wheel_standard_0" file="left_wheel_standard.stl" scale="0.001 0.001 0.001" maxhullvert="64" />
+    <mesh name="right_thigh_sprocket" file="right_thigh_sprocket.stl" scale="0.001 0.001 0.001" maxhullvert="64" />
+    <mesh name="right_output_sprocket" file="right_output_sprocket.stl" scale="0.001 0.001 0.001" maxhullvert="64" />
+    <mesh name="left_thigh_sprocket" file="left_thigh_sprocket.stl" scale="0.001 0.001 0.001" maxhullvert="64" />
+    <mesh name="left_output_sprocket" file="left_output_sprocket.stl" scale="0.001 0.001 0.001" maxhullvert="64" />
+    <mesh name="right_hip_adapter" file="right_hip_adapter.stl" scale="0.001 0.001 0.001" maxhullvert="64" />
+    <mesh name="left_hip_adapter" file="left_hip_adapter.stl" scale="0.001 0.001 0.001" maxhullvert="64" />
+    <mesh name="left_thigh_simple_collision_mesh" file="left_thigh_simple_collision.stl" scale="0.001 0.001 0.001" />
+    <mesh name="left_output_simple_collision_mesh" file="left_output_simple_collision.stl" scale="0.001 0.001 0.001" />
+    <mesh name="left_calf_simple_collision_mesh" file="left_calf_simple_collision.stl" scale="0.001 0.001 0.001" />
+    <mesh name="left_longbar_simple_collision_mesh" file="left_longbar_simple_collision.stl" scale="0.001 0.001 0.001" />
+    <mesh name="left_midbar_simple_collision_mesh" file="left_midbar_simple_collision.stl" scale="0.001 0.001 0.001" />
+    <mesh name="left_shortbar_simple_collision_mesh" file="left_shortbar_simple_collision.stl" scale="0.001 0.001 0.001" />
+    <mesh name="right_thigh_simple_collision_mesh" file="right_thigh_simple_collision.stl" scale="0.001 0.001 0.001" />
+    <mesh name="right_output_simple_collision_mesh" file="right_output_simple_collision.stl" scale="0.001 0.001 0.001" />
+    <mesh name="right_calf_simple_collision_mesh" file="right_calf_simple_collision.stl" scale="0.001 0.001 0.001" />
+    <mesh name="right_longbar_simple_collision_mesh" file="right_longbar_simple_collision.stl" scale="0.001 0.001 0.001" />
+    <mesh name="right_midbar_simple_collision_mesh" file="right_midbar_simple_collision.stl" scale="0.001 0.001 0.001" />
+    <mesh name="right_shortbar_simple_collision_mesh" file="right_shortbar_simple_collision.stl" scale="0.001 0.001 0.001" />
+  </asset>
+  <custom>
+    <numeric name="leg_spring_coefficients" data="-80.91 1408.375 -3091.28 2094.45" />
+  </custom>
+  <worldbody>
+    <light name="light" pos="0 -2 4" dir="0 0 -1" />
+    <geom name="floor" type="plane" size="20 20 .1" contype="2" conaffinity="1" friction="1 .005 .0001" rgba=".8 .8 .8 1" />
+    <body name="base_link" pos="0 0 .5">
+      <freejoint name="base_free" />
+      <inertial mass="22.398083503044" pos="0.0015425319949 0.001410898477734 -0.03801179944153001" fullinertia="0.3646081799918 0.3735234449109 0.6333621419804 0.001011644108037001 0.01028676127884 -0.001403313237606001" />
+      <geom name="base_visual_0" type="mesh" mesh="base_0" pos="0 0 -0.13" quat="6.123233995736766e-17 0 0 1" contype="0" conaffinity="0" density="0" rgba="0.6 0.65 0.7 1" />
+      <geom name="base_visual_1" type="mesh" mesh="base_1" pos="0 0 -0.13" quat="6.123233995736766e-17 0 0 1" contype="0" conaffinity="0" density="0" rgba="0.6 0.65 0.7 1" />
+      <geom name="base_visual_2" type="mesh" mesh="base_2" pos="0 0 -0.13" quat="6.123233995736766e-17 0 0 1" contype="0" conaffinity="0" density="0" rgba="0.6 0.65 0.7 1" />
+      <geom name="base_visual_3" type="mesh" mesh="base_3" pos="0 0 -0.13" quat="6.123233995736766e-17 0 0 1" contype="0" conaffinity="0" density="0" rgba="0.6 0.65 0.7 1" />
+      <geom name="base_visual_4" type="mesh" mesh="base_4" pos="0 0 -0.13" quat="6.123233995736766e-17 0 0 1" contype="0" conaffinity="0" density="0" rgba="0.6 0.65 0.7 1" />
+      <geom name="base_visual_5" type="mesh" mesh="base_5" pos="0 0 -0.13" quat="6.123233995736766e-17 0 0 1" contype="0" conaffinity="0" density="0" rgba="0.6 0.65 0.7 1" />
+      <geom name="base_collision" pos="0 0 -0.05" quat="6.123233995736766e-17 0 0 1" contype="1" conaffinity="2" group="3" rgba="0.1 0.8 0.2 0.3" mass="0" type="box" size="0.25 0.155 0.105" />
+      <body name="left_thigh" pos="-0 0.1755 0" quat="0.7071067811865477 0 0.7071067811865475 0">
+        <joint name="left_hip_joint" type="hinge" axis="0 1 0" limited="false" />
+        <inertial mass="0.705866387666" pos="0.001768921073009466 -0.005675816688664988 -0.1040425510340328" fullinertia="0.005818123365925273 0.006073879022552 0.0003293373390531279 -2.439896023792455e-06 -0.000124011322423108 4.185414028831527e-05" />
+        <geom name="left_thigh_visual_0" type="mesh" mesh="left_thigh_0" pos="0.04760086438107752 -0.1579311897 -0.05144902312253864" quat="0.6429238161711042 0.2943619652740218 0.2943619652740217 0.6429238161711042" contype="0" conaffinity="0" density="0" rgba="0.6 0.65 0.7 1" />
+        <geom name="left_hardware_thigh_long_0_visual" type="mesh" mesh="left_hardware_thigh_long_0" pos="0.1238164680549387 -0.1802 -0.03961669141157978" quat="0.5895999575606009 4.945708048469654e-17 0.807695419105827 3.610258504020026e-17" contype="0" conaffinity="0" density="0" rgba="0.6 0.65 0.7 1" />
+        <geom name="left_hardware_knee_0_visual" type="mesh" mesh="left_hardware_knee_0" pos="0.1238164680549387 -0.1802 -0.03961669141157978" quat="0.5895999575606009 4.945708048469654e-17 0.807695419105827 3.610258504020026e-17" contype="0" conaffinity="0" density="0" rgba="0.6 0.65 0.7 1" />
+        <geom name="left_thigh_sprocket_visual" type="mesh" mesh="left_thigh_sprocket" pos="0.01893391193802516 -0.158631189696 -0.06748593371494963" quat="0.556049572727354 0.4368167495297393 0.4368167495297391 0.556049572727354" contype="0" conaffinity="0" density="0" rgba="0.6 0.65 0.7 1" />
+        <geom name="left_thigh_collision" contype="1" conaffinity="2" group="3" rgba="0.1 0.8 0.2 0.3" mass="0" type="mesh" mesh="left_thigh_simple_collision_mesh" pos="0.04760086438107752 -0.1579311897 -0.05144902312253864" quat="0.6429238161711042 0.2943619652740218 0.2943619652740217 0.6429238161711042" />
+        <body name="left_calf" pos="0 0 -0.21" quat="-0.281637246956949 0 0.9595209539799069 0">
+          <joint name="left_calf_joint" type="hinge" axis="0 1 0" limited="false" damping="0.0" frictionloss="0.001" />
+          <inertial mass="0.665605682875" pos="0.001561632135030883 0.02039432153083999 -0.1399087960196559" fullinertia="0.00833984730266308 0.008186227825696 0.000485254527581919 2.685009540312512e-05 -4.751679402605936e-05 0.001006970855307863" />
+          <geom name="left_calf_visual_0" type="mesh" mesh="left_calf_0" pos="0.1491327699424833 -0.1579311897 -0.07185869120511153" quat="0.1936174660162397 0.6800825514990443 0.6800825514990444 0.1936174660162396" contype="0" conaffinity="0" density="0" rgba="0.6 0.65 0.7 1" />
+          <geom name="left_hardware_short_calf_0_visual" type="mesh" mesh="left_hardware_short_calf_0" pos="0.06960662336435845 -0.1802 -0.1987860849788384" quat="-0.4418108122344391 5.493203713692943e-17 0.8971082466418114 -2.70531098515799e-17" contype="0" conaffinity="0" density="0" rgba="0.6 0.65 0.7 1" />
+          <geom name="left_wheel_stator_0_visual" type="mesh" mesh="left_wheel_stator_0" pos="-6.096062543647918e-11 0.03049999999999998 -0.2479999999673144" quat="0.6298626721457028 0.6298626721457027 -0.3213611896876706 0.3213611896876706" contype="0" conaffinity="0" density="0" rgba="0.6 0.65 0.7 1" />
+          <geom name="left_wheel_gears_0_visual" type="mesh" mesh="left_wheel_gears_0" pos="-6.096062543647918e-11 0.03049999999999998 -0.2479999999673144" quat="0.6298626721457028 0.6298626721457027 -0.3213611896876706 0.3213611896876706" contype="0" conaffinity="0" density="0" rgba="0.6 0.65 0.7 1" />
+          <geom name="left_wheel_cover_0_visual" type="mesh" mesh="left_wheel_cover_0" pos="-6.096062543647918e-11 0.03049999999999998 -0.2479999999673144" quat="0.6298626721457028 0.6298626721457027 -0.3213611896876706 0.3213611896876706" contype="0" conaffinity="0" density="0" rgba="0.6 0.65 0.7 1" />
+          <geom name="left_wheel_standard_0_visual" type="mesh" mesh="left_wheel_standard_0" pos="-6.096062543647918e-11 0.03049999999999998 -0.2479999999673144" quat="0.6298626721457028 0.6298626721457027 -0.3213611896876706 0.3213611896876706" contype="0" conaffinity="0" density="0" rgba="0.6 0.65 0.7 1" />
+          <geom name="left_calf_collision" contype="1" conaffinity="2" group="3" rgba="0.1 0.8 0.2 0.3" mass="0" type="mesh" mesh="left_calf_simple_collision_mesh" pos="0.1491327699424833 -0.1579311897 -0.07185869120511153" quat="0.1936174660162397 0.6800825514990443 0.6800825514990444 0.1936174660162396" />
+          <body name="left_wheel" pos="0 0.04750000000000001 -0.248" quat="1 0 0 0">
+            <joint name="left_wheel_joint" type="hinge" axis="0 1 0" limited="false" />
+            <inertial mass="0.308568283679" pos="5.585637129513788e-06 0.0009152921638799997 -8.845894131445031e-06" fullinertia="0.0003527977850628869 0.0006738816288371 0.0003527977838095129 -9.529012166105756e-14 2.402460283663921e-13 -1.044001586230319e-13" />
+            <geom name="left_wheel_visual_0" type="mesh" mesh="left_wheel_0" pos="5.585913918760567e-06 -0.014 -8.845714400429399e-06" quat="0.6298626721457028 0.6298626721457027 -0.3213611896876706 0.3213611896876706" contype="0" conaffinity="0" density="0" rgba="0.6 0.65 0.7 1" />
+            <geom name="left_wheel_collision" contype="1" conaffinity="2" group="3" rgba="0.1 0.8 0.2 0.3" mass="0" type="cylinder" pos="0 0 0" quat="-0.3124074213325084 0.3124074213325085 0.6343513246587986 0.6343513246587986" size="0.06 0.015" friction="1 0.005 0.0001" />
+          </body>
+          <site name="left_connect_joint2_b" pos="0.0197680868117199 0 0.06430999029212259" size=".003" group="5" />
+          <site name="left_spring_wheel" pos="0 0.04750000000000001 -0.248" size=".003" group="5" />
+        </body>
+        <site name="left_connect_joint1_a" pos="0 0 -0.1134" size=".003" group="5" />
+      </body>
+      <body name="left_knee_link" pos="0 0.1755 0" quat="0.7071067811865477 0 -0.7071067811865475 0">
+        <joint name="left_knee_joint" type="hinge" axis="0 1 0" limited="false" damping="0.0" frictionloss="0.001" />
+        <inertial mass="0.393877353103" pos="4.881108538190571e-12 -0.003244136709760001 -0.01058712315616271" fullinertia="0.0005326206943763146 0.0005853748711947 0.0002024341699692854 9.043926032338392e-15 -6.483978935364898e-14 5.199816291437243e-05" />
+        <geom name="left_output_visual_0" type="mesh" mesh="left_output_0" pos="-0.06492845522558591 -0.1586311897 -0.02640340834273268" quat="0.1237170048785651 0.6961997577591341 0.6961997577591342 0.123717004878565" contype="0" conaffinity="0" density="0" rgba="0.6 0.65 0.7 1" />
+        <geom name="left_hardware_output_mid_0_visual" type="mesh" mesh="left_hardware_output_mid_0" pos="-0.1231267715736933 -0.1802 -0.04171088732980336" quat="-0.5827293628005946 4.976145819561606e-17 0.8126662843566311 -3.568188244614624e-17" contype="0" conaffinity="0" density="0" rgba="0.6 0.65 0.7 1" />
+        <geom name="left_output_sprocket_visual" type="mesh" mesh="left_output_sprocket" pos="-0.06885758527471268 -0.158631189696 0.01309493111040539" quat="-0.07847689888221064 0.7027384836066909 0.7027384836066909 -0.07847689888221075" contype="0" conaffinity="0" density="0" rgba="0.6 0.65 0.7 1" />
+        <geom name="left_hip_adapter_visual" type="mesh" mesh="left_hip_adapter" pos="0.01309493111040536 -0.158631189696 0.0688575852747127" quat="0.5524026945249414 -0.4414195997931947 -0.4414195997931946 0.5524026945249414" contype="0" conaffinity="0" density="0" rgba="0.6 0.65 0.7 1" />
+        <geom name="left_output_collision" contype="1" conaffinity="2" group="3" rgba="0.1 0.8 0.2 0.3" mass="0" type="mesh" mesh="left_output_simple_collision_mesh" pos="-0.06492845522558591 -0.1586311897 -0.02640340834273268" quat="0.1237170048785651 0.6961997577591341 0.6961997577591342 0.123717004878565" />
+        <body name="left_mid_link" pos="0 0 -0.1134" quat="0.281637246956949 0 0.9595209539799069 0">
+          <joint name="left_mid_joint" type="hinge" axis="0 1 0" limited="false" damping="0.0" frictionloss="0.001" />
+          <inertial mass="0.046013071331" pos="0.002786940982762186 0.0002513924634799064 -0.06750000003882384" fullinertia="0.0001647532649787933 0.0001664205459296 2.359089662136766e-06 -6.243461393942448e-08 4.530727735260059e-14 -1.491379512909017e-17" />
+          <geom name="left_midbar_visual_0" type="mesh" mesh="left_midbar_0" pos="-0.07574707927899751 -0.1599311897 -0.07775918755174901" quat="0.6097914705206102 0.3579865395239207 0.3579865395239206 0.6097914705206102" contype="0" conaffinity="0" density="0" rgba="0.6 0.65 0.7 1" />
+          <geom name="left_hardware_mid_long_0_visual" type="mesh" mesh="left_hardware_mid_long_0" pos="0.01114535457936628 -0.1802 -0.1420398247993384" quat="0.4494025563798269 5.47006469585325e-17 0.8933293582544327 2.751797010995965e-17" contype="0" conaffinity="0" density="0" rgba="0.6 0.65 0.7 1" />
+          <geom name="left_midbar_collision" contype="1" conaffinity="2" group="3" rgba="0.1 0.8 0.2 0.3" mass="0" type="mesh" mesh="left_midbar_simple_collision_mesh" pos="-0.07574707927899751 -0.1599311897 -0.07775918755174901" quat="0.6097914705206102 0.3579865395239207 0.3579865395239206 0.6097914705206102" />
+          <body name="left_long_link" pos="0 0 -0.135" quat="-0.5818487483407652 0 0.8132970146596413 0">
+            <joint name="left_long_joint" type="hinge" axis="0 1 0" limited="false" damping="0.0" frictionloss="0.001" />
+            <inertial mass="0.056742186420" pos="-0.005054905475380485 0.007721586926439009 0.1047721101006827" fullinertia="0.0002984721714779082 0.0003006587522115999 4.315472286091681e-06 2.512930055913616e-08 1.126424237478808e-07 6.878080738986785e-07" />
+            <geom name="left_longbar_visual_0" type="mesh" mesh="left_longbar_0" pos="0.04685005764101007 -0.1604311897 0.08257846407939889" quat="0.2224857748415338 0.6711930273722772 0.6711930273722772 0.2224857748415337" contype="0" conaffinity="0" density="0" rgba="0.6 0.65 0.7 1" />
+            <geom name="left_hardware_long_short_0_visual" type="mesh" mesh="left_hardware_long_short_0" pos="-0.00902944320664105 -0.1802 -0.009604541463347688" quat="-0.403094003308847 5.603730121684101e-17 0.9151585788793368 -2.46823890453836e-17" contype="0" conaffinity="0" density="0" rgba="0.6 0.65 0.7 1" />
+            <geom name="left_longbar_collision" contype="1" conaffinity="2" group="3" rgba="0.1 0.8 0.2 0.3" mass="0" type="mesh" mesh="left_longbar_simple_collision_mesh" pos="0.04685005764101007 -0.1604311897 0.08257846407939889" quat="0.2224857748415338 0.6711930273722772 0.6711930273722772 0.2224857748415337" />
+            <body name="left_short_link" pos="0 0 0.2" quat="0.3292413339128988 0 0.9442458070032691 0">
+              <joint name="left_short_joint" type="hinge" axis="0 1 0" limited="false" damping="0.0" frictionloss="0.001" />
+              <inertial mass="0.039727910137" pos="-2.984737457190079e-12 0.0001901985116257056 -0.04829999999347464" fullinertia="7.792158523121465e-05 7.87040821285e-05 1.404857221185378e-06 8.519298063974821e-19 -1.370200475433667e-14 -5.790998121769983e-18" />
+              <geom name="left_shortbar_visual_0" type="mesh" mesh="left_shortbar_0" pos="0.1142601244431826 -0.1594311897 0.05520241782044549" quat="0.6429238161813774 0.2943619652515836 0.2943619652515836 0.6429238161813774" contype="0" conaffinity="0" density="0" rgba="0.6 0.65 0.7 1" />
+              <geom name="left_shortbar_collision" contype="1" conaffinity="2" group="3" rgba="0.1 0.8 0.2 0.3" mass="0" type="mesh" mesh="left_shortbar_simple_collision_mesh" pos="0.1142601244431826 -0.1594311897 0.05520241782044549" quat="0.6429238161813774 0.2943619652515836 0.2943619652515836 0.6429238161813774" />
+              <site name="left_connect_joint2_a" pos="0 0 -0.09660000000000001" size=".003" group="5" />
+            </body>
+            <site name="left_connect_joint1_b" pos="-0.01324904266185187 0 0.1340377761433635" size=".003" group="5" />
+          </body>
+        </body>
+      </body>
+      <body name="right_thigh" pos="-0 -0.1755 0" quat="0.7071067811865477 0 0.7071067811865475 0">
+        <joint name="right_hip_joint" type="hinge" axis="0 1 0" limited="false" />
+        <inertial mass="0.705867245374" pos="0.00176889671405343 0.005675817745433012 -0.1040426388909102" fullinertia="0.00581812785842212 0.006073883852835 0.0003293376960542809 2.439910394460228e-06 -0.0001240125661292461 -4.185408615635475e-05" />
+        <geom name="right_thigh_visual_0" type="mesh" mesh="right_thigh_0" pos="0.04760086438107754 0.1579311897 -0.0514490231225386" quat="0.2943619652740217 0.6429238161711042 -0.6429238161711042 -0.2943619652740218" contype="0" conaffinity="0" density="0" rgba="0.6 0.65 0.7 1" />
+        <geom name="right_hardware_thigh_long_0_visual" type="mesh" mesh="right_hardware_thigh_long_0" pos="0.1238164680549387 0.1802 -0.03961669141157974" quat="4.945708048469655e-17 -0.5895999575606009 -3.610258504020026e-17 0.807695419105827" contype="0" conaffinity="0" density="0" rgba="0.6 0.65 0.7 1" />
+        <geom name="right_hardware_knee_0_visual" type="mesh" mesh="right_hardware_knee_0" pos="0.1238164680549387 0.1802 -0.03961669141157974" quat="4.945708048469655e-17 -0.5895999575606009 -3.610258504020026e-17 0.807695419105827" contype="0" conaffinity="0" density="0" rgba="0.6 0.65 0.7 1" />
+        <geom name="right_thigh_sprocket_visual" type="mesh" mesh="right_thigh_sprocket" pos="0.01893391193802518 0.158631189696 -0.06748593371494958" quat="0.4368167495297391 0.5560495727273541 -0.556049572727354 -0.4368167495297393" contype="0" conaffinity="0" density="0" rgba="0.6 0.65 0.7 1" />
+        <geom name="right_thigh_collision" contype="1" conaffinity="2" group="3" rgba="0.1 0.8 0.2 0.3" mass="0" type="mesh" mesh="right_thigh_simple_collision_mesh" pos="0.04760086438107754 0.1579311897 -0.0514490231225386" quat="0.2943619652740217 0.6429238161711042 -0.6429238161711042 -0.2943619652740218" />
+        <body name="right_calf" pos="0 0 -0.21" quat="-0.281637246956949 0 0.9595209539799069 0">
+          <joint name="right_calf_joint" type="hinge" axis="0 1 0" limited="false" damping="0.0" frictionloss="0.001" />
+          <inertial mass="0.665605551368" pos="0.001561632537177199 -0.02039431734316001 -0.1399087745848635" fullinertia="0.0083398456659146 0.008186226227453 0.0004852544475803987 -2.685008972988775e-05 -4.751675825979441e-05 -0.001006970552908649" />
+          <geom name="right_calf_visual_0" type="mesh" mesh="right_calf_0" pos="0.1491327699424834 0.1579311897 -0.07185869120511156" quat="-0.6800825514990444 -0.1936174660162396 0.1936174660162397 0.6800825514990443" contype="0" conaffinity="0" density="0" rgba="0.6 0.65 0.7 1" />
+          <geom name="right_hardware_short_calf_0_visual" type="mesh" mesh="right_hardware_short_calf_0" pos="0.06960662336435848 0.1802 -0.1987860849788385" quat="5.493203713692943e-17 0.4418108122344391 2.705310985157991e-17 0.8971082466418114" contype="0" conaffinity="0" density="0" rgba="0.6 0.65 0.7 1" />
+          <geom name="right_wheel_stator_0_visual" type="mesh" mesh="right_wheel_stator_0" pos="-6.096062543647918e-11 -0.03050000000000002 -0.2479999999673144" quat="0.6298626721457028 0.6298626721457027 -0.3213611896876706 0.3213611896876706" contype="0" conaffinity="0" density="0" rgba="0.6 0.65 0.7 1" />
+          <geom name="right_wheel_gears_0_visual" type="mesh" mesh="right_wheel_gears_0" pos="-6.096062543647918e-11 -0.03050000000000002 -0.2479999999673144" quat="0.6298626721457028 0.6298626721457027 -0.3213611896876706 0.3213611896876706" contype="0" conaffinity="0" density="0" rgba="0.6 0.65 0.7 1" />
+          <geom name="right_wheel_cover_0_visual" type="mesh" mesh="right_wheel_cover_0" pos="-6.096062543647918e-11 -0.03050000000000002 -0.2479999999673144" quat="0.6298626721457028 0.6298626721457027 -0.3213611896876706 0.3213611896876706" contype="0" conaffinity="0" density="0" rgba="0.6 0.65 0.7 1" />
+          <geom name="right_wheel_standard_0_visual" type="mesh" mesh="right_wheel_standard_0" pos="-6.096062543647918e-11 -0.03050000000000002 -0.2479999999673144" quat="0.6298626721457028 0.6298626721457027 -0.3213611896876706 0.3213611896876706" contype="0" conaffinity="0" density="0" rgba="0.6 0.65 0.7 1" />
+          <geom name="right_calf_collision" contype="1" conaffinity="2" group="3" rgba="0.1 0.8 0.2 0.3" mass="0" type="mesh" mesh="right_calf_simple_collision_mesh" pos="0.1491327699424834 0.1579311897 -0.07185869120511156" quat="-0.6800825514990444 -0.1936174660162396 0.1936174660162397 0.6800825514990443" />
+          <body name="right_wheel" pos="0 -0.04750000000000001 -0.248" quat="1 0 0 0">
+            <joint name="right_wheel_joint" type="hinge" axis="0 1 0" limited="false" />
+            <inertial mass="0.308568678664" pos="5.585753470930799e-06 -0.0009152967525599999 -8.846971424351219e-06" fullinertia="0.0003527978781556325 0.0006738817490206 0.0003527978234217674 2.239861924503538e-13 -1.457909636656644e-11 -1.087207875418974e-12" />
+            <geom name="right_wheel_visual_0" type="mesh" mesh="right_wheel_0" pos="5.58591391844889e-06 0.014 -8.845714399879269e-06" quat="0.6298626721457028 0.6298626721457027 -0.3213611896876706 0.3213611896876706" contype="0" conaffinity="0" density="0" rgba="0.6 0.65 0.7 1" />
+            <geom name="right_wheel_collision" contype="1" conaffinity="2" group="3" rgba="0.1 0.8 0.2 0.3" mass="0" type="cylinder" pos="0 0 0" quat="-0.3124074213325084 0.3124074213325085 0.6343513246587986 0.6343513246587986" size="0.06 0.015" friction="1 0.005 0.0001" />
+          </body>
+          <site name="right_connect_joint2_b" pos="0.0197680868117199 0 0.06430999029212259" size=".003" group="5" />
+          <site name="right_spring_wheel" pos="0 -0.04750000000000001 -0.248" size=".003" group="5" />
+        </body>
+        <site name="right_connect_joint1_a" pos="0 0 -0.1134" size=".003" group="5" />
+      </body>
+      <body name="right_knee_link" pos="0 -0.1755 0" quat="0.7071067811865477 0 -0.7071067811865475 0">
+        <joint name="right_knee_joint" type="hinge" axis="0 1 0" limited="false" damping="0.0" frictionloss="0.001" />
+        <inertial mass="0.393877353103" pos="4.881108538190571e-12 0.003244136709759998 -0.01058712315616271" fullinertia="0.0005326206943763146 0.0005853748711947 0.0002024341699692854 -9.043920455190949e-15 -6.483978935364898e-14 -5.199816291437253e-05" />
+        <geom name="right_output_visual_0" type="mesh" mesh="right_output_0" pos="-0.06492845522558589 0.1586311897 -0.02640340834273271" quat="-0.6961997577591342 -0.123717004878565 0.1237170048785651 0.6961997577591341" contype="0" conaffinity="0" density="0" rgba="0.6 0.65 0.7 1" />
+        <geom name="right_hardware_output_mid_0_visual" type="mesh" mesh="right_hardware_output_mid_0" pos="-0.1231267715736933 0.1802 -0.0417108873298034" quat="4.976145819561605e-17 0.5827293628005946 3.568188244614624e-17 0.8126662843566311" contype="0" conaffinity="0" density="0" rgba="0.6 0.65 0.7 1" />
+        <geom name="right_output_sprocket_visual" type="mesh" mesh="right_output_sprocket" pos="-0.06885758527471267 0.158631189696 0.01309493111040535" quat="-0.7027384836066908 0.07847689888221078 -0.0784768988822107 0.7027384836066909" contype="0" conaffinity="0" density="0" rgba="0.6 0.65 0.7 1" />
+        <geom name="right_hip_adapter_visual" type="mesh" mesh="right_hip_adapter" pos="0.01309493111040537 0.158631189696 0.06885758527471265" quat="-0.4414195997931946 0.5524026945249415 -0.5524026945249415 0.4414195997931947" contype="0" conaffinity="0" density="0" rgba="0.6 0.65 0.7 1" />
+        <geom name="right_output_collision" contype="1" conaffinity="2" group="3" rgba="0.1 0.8 0.2 0.3" mass="0" type="mesh" mesh="right_output_simple_collision_mesh" pos="-0.06492845522558589 0.1586311897 -0.02640340834273271" quat="-0.6961997577591342 -0.123717004878565 0.1237170048785651 0.6961997577591341" />
+        <body name="right_mid_link" pos="0 0 -0.1134" quat="0.281637246956949 0 0.9595209539799069 0">
+          <joint name="right_mid_joint" type="hinge" axis="0 1 0" limited="false" damping="0.0" frictionloss="0.001" />
+          <inertial mass="0.046013071331" pos="0.002786940982762186 -0.0002513924634798935 -0.06750000003882384" fullinertia="0.0001647532649787933 0.0001664205459296 2.359089662136766e-06 6.243461393947861e-08 4.530727735260059e-14 1.496832949251457e-17" />
+          <geom name="right_midbar_visual_0" type="mesh" mesh="right_midbar_0" pos="-0.07574707927899749 0.1599311897 -0.07775918755174899" quat="-0.3579865395239206 -0.6097914705206102 0.6097914705206103 0.3579865395239207" contype="0" conaffinity="0" density="0" rgba="0.6 0.65 0.7 1" />
+          <geom name="right_hardware_mid_long_0_visual" type="mesh" mesh="right_hardware_mid_long_0" pos="0.01114535457936631 0.1802 -0.1420398247993384" quat="5.470064695853251e-17 -0.4494025563798269 -2.751797010995964e-17 0.8933293582544327" contype="0" conaffinity="0" density="0" rgba="0.6 0.65 0.7 1" />
+          <geom name="right_midbar_collision" contype="1" conaffinity="2" group="3" rgba="0.1 0.8 0.2 0.3" mass="0" type="mesh" mesh="right_midbar_simple_collision_mesh" pos="-0.07574707927899749 0.1599311897 -0.07775918755174899" quat="-0.3579865395239206 -0.6097914705206102 0.6097914705206103 0.3579865395239207" />
+          <body name="right_long_link" pos="0 0 -0.135" quat="-0.5818487483407652 0 0.8132970146596413 0">
+            <joint name="right_long_joint" type="hinge" axis="0 1 0" limited="false" damping="0.0" frictionloss="0.001" />
+            <inertial mass="0.056742186420" pos="-0.005054905475380485 -0.00772158692643899 0.1047721101006827" fullinertia="0.0002984721714779082 0.0003006587522115999 4.315472286091681e-06 -2.512930055920968e-08 1.126424237478808e-07 -6.878080738987995e-07" />
+            <geom name="right_longbar_visual_0" type="mesh" mesh="right_longbar_0" pos="0.0468500576410101 0.1604311897 0.08257846407939887" quat="-0.6711930273722772 -0.2224857748415337 0.2224857748415338 0.6711930273722773" contype="0" conaffinity="0" density="0" rgba="0.6 0.65 0.7 1" />
+            <geom name="right_hardware_long_short_0_visual" type="mesh" mesh="right_hardware_long_short_0" pos="-0.009029443206641022 0.1802 -0.009604541463347688" quat="5.603730121684101e-17 0.403094003308847 2.468238904538361e-17 0.9151585788793368" contype="0" conaffinity="0" density="0" rgba="0.6 0.65 0.7 1" />
+            <geom name="right_longbar_collision" contype="1" conaffinity="2" group="3" rgba="0.1 0.8 0.2 0.3" mass="0" type="mesh" mesh="right_longbar_simple_collision_mesh" pos="0.0468500576410101 0.1604311897 0.08257846407939887" quat="-0.6711930273722772 -0.2224857748415337 0.2224857748415338 0.6711930273722773" />
+            <body name="right_short_link" pos="0 0 0.2" quat="0.3292413339128988 0 0.9442458070032691 0">
+              <joint name="right_short_joint" type="hinge" axis="0 1 0" limited="false" damping="0.0" frictionloss="0.001" />
+              <inertial mass="0.039727910137" pos="-2.984737457190079e-12 -0.0001901985116256943 -0.04829999999347464" fullinertia="7.792158523121465e-05 7.87040821285e-05 1.404857221185378e-06 -8.561734968477343e-19 -1.370200475433667e-14 5.814520103387022e-18" />
+              <geom name="right_shortbar_visual_0" type="mesh" mesh="right_shortbar_0" pos="0.1142601244431826 0.1594311897 0.05520241782044551" quat="0.2943619652515836 0.6429238161813774 -0.6429238161813774 -0.2943619652515836" contype="0" conaffinity="0" density="0" rgba="0.6 0.65 0.7 1" />
+              <geom name="right_shortbar_collision" contype="1" conaffinity="2" group="3" rgba="0.1 0.8 0.2 0.3" mass="0" type="mesh" mesh="right_shortbar_simple_collision_mesh" pos="0.1142601244431826 0.1594311897 0.05520241782044551" quat="0.2943619652515836 0.6429238161813774 -0.6429238161813774 -0.2943619652515836" />
+              <site name="right_connect_joint2_a" pos="0 0 -0.09660000000000001" size=".003" group="5" />
+            </body>
+            <site name="right_connect_joint1_b" pos="-0.01324904266185187 0 0.1340377761433635" size=".003" group="5" />
+          </body>
+        </body>
+      </body>
+      <body name="left_armor" pos="0 0.295 -0.07000000000000001" quat="1 0 0 0" />
+      <body name="right_armor" pos="0 -0.295 -0.07000000000000001" quat="1 0 0 0" />
+      <body name="left_front_guide_wheel" pos="0.2 0.1 -0.12" quat="1 0 0 0" />
+      <body name="right_front_guide_wheel" pos="0.2 -0.1 -0.12" quat="1 0 0 0" />
+      <body name="left_back_guide_wheel" pos="-0.2 0.1 -0.12" quat="1 0 0 0" />
+      <body name="right_back_guide_wheel" pos="-0.2 -0.1 -0.12" quat="1 0 0 0" />
+      <body name="left_tof_link" pos="0.285 0.123 -0.08" quat="1 0 0 0" />
+      <body name="right_tof_link" pos="0.285 -0.123 -0.08" quat="1 0 0 0" />
+      <body name="base_imu" pos="0.15962 0 -0.099125" quat="-0.003664990175961452 -3.44509178009819e-06 0.9999928420980174 -0.0009399935484315858">
+        <site name="base_imu_site" size=".004" group="5" />
+      </body>
+      <body name="yaw" pos="0 0 0.036125" quat="0.7071067811865477 0 0 -0.7071067811865475">
+        <joint name="yaw_joint" type="hinge" axis="0 0 1" limited="false" damping="0.0" frictionloss="0.1" />
+        <inertial mass="1.431387410036" pos="-0.04473413011493 0.007939119396791006 0.02562979726728" fullinertia="0.00224108524886 0.003345885019606 0.001878345926891 0.0002175794454533001 0.0006885013555092 -0.0001080429572168001" />
+        <geom name="yaw_visual_0" type="mesh" mesh="yaw_0" pos="0 0 -0.1905" quat="6.123233995736766e-17 0 0 1" contype="0" conaffinity="0" density="0" rgba="0.6 0.65 0.7 1" />
+        <geom name="yaw_collision" pos="-0.04096236801 0.004125000000000005 0.06407656859999999" quat="6.123233995736766e-17 0 0 1" contype="1" conaffinity="2" group="3" rgba="0.1 0.8 0.2 0.3" mass="0" type="box" size="0.07346236801 0.037125 0.0899765625" />
+        <body name="flank_frame" pos="0 0 0" quat="0.7071067811865477 0 0 0.7071067811865475" />
+        <body name="yaw_reverse_frame" pos="0 0 0" quat="6.123233995736766e-17 0 0 1" />
+        <body name="pitch" pos="0 0 0.099" quat="1 0 0 0">
+          <joint name="pitch_joint" type="hinge" axis="0 1 0 " limited="true" range="-0.6 0.3" damping="0.0" frictionloss="1" />
+          <inertial mass="2.648856450357" pos="0.001870299588829002 0.0135970222771 0.03546576723915" fullinertia="0.007726287756014 0.0182888519265 0.01811456172555 0.002690152559114001 0.001234949109253 -0.0002621389300350002" />
+          <geom name="pitch_visual_0" type="mesh" mesh="pitch_0" pos="0.002953114061 -3.616521682320691e-19 -0.3225" quat="6.123233995736766e-17 0 0 1" contype="0" conaffinity="0" density="0" rgba="0.6 0.65 0.7 1" />
+          <geom name="pitch_visual_1" type="mesh" mesh="pitch_1" pos="0.002953114061 -3.616521682320691e-19 -0.3225" quat="6.123233995736766e-17 0 0 1" contype="0" conaffinity="0" density="0" rgba="0.6 0.65 0.7 1" />
+          <geom name="pitch_visual_2" type="mesh" mesh="pitch_2" pos="0.002953114061 -3.616521682320691e-19 -0.3225" quat="6.123233995736766e-17 0 0 1" contype="0" conaffinity="0" density="0" rgba="0.6 0.65 0.7 1" />
+          <geom name="pitch_collision" pos="0.02416338017 0.004436721801999997 0.047967453" quat="6.123233995736766e-17 0 0 1" contype="1" conaffinity="2" group="3" rgba="0.1 0.8 0.2 0.3" mass="0" type="box" size="0.1636633759 0.0815632782 0.07960505676" />
+          <body name="camera_link" pos="-0.016086 0 0.107908" quat="0.9993908271949852 0 0.03489949166568454 0" />
+          <body name="camera_optical_frame" pos="0.06059775176285364 8.7e-05 0.09256327160978176" quat="-0.5011931743403791 0.5018021496484981 -0.4988003198289706 0.4981949874710473" />
+          <body name="camera2_optical_frame" pos="0.06059775176285364 8.7e-05 0.09256327160978176" quat="0.5029404264102373 -0.4975449133459178 0.4970476037209379 -0.5024377238237245" />
+          <body name="gimbal_imu" pos="-0.04 0 0.1351" quat="0.7071067811865477 0 0 -0.7071067811865475">
+            <site name="gimbal_imu_site" size=".004" group="5" />
+          </body>
+          <body name="left_friction_wheel" pos="0.043878 0.03665 0" quat="1 0 0 0" />
+          <body name="right_friction_wheel" pos="0.043878 -0.03665 0" quat="1 0 0 0" />
+        </body>
+      </body>
+      <body name="trigger" pos="0 -0 -0.06" quat="1 0 0 0" />
+      <site name="left_spring_hip" pos="-0 0.223 0" size=".003" group="5" />
+      <site name="right_spring_hip" pos="-0 -0.223 0" size=".003" group="5" />
+    </body>
+  </worldbody>
+  <equality>
+    <connect name="left_connect_joint1" site1="left_connect_joint1_a" site2="left_connect_joint1_b" solref="0.002 1" solimp="0.999 0.9999 0.0001" />
+    <connect name="left_connect_joint2" site1="left_connect_joint2_a" site2="left_connect_joint2_b" solref="0.002 1" solimp="0.999 0.9999 0.0001" />
+    <connect name="right_connect_joint1" site1="right_connect_joint1_a" site2="right_connect_joint1_b" solref="0.002 1" solimp="0.999 0.9999 0.0001" />
+    <connect name="right_connect_joint2" site1="right_connect_joint2_a" site2="right_connect_joint2_b" solref="0.002 1" solimp="0.999 0.9999 0.0001" />
+  </equality>
+  <tendon>
+    <spatial name="left_leg_length_limit" limited="true" range="0 0.40" group="5" solreflimit="0.002 1" solimplimit="0.999 0.9999 0.0001">
+      <site site="left_spring_hip" />
+      <site site="left_spring_wheel" />
+    </spatial>
+    <spatial name="right_leg_length_limit" limited="true" range="0 0.40" group="5" solreflimit="0.002 1" solimplimit="0.999 0.9999 0.0001">
+      <site site="right_spring_hip" />
+      <site site="right_spring_wheel" />
+    </spatial>
+  </tendon>
+  <sensor>
+    <gyro name="base_imu_gyro" site="base_imu_site" />
+    <accelerometer name="base_imu_acc" site="base_imu_site" />
+    <framequat name="base_imu_quat" objtype="site" objname="base_imu_site" />
+    <gyro name="gimbal_imu_gyro" site="gimbal_imu_site" />
+    <accelerometer name="gimbal_imu_acc" site="gimbal_imu_site" />
+    <framequat name="gimbal_imu_quat" objtype="site" objname="gimbal_imu_site" />
+  </sensor>
+</mujoco>

@@ -1,0 +1,7 @@
+<launch>
+  <param name="robot_description" textfile="$(find rm_mujoco)/models/series_legged2/robot.urdf"/>
+  <param name="test_model" value="$(find rm_mujoco)/models/series_legged2/scene.xml"/>
+  <rosparam file="$(find rm_mujoco)/config/imus.yaml"/>
+  <rosparam file="$(find rm_mujoco)/config/series_legged2_initial.yaml"/>
+  <test test-name="complete_model" pkg="rm_mujoco" type="complete_model_test" time-limit="90"/>
+</launch>

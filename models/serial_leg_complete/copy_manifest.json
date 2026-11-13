@@ -1,0 +1,554 @@
+{
+  "source_directory": "/home/hzb/wheel_rl_ws/wheelbipe_ros2_sim2sim/src/resources/robot_descriptions/serial_leg_complete",
+  "copied_at": "2026-11-13T01:56:35.105913+08:00",
+  "copy_mode": "complete directory, byte-identical files, no symlinks",
+  "files": [
+    {
+      "path": "README_限位说明.md",
+      "bytes": 1342,
+      "sha256": "1b9ee96146264206be3dd6c3e13e9bbb1060a7a0544aed182b40deb5e3890bd0"
+    },
+    {
+      "path": "fusion_script_archive/data/fusion_boundary_ultrafine_metadata.json",
+      "bytes": 13507,
+      "sha256": "9ed1e001b71770b812802729ca590bdade1642c749e96252654ef05812bf1041"
+    },
+    {
+      "path": "fusion_script_archive/data/fusion_relative_fine_metadata.json",
+      "bytes": 37773,
+      "sha256": "fb26bb7832440e64efdf44f4361a0476c6e65bdce7cbc675fecc0033c4ddb0f9"
+    },
+    {
+      "path": "fusion_script_archive/data/fusion_relative_sweep_transforms.json",
+      "bytes": 109313,
+      "sha256": "b874391bde50fe5bc283b5aeac7ae5e30ccb03ca7f10c66c88bfd6d87fca553a"
+    },
+    {
+      "path": "fusion_script_archive/data/fusion_scene_full_transforms.json",
+      "bytes": 281236,
+      "sha256": "308f2bed15b953c8e1d81d270a9eacfc2e54011cbb16f9a2078f93ca60c1bba7"
+    },
+    {
+      "path": "fusion_script_archive/data/sprocket_audit_transforms.json",
+      "bytes": 1572,
+      "sha256": "2d8a9a7e1fe3cca37b028404c2e55536dac78c16a24426485786709058d160f9"
+    },
+    {
+      "path": "fusion_script_archive/data/sprocket_range_transforms.json",
+      "bytes": 17557,
+      "sha256": "df908d9704caece8cd5c55c9d80df851216b8be27fbc257cd5da74f0888cd58f"
+    },
+    {
+      "path": "fusion_script_archive/data/zero_pose_kinematic_probe.json",
+      "bytes": 152173,
+      "sha256": "6262d414b2c115f1a0dbad78f2c1d2451442b706ce54c031636fab12ef68a730"
+    },
+    {
+      "path": "fusion_script_archive/fusion/CodexAxes/CodexAxes.manifest",
+      "bytes": 216,
+      "sha256": "215b725c949439fdc2a4b8cea65a098a772051c8eb700041048bd8ae23715336"
+    },
+    {
+      "path": "fusion_script_archive/fusion/CodexAxes/CodexAxes.py",
+      "bytes": 1461,
+      "sha256": "1eabbc68eb830f6500f508cd8b0e9d18909d20480b7937b01ee0a6e898b5f440"
+    },
+    {
+      "path": "fusion_script_archive/fusion/CodexBaseSplit/CodexBaseSplit.manifest",
+      "bytes": 221,
+      "sha256": "63b926056ea257c86d728641fb7bdedb9b9be42a88941367328129c4dfd15cfd"
+    },
+    {
+      "path": "fusion_script_archive/fusion/CodexBaseSplit/CodexBaseSplit.py",
+      "bytes": 2051,
+      "sha256": "7f01278201c71b4ea03cc8b86cc563a333a9e0c727dd6185697354b41bc425f6"
+    },
+    {
+      "path": "fusion_script_archive/fusion/CodexExport/CodexExport.manifest",
+      "bytes": 220,
+      "sha256": "55a45ea811650c3bd346ccf5a44d278c4a2033adb9b2df65d916b47ec3d0a978"
+    },
+    {
+      "path": "fusion_script_archive/fusion/CodexExport/CodexExport.py",
+      "bytes": 2313,
+      "sha256": "b3d44fbb2304d2790425e03aa775c32032994582f4283b3fc6b411651e1b6e22"
+    },
+    {
+      "path": "fusion_script_archive/fusion/CodexGimbal/CodexGimbal.manifest",
+      "bytes": 217,
+      "sha256": "0486362d5f8d273ec7be5b513cfa9a16afe99663b4a52cfdbec7b4c85df30291"
+    },
+    {
+      "path": "fusion_script_archive/fusion/CodexGimbal/CodexGimbal.py",
+      "bytes": 1489,
+      "sha256": "6e7d57683364e5f6a5248f1001d6b5ec743a498b0cc224f6dd25d822490ad720"
+    },
+    {
+      "path": "fusion_script_archive/fusion/CodexHardware/CodexHardware.manifest",
+      "bytes": 218,
+      "sha256": "2b4d262ac6dbb0f1b656610f0471434951d80faeb3132c15d81c348e8d8d5310"
+    },
+    {
+      "path": "fusion_script_archive/fusion/CodexHardware/CodexHardware.py",
+      "bytes": 2119,
+      "sha256": "ab6ab4edb500503bb00bf443d095301f7e226bf5168bcd09d70b8255ce04d16f"
+    },
+    {
+      "path": "fusion_script_archive/fusion/CodexInspect/CodexInspect.manifest",
+      "bytes": 214,
+      "sha256": "4093429326c4ffb6e5bc1b3090d2d5d984f65ef0824ae07c45e986156083182a"
+    },
+    {
+      "path": "fusion_script_archive/fusion/CodexInspect/CodexInspect.py",
+      "bytes": 2367,
+      "sha256": "d45f66a439cd024be2611c30fa5a5b5b7b592e024d002013a8bc5966b9349924"
+    },
+    {
+      "path": "fusion_script_archive/fusion/CodexOverlapLocation/CodexOverlapLocation.manifest",
+      "bytes": 240,
+      "sha256": "35670e87b11e8aadc880c520ace4701f4e76b27d91e5b9c2971c1416a1b30ce1"
+    },
+    {
+      "path": "fusion_script_archive/fusion/CodexOverlapLocation/CodexOverlapLocation.py",
+      "bytes": 2161,
+      "sha256": "32c2f041474c881c2256df017dfc1c0573854535aaa11dc8d10706cf9fe42d5d"
+    },
+    {
+      "path": "fusion_script_archive/fusion/CodexRelativeSweep/CodexRelativeSweep.manifest",
+      "bytes": 213,
+      "sha256": "91e025b16bb56702e038040f6ae691e970dd04def5b903d9309cffb2fdbcf231"
+    },
+    {
+      "path": "fusion_script_archive/fusion/CodexRelativeSweep/CodexRelativeSweep.py",
+      "bytes": 1787,
+      "sha256": "f44475f52a26a94c7732379f6029032b86fb7389e1a2304647d51bfb6c5fea4e"
+    },
+    {
+      "path": "fusion_script_archive/fusion/CodexSolidCheck/CodexSolidCheck.manifest",
+      "bytes": 233,
+      "sha256": "40dd23536bdd383411fbb050eb0381b021b757f1238c7c2fd46a1f0211d7b96a"
+    },
+    {
+      "path": "fusion_script_archive/fusion/CodexSolidCheck/CodexSolidCheck.py",
+      "bytes": 3051,
+      "sha256": "8afdb46b1cf51c0642a85b430dd358e4e2dacdc08a4c7ba8e3115400da881660"
+    },
+    {
+      "path": "fusion_script_archive/fusion/CodexSprocket/CodexSprocket.manifest",
+      "bytes": 221,
+      "sha256": "63b926056ea257c86d728641fb7bdedb9b9be42a88941367328129c4dfd15cfd"
+    },
+    {
+      "path": "fusion_script_archive/fusion/CodexSprocket/CodexSprocket.py",
+      "bytes": 1461,
+      "sha256": "a26a1640be1e8aba0f40ac9a292c732930a960457957366a01c5a543dbf0498e"
+    },
+    {
+      "path": "fusion_script_archive/fusion/CodexSprocketAudit/CodexSprocketAudit.manifest",
+      "bytes": 258,
+      "sha256": "2e62930e5ffb553bb7a9a44435023fe6acbeddf8022f95b360aa94520b4bb95e"
+    },
+    {
+      "path": "fusion_script_archive/fusion/CodexSprocketAudit/CodexSprocketAudit.py",
+      "bytes": 2016,
+      "sha256": "fbfebe8367faf4d0f317cbf0b1bedb077e57c9685b7a99f88d5bd6c92265bbe9"
+    },
+    {
+      "path": "fusion_script_archive/fusion/CodexSprocketRange/CodexSprocketRange.manifest",
+      "bytes": 254,
+      "sha256": "636d719d1daf487cb1ced43b4129b8e534de83a89ff750f13ddd17db9cf9e1c2"
+    },
+    {
+      "path": "fusion_script_archive/fusion/CodexSprocketRange/CodexSprocketRange.py",
+      "bytes": 1933,
+      "sha256": "72220331a31be26f4c2141210f4494ed0c275f03243cbfc9dc223c303d9a0236"
+    },
+    {
+      "path": "fusion_script_archive/fusion/CodexWheelInspect/CodexWheelInspect.manifest",
+      "bytes": 221,
+      "sha256": "63b926056ea257c86d728641fb7bdedb9b9be42a88941367328129c4dfd15cfd"
+    },
+    {
+      "path": "fusion_script_archive/fusion/CodexWheelInspect/CodexWheelInspect.py",
+      "bytes": 1850,
+      "sha256": "21c9523937782645dcc71af25af65474e18636dd6c3c3980ac853a554216f98b"
+    },
+    {
+      "path": "fusion_script_archive/support/build_fusion_boundary_fine.py",
+      "bytes": 1937,
+      "sha256": "ded943432fd400501eeeab79ec351a1b7df07dad50fa5623efe2b0b724a41ef7"
+    },
+    {
+      "path": "fusion_script_archive/support/build_fusion_full_grid.py",
+      "bytes": 2288,
+      "sha256": "e612f0821e1b283bb9444eee950eeb6ec6c853a1ca7197d6a42922293f5a0df7"
+    },
+    {
+      "path": "fusion_script_archive/support/build_passive_ranges.py",
+      "bytes": 1171,
+      "sha256": "8d056665e996b91be79270d809c56a5d2a8a99b1e699ef114d47990666d14ae9"
+    },
+    {
+      "path": "fusion_script_archive/support/build_relative_fine.py",
+      "bytes": 1960,
+      "sha256": "cd60a42f73da7e494daba19aa1940619c237e2577d01b67efacc63259139dd01"
+    },
+    {
+      "path": "fusion_script_archive/support/build_relative_sweep.py",
+      "bytes": 1919,
+      "sha256": "2932c8a4478ddb6a4bf3268b426d1d1b65572bb28d2bab7745534113348846ec"
+    },
+    {
+      "path": "fusion_script_archive/support/check_cad_mesh_interference.py",
+      "bytes": 2390,
+      "sha256": "bbd21b6b161a3cd5c5ddc33be66d1a0ddbfdd3db3140e18184cd3af7711679b9"
+    },
+    {
+      "path": "fusion_script_archive/support/dense_allowed_scan.py",
+      "bytes": 1475,
+      "sha256": "b633853d5d04c0432592bda04a429b14a247bdea4449312b137845c3db30b732"
+    },
+    {
+      "path": "fusion_script_archive/support/passive_joint_extrema.py",
+      "bytes": 1856,
+      "sha256": "348243a3b30bb10b86222892e9ce8477b6a51558772d9940b8731e7918b5bd34"
+    },
+    {
+      "path": "fusion_script_archive/support/verify_passive_ranges.py",
+      "bytes": 1490,
+      "sha256": "efc21947b0cd762acee6e92b94bb7f93d7fdb45189aa6c08d0e24da996ca898e"
+    },
+    {
+      "path": "fusion_script_archive/support/verify_zero_and_rotation.py",
+      "bytes": 1055,
+      "sha256": "ca99291a701b285657db80b9388ebb38abb60c3848d623ffd1f2bad5068ba69b"
+    },
+    {
+      "path": "fusion_script_archive/归档说明.md",
+      "bytes": 1890,
+      "sha256": "85d5265e545a51a3881fcdc008526b6ef4128e6721116d34bda4d000bbf74aa0"
+    },
+    {
+      "path": "meshes/base_hipclean_part00.stl",
+      "bytes": 9000084,
+      "sha256": "82241f2f85efac769f6fea10a96128048c76e7429b013b27a3946cad0a057777"
+    },
+    {
+      "path": "meshes/base_hipclean_part01.stl",
+      "bytes": 9000084,
+      "sha256": "d5050ae825fd7d066973cd506a9c3818280c9098f9092bc478c1d7f63af5d785"
+    },
+    {
+      "path": "meshes/base_hipclean_part02.stl",
+      "bytes": 9000084,
+      "sha256": "53cbe3c34c58b26665724717bc0229c2250ac5fa37ccf682375f51bbb6b52643"
+    },
+    {
+      "path": "meshes/base_hipclean_part03.stl",
+      "bytes": 9000084,
+      "sha256": "c7669935741eb296e61fdc8200a930cdc0bfaea3813c53a77db43c063cfe485c"
+    },
+    {
+      "path": "meshes/base_hipclean_part04.stl",
+      "bytes": 9000084,
+      "sha256": "d9ac7654965c0735acf7a2302565b87e02b74eb5e3676655d3a1c6e57ad27f9e"
+    },
+    {
+      "path": "meshes/base_hipclean_part05.stl",
+      "bytes": 4725634,
+      "sha256": "4567416fb503d1c39f27e33dafe4876fddc8b1bc00afacfaef1593d3a20e0e74"
+    },
+    {
+      "path": "meshes/left_calf.stl",
+      "bytes": 215784,
+      "sha256": "975d1c2f6e4c0f288667c7cb2dc5924a19a5306c0fe45ddeacfbe27d35e3e15a"
+    },
+    {
+      "path": "meshes/left_calf_simple_collision.stl",
+      "bytes": 6284,
+      "sha256": "dc56b775c6b1fd3daa8890ad8b40f1c29a8a8ea0d48970c705234bcc6b23c005"
+    },
+    {
+      "path": "meshes/left_hardware_knee.stl",
+      "bytes": 936084,
+      "sha256": "0e813511b22c141e9312e4511f245788292855fa54f0883326924973f735bfac"
+    },
+    {
+      "path": "meshes/left_hardware_long_short.stl",
+      "bytes": 693484,
+      "sha256": "b7d9942bf6e11c9eb561b5e5121be2b02ae8d94672815a0c6e24f0754526133c"
+    },
+    {
+      "path": "meshes/left_hardware_mid_long.stl",
+      "bytes": 693484,
+      "sha256": "6308eeba9a57c2f799098105e92a0fb67580eccebbbadb5b551f1cae1e72de41"
+    },
+    {
+      "path": "meshes/left_hardware_output_mid.stl",
+      "bytes": 699884,
+      "sha256": "4a499408a7bcced2c7db02198381df832fdbdad8749574075ec67e299b2a1184"
+    },
+    {
+      "path": "meshes/left_hardware_short_calf.stl",
+      "bytes": 671184,
+      "sha256": "0682d688e430b91a3d366d5969a63c8912ce1b76704844b359752037908d2047"
+    },
+    {
+      "path": "meshes/left_hardware_thigh_long.stl",
+      "bytes": 713284,
+      "sha256": "322bf2354c414b16c0990ca88a760245eb5673ebd0dd9eb261ade655aedf4030"
+    },
+    {
+      "path": "meshes/left_hip_adapter.stl",
+      "bytes": 194184,
+      "sha256": "932f71c5834930fdbe3c8889a3eb437551176aaaa1d1431c4e18c20f229b15f2"
+    },
+    {
+      "path": "meshes/left_longbar.stl",
+      "bytes": 53584,
+      "sha256": "408c105d3372b9fc4569b2194056123529ba9df2e6388bbd2730a9e80b4904cf"
+    },
+    {
+      "path": "meshes/left_longbar_simple_collision.stl",
+      "bytes": 6284,
+      "sha256": "55c077b45918d0307b99fe05d2176ed4e8abdbc458aee9a2160eb7f715a45e66"
+    },
+    {
+      "path": "meshes/left_midbar.stl",
+      "bytes": 40684,
+      "sha256": "74c16c4749c6af66f8524f0c9516b804331d1bd0881936703e2672156f6be595"
+    },
+    {
+      "path": "meshes/left_midbar_simple_collision.stl",
+      "bytes": 6284,
+      "sha256": "105248ac596d8424b6dba47d8a3867a8706fdabc71e6ef2cbda9fd3d97e2e40c"
+    },
+    {
+      "path": "meshes/left_output.stl",
+      "bytes": 226284,
+      "sha256": "58b141bae32fd0d2f1e34a5fe05ecca73339c833a44f07551f2b6d906efb8983"
+    },
+    {
+      "path": "meshes/left_output_simple_collision.stl",
+      "bytes": 6084,
+      "sha256": "e080247163d4475ba50264f3b556d32d18332f36a206977ad3442a76733166cd"
+    },
+    {
+      "path": "meshes/left_output_sprocket.stl",
+      "bytes": 293584,
+      "sha256": "021f2dbb6d5a4b825ed8547afc2608efcd24c3685629ac5ee758bcd8e67af764"
+    },
+    {
+      "path": "meshes/left_shortbar.stl",
+      "bytes": 44684,
+      "sha256": "369d7f39c59fed7c4e1c6abd69d5ed96b36ac8145904511cc5be83f3bf418d4f"
+    },
+    {
+      "path": "meshes/left_shortbar_simple_collision.stl",
+      "bytes": 6284,
+      "sha256": "6ef82772ce10f92f18e8788e43a09501613288b59c3d18978719a74546d38dda"
+    },
+    {
+      "path": "meshes/left_thigh.stl",
+      "bytes": 227384,
+      "sha256": "a40b74176c9da3284e82be2c2ed8488e137ea33d5a5508cf9846eef217fc69e6"
+    },
+    {
+      "path": "meshes/left_thigh_simple_collision.stl",
+      "bytes": 6284,
+      "sha256": "39a62462c0142986285fc67554a04801488bdb2d35d959c000e1975e02337d16"
+    },
+    {
+      "path": "meshes/left_thigh_sprocket.stl",
+      "bytes": 419084,
+      "sha256": "98611071941fa51faa8077b97ba3a7d58cc553c38801e20d72938672fcc077c4"
+    },
+    {
+      "path": "meshes/left_wheel.stl",
+      "bytes": 478084,
+      "sha256": "687674d33d877053b66d7fc1a47e566f9c3fc33c6ad51bf90756355b531d5e3d"
+    },
+    {
+      "path": "meshes/left_wheel_cover.stl",
+      "bytes": 99684,
+      "sha256": "1a397daf023021d3c117c2dd066355aa3d2201dbc21a709fe56f4738fdea0306"
+    },
+    {
+      "path": "meshes/left_wheel_gears.stl",
+      "bytes": 3089184,
+      "sha256": "5b1543a3a968bd587920076e5343d840b2e38e45ba9fdd7406cb204f86d806ba"
+    },
+    {
+      "path": "meshes/left_wheel_standard.stl",
+      "bytes": 1344884,
+      "sha256": "ae3f6b7d31dad028713af9b8d405f5148b3d92e9d6e3319d48663c5c10aba52a"
+    },
+    {
+      "path": "meshes/left_wheel_stator.stl",
+      "bytes": 416984,
+      "sha256": "49576ba4abdb44694fb0beb0377ee597a865920787e984c332eb9d8fdfa5efc8"
+    },
+    {
+      "path": "meshes/pitch_part00.stl",
+      "bytes": 9000084,
+      "sha256": "870ff24cda31e024916b5679e39b0d607481f45968f63cebf96d155223ef5ac5"
+    },
+    {
+      "path": "meshes/pitch_part01.stl",
+      "bytes": 9000084,
+      "sha256": "6e368e41681ac6e854024d42cb2763194d8ca216750f6340f44e8434862010cc"
+    },
+    {
+      "path": "meshes/pitch_part02.stl",
+      "bytes": 2397984,
+      "sha256": "512f3f481d015693c667220be45fbcb566e67048746ef49f1703a641b0bab054"
+    },
+    {
+      "path": "meshes/right_calf.stl",
+      "bytes": 215784,
+      "sha256": "50ec899a6cd291fe4142842fc2bf693ad475882a60ce395e2ef433b4c8356984"
+    },
+    {
+      "path": "meshes/right_calf_simple_collision.stl",
+      "bytes": 6284,
+      "sha256": "6a064cb2d772019b1964b31fbee0dfdff70b04b27871a4432d1e79dd4b9f556c"
+    },
+    {
+      "path": "meshes/right_hardware_knee.stl",
+      "bytes": 936084,
+      "sha256": "6b204587703e3fbdf7bd4d32f09defcb9717a822248a7b72f31fb3a94f0bebf8"
+    },
+    {
+      "path": "meshes/right_hardware_long_short.stl",
+      "bytes": 693484,
+      "sha256": "89d0d421963eac1e3894c1708dd4c8da5d42d9b9f479bce1a77e07c1e6123440"
+    },
+    {
+      "path": "meshes/right_hardware_mid_long.stl",
+      "bytes": 693484,
+      "sha256": "3cd1b9fddc25b5c31fa8bf5f9b8a572f8626def4b03b660146616c036932dd62"
+    },
+    {
+      "path": "meshes/right_hardware_output_mid.stl",
+      "bytes": 699884,
+      "sha256": "30ab0525b82997468365ab93260431d7ef867e714de63b579d6bcaa1afbb181c"
+    },
+    {
+      "path": "meshes/right_hardware_short_calf.stl",
+      "bytes": 671184,
+      "sha256": "d304b19bb78ec47b9456a1bf343bedacfa3a9dac9fa6099291d8d604ba2d774a"
+    },
+    {
+      "path": "meshes/right_hardware_thigh_long.stl",
+      "bytes": 713284,
+      "sha256": "2c78729eec7fb13e47a8945577a8ead5f5050b44b35b2f31092ce11c2190dd84"
+    },
+    {
+      "path": "meshes/right_hip_adapter.stl",
+      "bytes": 194184,
+      "sha256": "e83685fad142e1f416e7e3a4955dc945e0973f48816a2b33b37f6de13a30909e"
+    },
+    {
+      "path": "meshes/right_longbar.stl",
+      "bytes": 53584,
+      "sha256": "55f09fc6666c4d0195f29110ec90eec2355ccdf3c301f2d1cb38bac276350333"
+    },
+    {
+      "path": "meshes/right_longbar_simple_collision.stl",
+      "bytes": 6284,
+      "sha256": "81a65db2e22ef183dbe0409eb500980529359de10409ba9eae98159462b5ced0"
+    },
+    {
+      "path": "meshes/right_midbar.stl",
+      "bytes": 40684,
+      "sha256": "4cbcdb9bd74cd68a55d007b3bf4ac14c60020f61a3351475832f8d3f37706168"
+    },
+    {
+      "path": "meshes/right_midbar_simple_collision.stl",
+      "bytes": 6284,
+      "sha256": "4cbd06632891acd26cd963b9803168de08e166e8ba3cda1316e81e5a5cbecfbb"
+    },
+    {
+      "path": "meshes/right_output.stl",
+      "bytes": 226284,
+      "sha256": "abfad7315651085a3a6883c975cabb0c3c7a8e7dec4ac5f46fb7bb9b070da93a"
+    },
+    {
+      "path": "meshes/right_output_simple_collision.stl",
+      "bytes": 6084,
+      "sha256": "8da07571b2b260e08258a7743259369e3703b5503b5b968806e5c87e5824549f"
+    },
+    {
+      "path": "meshes/right_output_sprocket.stl",
+      "bytes": 293584,
+      "sha256": "462c8c4d783b44299467b792fa6bf199934b4657c23081d39ecef677d3fe54ec"
+    },
+    {
+      "path": "meshes/right_shortbar.stl",
+      "bytes": 44684,
+      "sha256": "d5d8cca44ed124b400ffaf1ed63713d9fc2d79f94cfce3de5418b535e6ffc2bb"
+    },
+    {
+      "path": "meshes/right_shortbar_simple_collision.stl",
+      "bytes": 6284,
+      "sha256": "afed2bef0063df6d246f1c8faa8996c15759f4fbfbfbdd43347466506bbad123"
+    },
+    {
+      "path": "meshes/right_thigh.stl",
+      "bytes": 227384,
+      "sha256": "dbd31d706594e96f37500bed44f25c9878c6be1028c15bb4238b2b2ecbd5c32d"
+    },
+    {
+      "path": "meshes/right_thigh_simple_collision.stl",
+      "bytes": 6284,
+      "sha256": "d459747c1f6e4bab3295b5467b957a6660aea4140448e554036c2ea34248138f"
+    },
+    {
+      "path": "meshes/right_thigh_sprocket.stl",
+      "bytes": 419084,
+      "sha256": "781f5632a068256136977340665cca45f2f0b68d080588e8b268524f99bfc744"
+    },
+    {
+      "path": "meshes/right_wheel.stl",
+      "bytes": 478084,
+      "sha256": "23dfdf152a2211d9ea7435d8982c07fe5a4ffa9577a9a24d1eebfb67eb884696"
+    },
+    {
+      "path": "meshes/right_wheel_cover.stl",
+      "bytes": 99684,
+      "sha256": "561b798fbbd91d89bb426d316d132ea4cd36c9dd99d7c7f91fc4e9734021555d"
+    },
+    {
+      "path": "meshes/right_wheel_gears.stl",
+      "bytes": 3089184,
+      "sha256": "b7e8f63dfe0ec399a0f6b74bd97e8efc8c27d97def43447b65131ca9b22e2c10"
+    },
+    {
+      "path": "meshes/right_wheel_standard.stl",
+      "bytes": 1310884,
+      "sha256": "90ffa3ce3811d27632899701337e55164cf52332d93d6948e834beb17bf3237f"
+    },
+    {
+      "path": "meshes/right_wheel_stator.stl",
+      "bytes": 416984,
+      "sha256": "48d6c4f1d506263a53789bbcee195e4f7ce2f0f909b6bd58e1319af3b7292db2"
+    },
+    {
+      "path": "meshes/yaw.stl",
+      "bytes": 6594484,
+      "sha256": "6b2a5042e2573f8ab9ba7fe975c055dd557bd3302c66724ecce700cbf0076911"
+    },
+    {
+      "path": "robot_passive_limits.xml",
+      "bytes": 33971,
+      "sha256": "53cf8e7d6686b1ae716359fbff5b2059ab04f11a3ea3e9b463737b59a1f2c926"
+    },
+    {
+      "path": "模型总说明.md",
+      "bytes": 5215,
+      "sha256": "c288368f7460d30aafe8bf7c81503b1092ee7b85db225e989f6806f74f523aa0"
+    }
+  ],
+  "total_bytes": 100564753,
+  "source_git_status": "Git ownership check prevented reading source HEAD/status; per-file SHA-256 records the actual disk content."
+}

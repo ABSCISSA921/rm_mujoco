@@ -1,0 +1,6 @@
+MujocoPlugins:
+  - type: mujoco_ros_control/MujocoRosControlPlugin
+    hardware:
+      type: rm_mujoco/RmMujocoRobotHWSim
+      robot_namespace: ""
+      control_period: 0.001

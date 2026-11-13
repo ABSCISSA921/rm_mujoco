@@ -1,0 +1,4 @@
+<mujoco model="sentry_rmul2027">
+  <include file="rmul2027_field.xml"/>
+  <include file="sentry.xml"/>
+</mujoco>

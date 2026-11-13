@@ -1,0 +1,556 @@
+{
+  "sources_sha256": {
+    "rm_mujoco/models/serial_leg_complete/robot_passive_limits.xml": "53cf8e7d6686b1ae716359fbff5b2059ab04f11a3ea3e9b463737b59a1f2c926",
+    "rm_mujoco/scripts/prepare_series_legged2.py": "3975206bcf8c1e0d3e57a3d3a8a9a06029064ee56e32d269c3f9b5e8af94bbd4",
+    "rm_description/urdf/series_legged/chassis.urdf.xacro": "518fadb03af64c3aab669529b4849b4e5c28ff42fd9436229c80923d3446930e",
+    "rm_description/urdf/series_legged/gimbal.transmission.urdf.xacro": "40e436ddd2a597315346ec3fda6f11764a582744254b3f42a40bad42a8614a8d",
+    "rm_description/urdf/series_legged/gimbal.urdf.xacro": "37829e88632c92659bb6e465e9a1414374ce238017e6ccb69fd04cbdee3abd3c",
+    "rm_description/urdf/series_legged/leg.transmission.xacro": "3d8162bf80a64d5c51fa5a2d6b1adb4c51d5c04a7916ebe2e4c9b48beba8cba5",
+    "rm_description/urdf/series_legged/leg.urdf.xacro": "9e19773b1c38bc12df79cb5f0f27c2a986c6923ffc557f8a57c2533b400e351d",
+    "rm_description/urdf/series_legged/series_legged.urdf.xacro": "32a050fc71e478d3dc14f9c6596287486b45dc9ba72ee7858d899aa1a5d7f4ff",
+    "rm_description/urdf/series_legged/shooter.transmission.urdf.xacro": "891750f50d83e201052c0752eb5b343bb255bceb84515c502c850a415992eb90",
+    "rm_description/urdf/series_legged/shooter.urdf.xacro": "ca53f8d92efb277d798411f9e637835391fc3fe4e0cef04b1a882997828b1d38",
+    "rm_description/urdf/series_legged2/chassis.urdf.xacro": "157b8612a375e42504782ea67a3fa33963549ae24e0202f5e36df754baa8c7a5",
+    "rm_description/urdf/series_legged2/gimbal.transmission.urdf.xacro": "797332fb1dd03ce6bee13a57f6e16318a555e760c9e82b6f3225fa2b413b9304",
+    "rm_description/urdf/series_legged2/gimbal.urdf.xacro": "0d94c3d998c2c72768566c820b651628b501fc5f089ab4f4af5ca99175d4e766",
+    "rm_description/urdf/series_legged2/leg.transmission.xacro": "3d8162bf80a64d5c51fa5a2d6b1adb4c51d5c04a7916ebe2e4c9b48beba8cba5",
+    "rm_description/urdf/series_legged2/leg.urdf.xacro": "b015736346885b70933bcb10af94ecd250744a353166c74cafcaeb612511f47e",
+    "rm_description/urdf/series_legged2/series_legged2.urdf.xacro": "e05dddc1148a209fc6d86bf783c867b9d97a4ef8516361badb06201808a79bf7",
+    "rm_description/urdf/series_legged2/shooter.transmission.urdf.xacro": "a37ae7a2afa323cc0ac4e508499c32796a4bde20d3d5a5dead420b3bef64aeff",
+    "rm_description/urdf/series_legged2/shooter.urdf.xacro": "7318dbaf295326a2e031613060492f8bcc0d8c3cbbe036e0ae3816c1117f0fb9",
+    "rm_description/urdf/common/camera.urdf.xacro": "1004c54c473f0dd5ab7ad061bb77b71f928ce767a3461c3e6e61d7fbb5a69560",
+    "rm_description/urdf/common/friction.urdf.xacro": "2a10fa4464fe62c568d8bbd3d3f81c34cd2c6f3e9fdfc41510690a6edba3edd6",
+    "rm_description/urdf/common/imu.urdf.xacro": "cbb7dd1907a48cf44b9e3d978c37e79ea04dafccedcc5e2e4481ee2f2bab26e5",
+    "rm_description/urdf/common/lidar2d.urdf.xacro": "f1ceccb859be310d046954929618faa51fed63decc663edba2f2aa7d6e5e543f",
+    "rm_description/urdf/common/livox_mid360.urdf.xacro": "cf6f6e0a6af7b9df1aa0accc42225244284db88412ed9504a0197569b804ec46",
+    "rm_description/urdf/common/mecanum_wheel.urdf.xacro": "b15e6dae407d0f87f6328bafd0178e631e24d06191005feaec4eff85f0a900e3",
+    "rm_description/urdf/common/mecanum_wheel_14roller.urdf.xacro": "fe194a696cec74a82b50ce0dceb3470a38a70a66f4158ce67480ad8c5887fc4d",
+    "rm_description/urdf/common/oakd_pro.urdf.xacro": "6ae4c25ce2f7157d3f345b538cdf979f46b6b8c09da558c1359a9b475ffa8cc5",
+    "rm_description/urdf/common/omni_wheel.urdf.xacro": "68171d0df471bc944adb260cb07b29e76d14d779d44bcbf3b139bbe301196aff",
+    "rm_description/urdf/common/realsense_l515.urdf.xacro": "5146fbe5e4ee7435755ce3ca62f5f9502c574ca09d64541c19d013e1fe4633ad",
+    "rm_description/urdf/common/swerve_drive.urdf.xacro": "b1eb4dd10e31f9e8b3287eade2aa7f48475dab85044c216459f07836401c3f07",
+    "rm_description/urdf/common/tof_luna.urdf.xacro": "218c5bf63a226169bd41a41f75d3b51de3738a37d070ce184983a95f89034a45"
+  },
+  "cad_to_ros_body_transforms": {
+    "base_link": {
+      "cad_body": "base",
+      "transform": [
+        [
+          -1.0,
+          -1.2246467991473532e-16,
+          0.0,
+          0.0
+        ],
+        [
+          1.2246467991473532e-16,
+          -1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          -0.13
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    "yaw": {
+      "cad_body": "yaw",
+      "transform": [
+        [
+          -1.0,
+          -1.2246467991473532e-16,
+          0.0,
+          0.0
+        ],
+        [
+          1.2246467991473532e-16,
+          -1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    "pitch": {
+      "cad_body": "pitch",
+      "transform": [
+        [
+          -1.0,
+          -1.2246467991473532e-16,
+          0.0,
+          0.0
+        ],
+        [
+          1.2246467991473532e-16,
+          -1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    "left_thigh": {
+      "cad_body": "left_thigh",
+      "transform": [
+        [
+          -0.30474378008907504,
+          -3.7320349484615064e-17,
+          -0.9524343696533749,
+          0.0
+        ],
+        [
+          1.2246467991473532e-16,
+          -1.0,
+          0.0,
+          0.0
+        ],
+        [
+          -0.9524343696533749,
+          -1.1663957021939325e-16,
+          0.30474378008907504,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    "left_calf": {
+      "cad_body": "left_calf",
+      "transform": [
+        [
+          -0.6096064123854903,
+          -7.465525416675922e-17,
+          0.7927042462220645,
+          0.0
+        ],
+        [
+          1.2246467991473532e-16,
+          -1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.7927042462220645,
+          9.707827178063666e-17,
+          0.6096064123854903,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    "left_knee_link": {
+      "cad_body": "left_output",
+      "transform": [
+        [
+          -0.320852979460026,
+          -3.929315742926123e-17,
+          0.9471290121053331,
+          0.0
+        ],
+        [
+          1.2246467991473532e-16,
+          -1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.9471290121053331,
+          1.159898513054391e-16,
+          0.320852979460026,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    "left_mid_link": {
+      "cad_body": "left_midbar",
+      "transform": [
+        [
+          -0.5960746846385531,
+          -7.29980954595372e-17,
+          -0.8029289945773845,
+          -8.326672684688674e-17
+        ],
+        [
+          1.2246467991473532e-16,
+          -1.0,
+          0.0,
+          1.3274609716474624e-17
+        ],
+        [
+          -0.8029289945773845,
+          -9.833044231517965e-17,
+          0.5960746846385531,
+          -0.13500000003992016
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    "left_long_link": {
+      "cad_body": "left_longbar",
+      "transform": [
+        [
+          -0.6750304489928943,
+          -8.266738786861487e-17,
+          0.7377898704458141,
+          -0.011520639050437584
+        ],
+        [
+          1.224646799147353e-16,
+          -0.9999999999999999,
+          0.0,
+          1.3105566685489968e-17
+        ],
+        [
+          0.7377898704458141,
+          9.035320032848066e-17,
+          0.6750304489928943,
+          0.13450752717590533
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    "left_short_link": {
+      "cad_body": "left_shortbar",
+      "transform": [
+        [
+          -0.3047437800225949,
+          -3.7320349476473595e-17,
+          -0.9524343696746461,
+          0.0
+        ],
+        [
+          1.2246467991473532e-16,
+          -1.0,
+          0.0,
+          0.0
+        ],
+        [
+          -0.9524343696746461,
+          -1.1663957022199824e-16,
+          0.3047437800225949,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    "left_wheel": {
+      "cad_body": "left_wheel",
+      "transform": [
+        [
+          -0.6096064123854903,
+          -7.465525416675922e-17,
+          0.7927042462220645,
+          5.585913918760831e-06
+        ],
+        [
+          1.2246467991473532e-16,
+          -1.0,
+          0.0,
+          -0.014
+        ],
+        [
+          0.7927042462220645,
+          9.707827178063666e-17,
+          0.6096064123854903,
+          -8.845714400429743e-06
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    "right_thigh": {
+      "cad_body": "right_thigh",
+      "transform": [
+        [
+          -0.30474378008907504,
+          -3.7320349484615064e-17,
+          -0.9524343696533749,
+          0.0
+        ],
+        [
+          1.2246467991473532e-16,
+          -1.0,
+          0.0,
+          0.0
+        ],
+        [
+          -0.9524343696533749,
+          -1.1663957021939325e-16,
+          0.30474378008907504,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    "right_calf": {
+      "cad_body": "right_calf",
+      "transform": [
+        [
+          -0.6096064123854903,
+          -7.465525416675922e-17,
+          0.7927042462220645,
+          0.0
+        ],
+        [
+          1.2246467991473532e-16,
+          -1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.7927042462220645,
+          9.707827178063666e-17,
+          0.6096064123854903,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    "right_knee_link": {
+      "cad_body": "right_output",
+      "transform": [
+        [
+          -0.320852979460026,
+          -3.929315742926123e-17,
+          0.9471290121053331,
+          0.0
+        ],
+        [
+          1.2246467991473532e-16,
+          -1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.9471290121053331,
+          1.159898513054391e-16,
+          0.320852979460026,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    "right_mid_link": {
+      "cad_body": "right_midbar",
+      "transform": [
+        [
+          -0.5960746846385531,
+          -7.29980954595372e-17,
+          -0.8029289945773845,
+          -8.326672684688674e-17
+        ],
+        [
+          1.2246467991473532e-16,
+          -1.0,
+          0.0,
+          1.3274609716474624e-17
+        ],
+        [
+          -0.8029289945773845,
+          -9.833044231517965e-17,
+          0.5960746846385531,
+          -0.13500000003992016
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    "right_long_link": {
+      "cad_body": "right_longbar",
+      "transform": [
+        [
+          -0.6750304489928943,
+          -8.266738786861487e-17,
+          0.7377898704458141,
+          -0.011520639050437584
+        ],
+        [
+          1.224646799147353e-16,
+          -0.9999999999999999,
+          0.0,
+          1.3105566685489968e-17
+        ],
+        [
+          0.7377898704458141,
+          9.035320032848066e-17,
+          0.6750304489928943,
+          0.13450752717590533
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    "right_short_link": {
+      "cad_body": "right_shortbar",
+      "transform": [
+        [
+          -0.3047437800225949,
+          -3.7320349476473595e-17,
+          -0.9524343696746461,
+          0.0
+        ],
+        [
+          1.2246467991473532e-16,
+          -1.0,
+          0.0,
+          0.0
+        ],
+        [
+          -0.9524343696746461,
+          -1.1663957022199824e-16,
+          0.3047437800225949,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    "right_wheel": {
+      "cad_body": "right_wheel",
+      "transform": [
+        [
+          -0.6096064123854903,
+          -7.465525416675922e-17,
+          0.7927042462220645,
+          5.585913918834433e-06
+        ],
+        [
+          1.2246467991473532e-16,
+          -1.0,
+          0.0,
+          0.014
+        ],
+        [
+          0.7927042462220645,
+          9.707827178063666e-17,
+          0.6096064123854903,
+          -8.845714412992512e-06
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    }
+  },
+  "link_pivot_length_difference_m": {
+    "left_thigh": 2.856750946913689e-11,
+    "left_calf": 4.65848470909774e-11,
+    "left_knee_link": 2.877666160918087e-11,
+    "left_mid_link": 3.992015051865772e-11,
+    "left_long_link": 0.0005096095323319227,
+    "left_short_link": 5.99326144866255e-13,
+    "right_thigh": 2.856750946913689e-11,
+    "right_calf": 4.65848470909774e-11,
+    "right_knee_link": 2.877666160918087e-11,
+    "right_mid_link": 3.992015051865772e-11,
+    "right_long_link": 0.0005096095323319227,
+    "right_short_link": 5.99326144866255e-13
+  },
+  "mass_kg": 30.911130235044997,
+  "active_joints": [
+    "left_hip_joint",
+    "left_knee_joint",
+    "left_wheel_joint",
+    "pitch_joint",
+    "right_hip_joint",
+    "right_knee_joint",
+    "right_wheel_joint",
+    "yaw_joint"
+  ],
+  "spring_force_N": "((2094.45 * L0 - 3091.28) * L0 + 1408.375) * L0 - 80.91",
+  "controller_parameters": "Unchanged: rm_config/config/rm_controllers/series_legged2.yaml"
+}

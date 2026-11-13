@@ -1,0 +1,16 @@
+{
+  "active_positions": [
+    -0.2723546102306062,
+    0.2593876575264434,
+    -0.2723546102306062,
+    0.2593876575264434,
+    0.0,
+    0.0
+  ],
+  "closure_error_m": 3.566591466608315e-15,
+  "base_height_m": 0.2601999999999982,
+  "requested_length_m": 0.2,
+  "requested_theta_rad": 0.0,
+  "contact_count": 0,
+  "generated_with_mujoco": "3.2.3"
+}

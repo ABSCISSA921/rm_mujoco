@@ -1,0 +1,9 @@
+<launch>
+  <arg name="robot_type" default="series_legged2"/>
+  <!-- Included after series_legged.launch loads the controller parameters. -->
+  <rosparam file="$(find rm_config)/config/rm_manual/$(arg robot_type).yaml"/>
+  <!-- Six chassis joints plus yaw/pitch; shooter and actuator calibration are not simulated. -->
+  <rosparam param="rm_manual/controllers_list/main_controllers">[controllers/chassis_controller, controllers/gimbal_controller]</rosparam>
+  <rosparam param="rm_manual/controllers_list/calibration_controllers">[]</rosparam>
+  <node name="rm_manual" pkg="rm_manual" type="rm_manual" output="screen"/>
+</launch>

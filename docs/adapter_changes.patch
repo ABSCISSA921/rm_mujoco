@@ -1,0 +1,293 @@
+--- original/include/rm_mujoco/rm_mujoco_robot_hw_sim.h
++++ current/include/rm_mujoco/rm_mujoco_robot_hw_sim.h
+@@ -1,44 +1,29 @@
+ #pragma once
+ 
+-#include <deque>
+ #include <list>
+ #include <string>
+-#include <unordered_map>
+ #include <vector>
+ 
+ #include <mujoco_ros_control/default_robot_hw_sim.h>
+-#include <rm_common/hardware_interface/hybrid_joint_interface.h>
+ #include <rm_common/hardware_interface/rm_imu_sensor_interface.h>
+ #include <rm_common/hardware_interface/robot_state_interface.h>
+ #include <std_srvs/Trigger.h>
+ 
+ namespace rm_mujoco
+ {
+-struct HybridJointData
++struct PassiveJointData
+ {
+-  hardware_interface::JointHandle joint_;
+-  double posDes_{};
+-  double velDes_{};
+-  double kp_{};
+-  double kd_{};
+-  double ff_{};
+-};
+-
+-struct HybridJointCommand
+-{
+-  ros::Time stamp_;
+-  double posDes_{};
+-  double velDes_{};
+-  double kp_{};
+-  double kd_{};
+-  double ff_{};
++  int joint_id;
++  double position{};
++  double velocity{};
++  double effort{};
+ };
+ 
+ struct ImuData
+ {
+-  int quat_adr{-1};
+-  int gyro_adr{-1};
+-  int acc_adr{-1};
++  int quat_adr{ -1 };
++  int gyro_adr{ -1 };
++  int acc_adr{ -1 };
+   ros::Time time_stamp;
+   double ori[4]{};
+   double ori_cov[9]{};
+@@ -57,14 +42,11 @@
+ 
+   void readSim(ros::Time time, ros::Duration period) override;
+ 
+-  void writeSim(ros::Time time, ros::Duration period) override;
+-
+ private:
+   void parseImu(XmlRpc::XmlRpcValue& imu_datas);
+ 
+   static bool switchImuStatus(std_srvs::TriggerRequest& req, std_srvs::TriggerResponse& res);
+ 
+-  rm_control::HybridJointInterface hybrid_joint_interface_;
+   rm_control::RobotStateInterface robot_state_interface_;
+   hardware_interface::ImuSensorInterface imu_sensor_interface_;
+   rm_control::RmImuSensorInterface rm_imu_sensor_interface_;
+@@ -72,11 +54,10 @@
+   std::list<ImuData> imu_datas_;
+   ros::ServiceServer switch_imu_service_;
+ 
+-  std::list<HybridJointData> hybrid_joint_datas_;
+-  std::unordered_map<std::string, std::deque<HybridJointCommand>> cmd_buffer_;
++  // Stable storage for the read-only handles used by RobotStateController.
++  std::list<PassiveJointData> passive_joint_datas_;
+ 
+   static bool disable_imu_;
+-  double delay_{};
+ };
+ 
+ }  // namespace rm_mujoco
+--- original/src/rm_mujoco_robot_hw_sim.cpp
++++ current/src/rm_mujoco_robot_hw_sim.cpp
+@@ -2,7 +2,6 @@
+ 
+ #include <algorithm>
+ #include <cmath>
+-#include <cstdlib>
+ 
+ #include <pluginlib/class_list_macros.h>
+ 
+@@ -25,7 +24,7 @@
+     const XmlRpc::XmlRpcValue::Type type = value[i].getType();
+     if (type != XmlRpc::XmlRpcValue::TypeDouble && type != XmlRpc::XmlRpcValue::TypeInt)
+       return false;
+-    out[i] = static_cast<double>(value[i]);
++    out[i] = type == XmlRpc::XmlRpcValue::TypeInt ? static_cast<int>(value[i]) : static_cast<double>(value[i]);
+   }
+   return true;
+ }
+@@ -40,15 +39,18 @@
+                                                        urdf_model, transmissions))
+     return false;
+ 
+-  registerInterface(&hybrid_joint_interface_);
+-  for (const auto& name : ej_interface_.getNames())
+-  {
+-    hybrid_joint_datas_.push_back(HybridJointData());
+-    HybridJointData& back = hybrid_joint_datas_.back();
+-    back.joint_ = ej_interface_.getHandle(name);
+-    hybrid_joint_interface_.registerHandle(
+-        rm_control::HybridJointHandle(back.joint_, &back.posDes_, &back.velDes_, &back.kp_, &back.kd_, &back.ff_));
+-    cmd_buffer_.emplace(name, std::deque<HybridJointCommand>());
++  const auto active_names = js_interface_.getNames();
++  for (int id = 0; id < m_ptr_->njnt; ++id)
++  {
++    const char* name = mj_id2name(m_ptr_, mjOBJ_JOINT, id);
++    if (name == nullptr || (m_ptr_->jnt_type[id] != mjJNT_HINGE && m_ptr_->jnt_type[id] != mjJNT_SLIDE) ||
++        std::find(active_names.begin(), active_names.end(), name) != active_names.end() ||
++        urdf_model->getJoint(name) == nullptr)
++      continue;
++    passive_joint_datas_.push_back({ id });
++    auto& joint = passive_joint_datas_.back();
++    js_interface_.registerHandle(
++        hardware_interface::JointStateHandle(name, &joint.position, &joint.velocity, &joint.effort));
+   }
+ 
+   registerInterface(&robot_state_interface_);
+@@ -68,6 +70,16 @@
+ void RmMujocoRobotHWSim::readSim(ros::Time time, ros::Duration period)
+ {
+   mujoco_ros::control::DefaultRobotHWSim::readSim(time, period);
++
++  for (auto& joint : passive_joint_datas_)
++  {
++    const int dof = m_ptr_->jnt_dofadr[joint.joint_id];
++    joint.position = d_ptr_->qpos[m_ptr_->jnt_qposadr[joint.joint_id]];
++    joint.velocity = d_ptr_->qvel[dof];
++    // Same semantics as DefaultRobotHWSim: externally applied generalized force,
++    // not the constraint reaction or a measured motor torque.
++    joint.effort = d_ptr_->qfrc_applied[dof];
++  }
+ 
+   if (!disable_imu_)
+   {
+@@ -106,77 +118,6 @@
+     cmd = 0.;
+   for (auto& cmd : joint_velocity_command_)
+     cmd = 0.;
+-  for (auto& joint : hybrid_joint_datas_)
+-  {
+-    joint.posDes_ = joint.joint_.getPosition();
+-    joint.velDes_ = joint.joint_.getVelocity();
+-    joint.kp_ = 0.;
+-    joint.kd_ = 0.;
+-    joint.ff_ = 0.;
+-  }
+-}
+-
+-void RmMujocoRobotHWSim::writeSim(ros::Time time, ros::Duration period)
+-{
+-  for (auto& joint : hybrid_joint_datas_)
+-  {
+-    auto& buffer = cmd_buffer_.find(joint.joint_.getName())->second;
+-    if (time == ros::Time(period.toSec()))
+-      buffer.clear();
+-
+-    while (!buffer.empty() && buffer.back().stamp_ + ros::Duration(delay_) < time)
+-      buffer.pop_back();
+-
+-    HybridJointCommand command;
+-    command.stamp_ = time;
+-    command.posDes_ = joint.posDes_;
+-    command.velDes_ = joint.velDes_;
+-    command.kp_ = joint.kp_;
+-    command.kd_ = joint.kd_;
+-    command.ff_ = joint.ff_;
+-    buffer.push_front(command);
+-
+-    const HybridJointCommand& cmd = buffer.back();
+-    if (joint.joint_.getCommand() == 0.0f)
+-      joint.joint_.setCommand(cmd.kp_ * (cmd.posDes_ - joint.joint_.getPosition()) +
+-                              cmd.kd_ * (cmd.velDes_ - joint.joint_.getVelocity()) + cmd.ff_);
+-  }
+-  mujoco_ros::control::DefaultRobotHWSim::writeSim(time, period);
+-
+-  unsigned int top = 0;
+-  bool found = false;
+-  for (unsigned int j = 0; j < n_dof_; ++j)
+-  {
+-    const bool is_wheel = joint_names_[j].find("wheel") != std::string::npos &&
+-                          joint_names_[j].find("friction") == std::string::npos;
+-    if (!is_wheel)
+-      continue;
+-    if (!found || std::abs(joint_effort_command_[j]) > std::abs(joint_effort_command_[top]))
+-    {
+-      top = j;
+-      found = true;
+-    }
+-  }
+-
+-  if (found && mujoco_joint_ids_[top] >= 0)
+-  {
+-    const int dof = m_ptr_->jnt_dofadr[mujoco_joint_ids_[top]];
+-    if (std::getenv("RM_MUJOCO_TORQUE_TEST") != nullptr)
+-      d_ptr_->qfrc_applied[dof] = 1000.0;
+-
+-    const char* resolved = mj_id2name(m_ptr_, mjOBJ_JOINT, mujoco_joint_ids_[top]);
+-    ROS_INFO_THROTTLE(1.0,
+-                      "writeSim nv=%d %s(id=%d,name=%s) dof=%d cmd=%.4f app=%.4f smooth=%.4f qaccs=%.4f "
+-                      "qacc=%.4f qvel=%.4f mode=%d",
+-                      m_ptr_->nv, joint_names_[top].c_str(), mujoco_joint_ids_[top], resolved ? resolved : "?", dof,
+-                      joint_effort_command_[top], d_ptr_->qfrc_applied[dof], d_ptr_->qfrc_smooth[dof],
+-                      d_ptr_->qacc_smooth[dof], d_ptr_->qacc[dof], d_ptr_->qvel[dof],
+-                      static_cast<int>(joint_control_methods_[top]));
+-  }
+-  else
+-  {
+-    ROS_INFO_THROTTLE(1.0, "writeSim t=%.4f sim_t=%.4f no wheel joint", d_ptr_->time, time.toSec());
+-  }
+ }
+ 
+ void RmMujocoRobotHWSim::parseImu(XmlRpc::XmlRpcValue& imu_datas)
+@@ -233,7 +174,8 @@
+     imu_data.acc_adr = sensorAddress(m_ptr_, frame_id + "_acc");
+     if (imu_data.quat_adr < 0 || imu_data.gyro_adr < 0 || imu_data.acc_adr < 0)
+       ROS_WARN_STREAM("Imu " << it->first << ": expected sensors '" << frame_id << "_quat', '" << frame_id
+-                             << "_gyro' and '" << frame_id << "_acc' in the mujoco model, missing entries are "
++                             << "_gyro' and '" << frame_id
++                             << "_acc' in the mujoco model, missing entries are "
+                                 "published as zero.");
+     imu_data.ori_cov[0] = ori_cov[0];
+     imu_data.ori_cov[4] = ori_cov[1];
+@@ -248,8 +190,8 @@
+     imu_datas_.push_back(imu_data);
+     ImuData& back = imu_datas_.back();
+     const hardware_interface::ImuSensorHandle imu_sensor_handle(it->first, frame_id, back.ori, back.ori_cov,
+-                                                               back.angular_vel, back.angular_vel_cov, back.linear_acc,
+-                                                               back.linear_acc_cov);
++                                                                back.angular_vel, back.angular_vel_cov, back.linear_acc,
++                                                                back.linear_acc_cov);
+     imu_sensor_interface_.registerHandle(imu_sensor_handle);
+     rm_imu_sensor_interface_.registerHandle(rm_control::RmImuSensorHandle(imu_sensor_handle, &back.time_stamp));
+   }
+--- original/CMakeLists.txt
++++ current/CMakeLists.txt
+@@ -189,6 +189,7 @@
+ ## Mark executable scripts (Python etc.) for installation
+ ## in contrast to setup.py, you can choose the destination
+ catkin_install_python(PROGRAMS
++  scripts/prepare_series_legged.py
+   scripts/mujoco_odom_bridge.py
+   scripts/rpy_to_mujoco_qpos.py
+   scripts/stl_to_boxes.py
+@@ -240,3 +241,9 @@
+ 
+ ## Add folders to be run by python nosetests
+ # catkin_add_nosetests(test)
++
++if(CATKIN_ENABLE_TESTING)
++  find_package(rostest REQUIRED)
++  add_rostest_gtest(hardware_interface_test tests/hardware_interface.test tests/hardware_interface_test.cpp)
++  target_link_libraries(hardware_interface_test rm_mujoco_robot_hw_sim ${catkin_LIBRARIES})
++endif()
+--- original/package.xml
++++ current/package.xml
+@@ -2,7 +2,7 @@
+ <package format="2">
+   <name>rm_mujoco</name>
+   <version>0.0.0</version>
+-  <description>The rm_mujoco package</description>
++  <description>RM RobotHWSim and series_legged simulation using mujoco_ros and ros_control.</description>
+ 
+   <!-- One maintainer tag required, multiple allowed, one person per tag -->
+   <!-- Example:  -->
+@@ -88,6 +88,14 @@
+   <exec_depend>tf2_ros</exec_depend>
+   <exec_depend>transmission_interface</exec_depend>
+   <exec_depend>urdf</exec_depend>
++  <exec_depend>controller_manager</exec_depend>
++  <exec_depend>joint_state_controller</exec_depend>
++  <exec_depend>robot_state_controller</exec_depend>
++  <exec_depend>rm_chassis_controllers</exec_depend>
++  <exec_depend>rm_config</exec_depend>
++  <exec_depend>rm_description</exec_depend>
++  <exec_depend>rm_manual</exec_depend>
++  <test_depend>rostest</test_depend>
+ 
+ 
+   <!-- The export tag contains other, unspecified, tags -->

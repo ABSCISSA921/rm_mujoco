@@ -1,0 +1,857 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="series_legged2_mujoco_complete">
+  <link name="base_link">
+    <inertial>
+      <mass value="22.398083503044" />
+      <origin xyz="0.0015425319949 0.001410898477734 -0.03801179944153001" rpy="0 0 0" />
+      <inertia ixx="0.3646081799918" iyy="0.3735234449109" izz="0.6333621419804" ixy="0.001011644108037001" ixz="0.01028676127884" iyz="-0.001403313237606001" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 -0.13" rpy="0 0 3.141592653589793" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/base_hipclean_part00.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0 0 -0.13" rpy="0 0 3.141592653589793" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/base_hipclean_part01.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0 0 -0.13" rpy="0 0 3.141592653589793" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/base_hipclean_part02.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0 0 -0.13" rpy="0 0 3.141592653589793" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/base_hipclean_part03.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0 0 -0.13" rpy="0 0 3.141592653589793" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/base_hipclean_part04.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0 0 -0.13" rpy="0 0 3.141592653589793" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/base_hipclean_part05.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 -0.05" rpy="0 0 3.141592653589793" />
+      <geometry>
+        <box size="0.5 0.31 0.21" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_armor">
+    </link>
+  <link name="right_armor">
+    </link>
+  <link name="left_thigh">
+    <inertial>
+      <mass value="0.705866387666" />
+      <origin xyz="0.001768921073009466 -0.005675816688664988 -0.1040425510340328" rpy="0 0 0" />
+      <inertia ixx="0.005818123365925273" iyy="0.006073879022552" izz="0.0003293373390531279" ixy="-2.439896023792455e-06" ixz="-0.000124011322423108" iyz="4.185414028831527e-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0.04760086438107752 -0.1579311897 -0.05144902312253864" rpy="0.8587237493695337 0 1.570796326794897" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/left_thigh.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.1238164680549387 -0.1802 -0.03961669141157978" rpy="3.141592653589793 1.261126924916552 3.141592653589793" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/left_hardware_thigh_long.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.1238164680549387 -0.1802 -0.03961669141157978" rpy="3.141592653589793 1.261126924916552 3.141592653589793" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/left_hardware_knee.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.01893391193802516 -0.158631189696 -0.06748593371494963" rpy="1.331762011697217 -2.220446049250313e-16 1.570796326794897" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/left_thigh_sprocket.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.04760086438107752 -0.1579311897 -0.05144902312253864" rpy="0.8587237493695337 0 1.570796326794897" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/left_thigh_simple_collision.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_hip_joint" type="revolute">
+    <axis xyz="0 1 0" />
+    <origin rpy="0 1.5707963267948966 0" xyz="-0.0 0.1755 0.0" />
+    <parent link="base_link" />
+    <child link="left_thigh" />
+    <limit effort="40" lower="-1e10" upper="1e10" velocity="10.46" />
+  </joint>
+  <link name="left_calf">
+    <inertial>
+      <mass value="0.665605682875" />
+      <origin xyz="0.001561632135030883 0.02039432153083999 -0.1399087960196559" rpy="0 0 0" />
+      <inertia ixx="0.00833984730266308" iyy="0.008186227825696" izz="0.000485254527581919" ixy="2.685009540312512e-05" ixz="-4.751679402605936e-05" iyz="0.001006970855307863" />
+    </inertial>
+    <visual>
+      <origin xyz="0.1491327699424833 -0.1579311897 -0.07185869120511153" rpy="2.586874849010971 2.220446049250313e-16 1.570796326794897" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/left_calf.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.06960662336435845 -0.1802 -0.1987860849788384" rpy="-3.141592653589793 -0.9152323432778465 3.141592653589793" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/left_hardware_short_calf.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="-6.096062543647918e-11 0.03049999999999998 -0.2479999999673144" rpy="1.570796326794896 -0.943561783296115 9.458238193671751e-17" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/left_wheel_stator.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="-6.096062543647918e-11 0.03049999999999998 -0.2479999999673144" rpy="1.570796326794896 -0.943561783296115 9.458238193671751e-17" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/left_wheel_gears.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="-6.096062543647918e-11 0.03049999999999998 -0.2479999999673144" rpy="1.570796326794896 -0.943561783296115 9.458238193671751e-17" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/left_wheel_cover.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="-6.096062543647918e-11 0.03049999999999998 -0.2479999999673144" rpy="1.570796326794896 -0.943561783296115 9.458238193671751e-17" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/left_wheel_standard.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.1491327699424833 -0.1579311897 -0.07185869120511153" rpy="2.586874849010971 2.220446049250313e-16 1.570796326794897" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/left_calf_simple_collision.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_calf_joint" type="revolute">
+    <axis xyz="0 1 0" />
+    <origin rpy="0 -2.5705926535897934 0" xyz="0 0 -0.21" />
+    <parent link="left_thigh" />
+    <child link="left_calf" />
+    <limit effort="40" lower="-10000000000.0" upper="10000000000.0" velocity="10.46" />
+    <dynamics damping="0.0" friction="0.001" />
+  </joint>
+  <link name="left_knee_link">
+    <inertial>
+      <mass value="0.393877353103" />
+      <origin xyz="4.881108538190571e-12 -0.003244136709760001 -0.01058712315616271" rpy="0 0 0" />
+      <inertia ixx="0.0005326206943763146" iyy="0.0005853748711947" izz="0.0002024341699692854" ixy="9.043926032338392e-15" ixz="-6.483978935364898e-14" iyz="5.199816291437243e-05" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.06492845522558591 -0.1586311897 -0.02640340834273268" rpy="2.789857767446876 2.220446049250313e-16 1.570796326794897" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/left_output.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="-0.1231267715736933 -0.1802 -0.04171088732980336" rpy="-3.141592653589793 -1.244166381920822 3.141592653589793" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/left_hardware_output_mid.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="-0.06885758527471268 -0.158631189696 0.01309493111040539" rpy="-2.919168251046368 2.220446049250313e-16 1.570796326794897" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/left_output_sprocket.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.01309493111040536 -0.158631189696 0.0688575852747127" rpy="-1.348371924252392 0 1.570796326794897" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/left_hip_adapter.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0.06492845522558591 -0.1586311897 -0.02640340834273268" rpy="2.789857767446876 2.220446049250313e-16 1.570796326794897" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/left_output_simple_collision.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_knee_joint" type="revolute">
+    <axis xyz="0 1 0" />
+    <origin rpy="0 -1.5707963267948966 0" xyz="0 0.1755 0" />
+    <parent link="base_link" />
+    <child link="left_knee_link" />
+    <limit effort="40" lower="-10000000000.0" upper="10000000000.0" velocity="10.46" />
+    <dynamics damping="0.0" friction="0.001" />
+  </joint>
+  <link name="left_short_link">
+    <inertial>
+      <mass value="0.039727910137" />
+      <origin xyz="-2.984737457190079e-12 0.0001901985116257056 -0.04829999999347464" rpy="0 0 0" />
+      <inertia ixx="7.792158523121465e-05" iyy="7.87040821285e-05" izz="1.404857221185378e-06" ixy="8.519298063974821e-19" ixz="-1.370200475433667e-14" iyz="-5.790998121769983e-18" />
+    </inertial>
+    <visual>
+      <origin xyz="0.1142601244431826 -0.1594311897 0.05520241782044549" rpy="0.8587237492997334 0 1.570796326794897" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/left_shortbar.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.1142601244431826 -0.1594311897 0.05520241782044549" rpy="0.8587237492997334 0 1.570796326794897" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/left_shortbar_simple_collision.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_short_joint" type="revolute">
+    <axis xyz="0 1 0" />
+    <origin rpy="0 -3.8125926535897934 0" xyz="0 0 0.2" />
+    <parent link="left_long_link" />
+    <child link="left_short_link" />
+    <dynamics damping="0.0" friction="0.001" />
+    <limit effort="80" lower="-1e10" upper="1e10" velocity="20.46" />
+  </joint>
+  <link name="left_long_link">
+    <inertial>
+      <mass value="0.056742186420" />
+      <origin xyz="-0.005054905475380485 0.007721586926439009 0.1047721101006827" rpy="0 0 0" />
+      <inertia ixx="0.0002984721714779082" iyy="0.0003006587522115999" izz="4.315472286091681e-06" ixy="2.512930055913616e-08" ixz="1.126424237478808e-07" iyz="6.878080738986785e-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0.04685005764101007 -0.1604311897 0.08257846407939889" rpy="2.501432860555289 2.220446049250313e-16 1.570796326794897" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/left_longbar.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="-0.00902944320664105 -0.1802 -0.009604541463347688" rpy="-3.141592653589793 -0.8297903548221647 3.141592653589793" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/left_hardware_long_short.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.04685005764101007 -0.1604311897 0.08257846407939889" rpy="2.501432860555289 2.220446049250313e-16 1.570796326794897" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/left_longbar_simple_collision.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_long_joint" type="revolute">
+    <axis xyz="0 1 0" />
+    <origin rpy="0 -1.8995926535897931 0" xyz="0 0 -0.135" />
+    <parent link="left_mid_link" />
+    <child link="left_long_link" />
+    <dynamics damping="0.0" friction="0.001" />
+    <limit effort="80" lower="-1e10" upper="1e10" velocity="20.46" />
+  </joint>
+  <link name="left_mid_link">
+    <inertial>
+      <mass value="0.046013071331" />
+      <origin xyz="0.002786940982762186 0.0002513924634799064 -0.06750000003882384" rpy="0 0 0" />
+      <inertia ixx="0.0001647532649787933" iyy="0.0001664205459296" izz="2.359089662136766e-06" ixy="-6.243461393942448e-08" ixz="4.530727735260059e-14" iyz="-1.491379512909017e-17" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.07574707927899751 -0.1599311897 -0.07775918755174901" rpy="1.061706667250644 0 1.570796326794897" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/left_midbar.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.01114535457936628 -0.1802 -0.1420398247993384" rpy="3.141592653589793 0.932192886617369 3.141592653589793" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/left_hardware_mid_long.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0.07574707927899751 -0.1599311897 -0.07775918755174901" rpy="1.061706667250644 0 1.570796326794897" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/left_midbar_simple_collision.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_mid_joint" type="revolute">
+    <axis xyz="0 1 0" />
+    <origin rpy="0 2.5705926535897934 0" xyz="0 0 -0.1134" />
+    <parent link="left_knee_link" />
+    <child link="left_mid_link" />
+    <dynamics damping="0.0" friction="0.001" />
+    <limit effort="80" lower="-1e10" upper="1e10" velocity="20.46" />
+  </joint>
+  <link name="right_thigh">
+    <inertial>
+      <mass value="0.705867245374" />
+      <origin xyz="0.00176889671405343 0.005675817745433012 -0.1040426388909102" rpy="0 0 0" />
+      <inertia ixx="0.00581812785842212" iyy="0.006073883852835" izz="0.0003293376960542809" ixy="2.439910394460228e-06" ixz="-0.0001240125661292461" iyz="-4.185408615635475e-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0.04760086438107754 0.1579311897 -0.0514490231225386" rpy="2.28286890422026 2.220446049250313e-16 -1.570796326794897" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/right_thigh.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.1238164680549387 0.1802 -0.03961669141157974" rpy="-3.827463523137372e-16 1.261126924916552 3.141592653589793" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/right_hardware_thigh_long.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.1238164680549387 0.1802 -0.03961669141157974" rpy="-3.827463523137372e-16 1.261126924916552 3.141592653589793" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/right_hardware_knee.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.01893391193802518 0.158631189696 -0.06748593371494958" rpy="1.809830641892576 4.440892098500626e-16 -1.570796326794897" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/right_thigh_sprocket.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.04760086438107754 0.1579311897 -0.0514490231225386" rpy="2.28286890422026 2.220446049250313e-16 -1.570796326794897" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/right_thigh_simple_collision.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_hip_joint" type="revolute">
+    <axis xyz="0 1 0" />
+    <origin rpy="0 1.5707963267948966 0" xyz="-0.0 -0.1755 0.0" />
+    <parent link="base_link" />
+    <child link="right_thigh" />
+    <limit effort="40" lower="-1e10" upper="1e10" velocity="10.46" />
+  </joint>
+  <link name="right_calf">
+    <inertial>
+      <mass value="0.665605551368" />
+      <origin xyz="0.001561632537177199 -0.02039431734316001 -0.1399087745848635" rpy="0 0 0" />
+      <inertia ixx="0.0083398456659146" iyy="0.008186226227453" izz="0.0004852544475803987" ixy="-2.685008972988775e-05" ixz="-4.751675825979441e-05" iyz="-0.001006970552908649" />
+    </inertial>
+    <visual>
+      <origin xyz="0.1491327699424834 0.1579311897 -0.07185869120511156" rpy="0.5547178045788224 0 -1.570796326794897" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/right_calf.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.06960662336435848 0.1802 -0.1987860849788385" rpy="1.592474583735978e-16 -0.9152323432778465 3.141592653589793" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/right_hardware_short_calf.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="-6.096062543647918e-11 -0.03050000000000002 -0.2479999999673144" rpy="1.570796326794896 -0.943561783296115 9.458238193671751e-17" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/right_wheel_stator.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="-6.096062543647918e-11 -0.03050000000000002 -0.2479999999673144" rpy="1.570796326794896 -0.943561783296115 9.458238193671751e-17" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/right_wheel_gears.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="-6.096062543647918e-11 -0.03050000000000002 -0.2479999999673144" rpy="1.570796326794896 -0.943561783296115 9.458238193671751e-17" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/right_wheel_cover.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="-6.096062543647918e-11 -0.03050000000000002 -0.2479999999673144" rpy="1.570796326794896 -0.943561783296115 9.458238193671751e-17" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/right_wheel_standard.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.1491327699424834 0.1579311897 -0.07185869120511156" rpy="0.5547178045788224 0 -1.570796326794897" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/right_calf_simple_collision.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_calf_joint" type="revolute">
+    <axis xyz="0 1 0" />
+    <origin rpy="0 -2.5705926535897934 0" xyz="0 0 -0.21" />
+    <parent link="right_thigh" />
+    <child link="right_calf" />
+    <limit effort="40" lower="-10000000000.0" upper="10000000000.0" velocity="10.46" />
+    <dynamics damping="0.0" friction="0.001" />
+  </joint>
+  <link name="right_knee_link">
+    <inertial>
+      <mass value="0.393877353103" />
+      <origin xyz="4.881108538190571e-12 0.003244136709759998 -0.01058712315616271" rpy="0 0 0" />
+      <inertia ixx="0.0005326206943763146" iyy="0.0005853748711947" izz="0.0002024341699692854" ixy="-9.043920455190949e-15" ixz="-6.483978935364898e-14" iyz="-5.199816291437253e-05" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.06492845522558589 0.1586311897 -0.02640340834273271" rpy="0.3517348861429174 0 -1.570796326794897" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/right_output.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="-0.1231267715736933 0.1802 -0.0417108873298034" rpy="3.615046726405419e-16 -1.244166381920822 3.141592653589793" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/right_hardware_output_mid.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="-0.06885758527471267 0.158631189696 0.01309493111040535" rpy="-0.2224244025434257 0 -1.570796326794897" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/right_output_sprocket.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.01309493111040537 0.158631189696 0.06885758527471265" rpy="-1.793220729337402 2.220446049250313e-16 -1.570796326794897" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/right_hip_adapter.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0.06492845522558589 0.1586311897 -0.02640340834273271" rpy="0.3517348861429174 0 -1.570796326794897" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/right_output_simple_collision.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_knee_joint" type="revolute">
+    <axis xyz="0 1 0" />
+    <origin rpy="0 -1.5707963267948966 0" xyz="0 -0.1755 0" />
+    <parent link="base_link" />
+    <child link="right_knee_link" />
+    <limit effort="40" lower="-10000000000.0" upper="10000000000.0" velocity="10.46" />
+    <dynamics damping="0.0" friction="0.001" />
+  </joint>
+  <link name="right_short_link">
+    <inertial>
+      <mass value="0.039727910137" />
+      <origin xyz="-2.984737457190079e-12 -0.0001901985116256943 -0.04829999999347464" rpy="0 0 0" />
+      <inertia ixx="7.792158523121465e-05" iyy="7.87040821285e-05" izz="1.404857221185378e-06" ixy="-8.561734968477343e-19" ixz="-1.370200475433667e-14" iyz="5.814520103387022e-18" />
+    </inertial>
+    <visual>
+      <origin xyz="0.1142601244431826 0.1594311897 0.05520241782044551" rpy="2.28286890429006 0 -1.570796326794897" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/right_shortbar.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.1142601244431826 0.1594311897 0.05520241782044551" rpy="2.28286890429006 0 -1.570796326794897" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/right_shortbar_simple_collision.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_short_joint" type="revolute">
+    <axis xyz="0 1 0" />
+    <origin rpy="0 -3.8125926535897934 0" xyz="0 0 0.2" />
+    <parent link="right_long_link" />
+    <child link="right_short_link" />
+    <dynamics damping="0.0" friction="0.001" />
+    <limit effort="80" lower="-1e10" upper="1e10" velocity="20.46" />
+  </joint>
+  <link name="right_long_link">
+    <inertial>
+      <mass value="0.056742186420" />
+      <origin xyz="-0.005054905475380485 -0.00772158692643899 0.1047721101006827" rpy="0 0 0" />
+      <inertia ixx="0.0002984721714779082" iyy="0.0003006587522115999" izz="4.315472286091681e-06" ixy="-2.512930055920968e-08" ixz="1.126424237478808e-07" iyz="-6.878080738987995e-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0.0468500576410101 0.1604311897 0.08257846407939887" rpy="0.6401597930345043 0 -1.570796326794897" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/right_longbar.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="-0.009029443206641022 0.1802 -0.009604541463347688" rpy="1.338505551316719e-16 -0.8297903548221647 3.141592653589793" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/right_hardware_long_short.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0468500576410101 0.1604311897 0.08257846407939887" rpy="0.6401597930345043 0 -1.570796326794897" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/right_longbar_simple_collision.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_long_joint" type="revolute">
+    <axis xyz="0 1 0" />
+    <origin rpy="0 -1.8995926535897931 0" xyz="0 0 -0.135" />
+    <parent link="right_mid_link" />
+    <child link="right_long_link" />
+    <dynamics damping="0.0" friction="0.001" />
+    <limit effort="80" lower="-1e10" upper="1e10" velocity="20.46" />
+  </joint>
+  <link name="right_mid_link">
+    <inertial>
+      <mass value="0.046013071331" />
+      <origin xyz="0.002786940982762186 -0.0002513924634798935 -0.06750000003882384" rpy="0 0 0" />
+      <inertia ixx="0.0001647532649787933" iyy="0.0001664205459296" izz="2.359089662136766e-06" ixy="6.243461393947861e-08" ixz="4.530727735260059e-14" iyz="1.496832949251457e-17" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.07574707927899749 0.1599311897 -0.07775918755174899" rpy="2.079885986339149 0 -1.570796326794897" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/right_midbar.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.01114535457936631 0.1802 -0.1420398247993384" rpy="-1.649632920995548e-16 0.932192886617369 3.141592653589793" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/right_hardware_mid_long.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0.07574707927899749 0.1599311897 -0.07775918755174899" rpy="2.079885986339149 0 -1.570796326794897" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/right_midbar_simple_collision.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_mid_joint" type="revolute">
+    <axis xyz="0 1 0" />
+    <origin rpy="0 2.5705926535897934 0" xyz="0 0 -0.1134" />
+    <parent link="right_knee_link" />
+    <child link="right_mid_link" />
+    <dynamics damping="0.0" friction="0.001" />
+    <limit effort="80" lower="-1e10" upper="1e10" velocity="20.46" />
+  </joint>
+  <link name="left_wheel">
+    <inertial>
+      <mass value="0.308568283679" />
+      <origin xyz="5.585637129513788e-06 0.0009152921638799997 -8.845894131445031e-06" rpy="0 0 0" />
+      <inertia ixx="0.0003527977850628869" iyy="0.0006738816288371" izz="0.0003527977838095129" ixy="-9.529012166105756e-14" ixz="2.402460283663921e-13" iyz="-1.044001586230319e-13" />
+    </inertial>
+    <visual>
+      <origin xyz="5.585913918760567e-06 -0.014 -8.845714400429399e-06" rpy="1.570796326794896 -0.943561783296115 9.458238193671751e-17" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/left_wheel.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="1.570796326794896 -0.9152323432778461 3.141592653589793" />
+      <geometry>
+        <cylinder radius="0.06" length="0.03" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_wheel_joint" type="revolute">
+    <axis xyz="0 1 0" />
+    <origin rpy="0 0 0" xyz="0 0.047500000000000014 -0.248" />
+    <parent link="left_calf" />
+    <child link="left_wheel" />
+    <limit effort="3.58" lower="-1e16" upper="1e16" velocity="63.82" />
+  </joint>
+  <link name="right_wheel">
+    <inertial>
+      <mass value="0.308568678664" />
+      <origin xyz="5.585753470930799e-06 -0.0009152967525599999 -8.846971424351219e-06" rpy="0 0 0" />
+      <inertia ixx="0.0003527978781556325" iyy="0.0006738817490206" izz="0.0003527978234217674" ixy="2.239861924503538e-13" ixz="-1.457909636656644e-11" iyz="-1.087207875418974e-12" />
+    </inertial>
+    <visual>
+      <origin xyz="5.58591391844889e-06 0.014 -8.845714399879269e-06" rpy="1.570796326794896 -0.943561783296115 9.458238193671751e-17" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/right_wheel.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="1.570796326794896 -0.9152323432778461 3.141592653589793" />
+      <geometry>
+        <cylinder radius="0.06" length="0.03" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_wheel_joint" type="revolute">
+    <axis xyz="0 1 0" />
+    <origin rpy="0 0 0" xyz="0 -0.047500000000000014 -0.248" />
+    <parent link="right_calf" />
+    <child link="right_wheel" />
+    <limit effort="3.58" lower="-1e16" upper="1e16" velocity="63.82" />
+  </joint>
+  <link name="left_front_guide_wheel">
+    </link>
+  <link name="right_front_guide_wheel">
+    </link>
+  <link name="left_back_guide_wheel">
+    </link>
+  <link name="right_back_guide_wheel">
+    </link>
+  <link name="left_tof_link">
+    </link>
+  <link name="right_tof_link">
+    </link>
+  <link name="base_imu">
+    <material name="orange">
+      <color rgba="255 108 10 255" />
+    </material>
+  </link>
+  <link name="yaw">
+    <inertial>
+      <mass value="1.431387410036" />
+      <origin xyz="-0.04473413011493 0.007939119396791006 0.02562979726728" rpy="0 0 0" />
+      <inertia ixx="0.00224108524886" iyy="0.003345885019606" izz="0.001878345926891" ixy="0.0002175794454533001" ixz="0.0006885013555092" iyz="-0.0001080429572168001" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 -0.1905" rpy="0 0 3.141592653589793" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/yaw.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0.04096236801 0.004125000000000005 0.06407656859999999" rpy="0 0 3.141592653589793" />
+      <geometry>
+        <box size="0.14692473602 0.07425 0.179953125" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="flank_frame" />
+  <link name="yaw_reverse_frame" />
+  <link name="pitch">
+    <inertial>
+      <mass value="2.648856450357" />
+      <origin xyz="0.001870299588829002 0.0135970222771 0.03546576723915" rpy="0 0 0" />
+      <inertia ixx="0.007726287756014" iyy="0.0182888519265" izz="0.01811456172555" ixy="0.002690152559114001" ixz="0.001234949109253" iyz="-0.0002621389300350002" />
+    </inertial>
+    <visual>
+      <origin xyz="0.002953114061 -3.616521682320691e-19 -0.3225" rpy="0 0 3.141592653589793" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/pitch_part00.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.002953114061 -3.616521682320691e-19 -0.3225" rpy="0 0 3.141592653589793" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/pitch_part01.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.002953114061 -3.616521682320691e-19 -0.3225" rpy="0 0 3.141592653589793" />
+      <geometry>
+        <mesh filename="package://rm_mujoco/models/serial_leg_complete/meshes/pitch_part02.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.02416338017 0.004436721801999997 0.047967453" rpy="0 0 3.141592653589793" />
+      <geometry>
+        <box size="0.3273267518 0.1631265564 0.15921011352" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="camera_link">
+    </link>
+  <link name="camera_optical_frame">
+    </link>
+  <link name="camera2_optical_frame">
+    </link>
+  <link name="gimbal_imu">
+    <material name="orange">
+      <color rgba="255 108 10 255" />
+    </material>
+  </link>
+  <link name="left_friction_wheel">
+    </link>
+  <link name="right_friction_wheel">
+    </link>
+  <link name="trigger">
+    </link>
+  <joint name="left_armor_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="left_armor" />
+    <origin rpy="0 0 0" xyz="0 0.295 -0.07" />
+  </joint>
+  <joint name="right_armor_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="right_armor" />
+    <origin rpy="0 0 0" xyz="0 -0.295 -0.07" />
+  </joint>
+  <joint name="left_front_guide_wheel_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="left_front_guide_wheel" />
+    <origin rpy="0 0 0" xyz="0.2 0.1 -0.12" />
+  </joint>
+  <joint name="right_front_guide_wheel_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="right_front_guide_wheel" />
+    <origin rpy="0 0 0" xyz="0.2 -0.1 -0.12" />
+  </joint>
+  <joint name="left_back_guide_wheel_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="left_back_guide_wheel" />
+    <origin rpy="0 0 0" xyz="-0.2 0.1 -0.12" />
+  </joint>
+  <joint name="right_back_guide_wheel_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="right_back_guide_wheel" />
+    <origin rpy="0 0 0" xyz="-0.2 -0.1 -0.12" />
+  </joint>
+  <joint name="left_tof_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="left_tof_link" />
+    <origin rpy="0 0 0" xyz="0.285 0.123 -0.08" />
+  </joint>
+  <joint name="right_tof_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="right_tof_link" />
+    <origin rpy="0 0 0" xyz="0.285 -0.123 -0.08" />
+  </joint>
+  <joint name="base_imu_joint" type="fixed">
+    <origin rpy="0.00188 3.148922653589793 0.0" xyz="0.15962 0 -0.099125" />
+    <parent link="base_link" />
+    <child link="base_imu" />
+  </joint>
+  <joint name="yaw_joint" type="revolute">
+    <origin rpy="0 0 -1.5707963267948966" xyz="0 0 0.036125" />
+    <dynamics damping="0.0" friction="0.1" />
+    <limit effort="1.2" lower="-1e10" upper="1e10" velocity="31" />
+    <parent link="base_link" />
+    <child link="yaw" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <joint name="flank_joint" type="fixed">
+    <origin rpy="0 0 1.5707963267948966" xyz="0 0 0" />
+    <parent link="yaw" />
+    <child link="flank_frame" />
+  </joint>
+  <joint name="yaw_reverse_joint" type="fixed">
+    <origin rpy="0 0 3.141592653589793" xyz="0 0 0" />
+    <parent link="yaw" />
+    <child link="yaw_reverse_frame" />
+  </joint>
+  <joint name="pitch_joint" type="revolute">
+    <origin rpy="0 0 0" xyz="0 0 0.099" />
+    <dynamics damping="0.0" friction="1" />
+    <limit effort="3.0" lower="-0.6" upper="0.3" velocity="31.0" />
+    <safety_controller k_position="100" k_velocity="0.08" soft_lower_limit="-0.6" soft_upper_limit="0.3" />
+    <parent link="yaw" />
+    <child link="pitch" />
+    <axis xyz="0 1 0 " />
+  </joint>
+  <joint name="camera_link_joint" type="fixed">
+    <origin rpy="0 0.06981316 0" xyz="-0.016086 0.0 0.107908" />
+    <parent link="pitch" />
+    <child link="camera_link" />
+  </joint>
+  <joint name="camera_optical_frame_joint" type="fixed">
+    <origin rpy="-1.57201064 0 -1.5647963" xyz="0.06059775176285364 0.000087 0.09256327160978175" />
+    <parent link="pitch" />
+    <child link="camera_optical_frame" />
+  </joint>
+  <joint name="camera2_optical_frame_joint" type="fixed">
+    <origin rpy="-1.56001064 0 -1.5697963" xyz="0.06059775176285364 0.000087 0.09256327160978175" />
+    <parent link="pitch" />
+    <child link="camera2_optical_frame" />
+  </joint>
+  <joint name="gimbal_imu_joint" type="fixed">
+    <origin rpy="0 0 -1.5707963267948966" xyz="-0.04 0 0.1351" />
+    <parent link="pitch" />
+    <child link="gimbal_imu" />
+  </joint>
+  <joint name="left_friction_wheel_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0.043878 0.03665 0.0" />
+    <parent link="pitch" />
+    <child link="left_friction_wheel" />
+  </joint>
+  <joint name="right_friction_wheel_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0.043878 -0.03665 0.0" />
+    <parent link="pitch" />
+    <child link="right_friction_wheel" />
+  </joint>
+  <joint name="trigger_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 -0.0 -0.06" />
+    <parent link="base_link" />
+    <child link="trigger" />
+  </joint>
+  <transmission name="left_hip_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="left_hip_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="left_hip_joint">
+      <offset>1.1183</offset>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+  <transmission name="left_knee_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="left_knee_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="left_knee_joint">
+      <offset>2.57987</offset>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+  <transmission name="right_hip_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="right_hip_motor">
+      <mechanicalReduction>-1</mechanicalReduction>
+    </actuator>
+    <joint name="right_hip_joint">
+      <offset>-1.02486</offset>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+  <transmission name="right_knee_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="right_knee_motor">
+      <mechanicalReduction>-1</mechanicalReduction>
+    </actuator>
+    <joint name="right_knee_joint">
+      <offset>4.17747</offset>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+  <transmission name="left_wheel_joint_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="left_wheel_joint_motor">
+      <mechanicalReduction>-15.176470588235293</mechanicalReduction>
+    </actuator>
+    <joint name="left_wheel_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+  <transmission name="right_wheel_joint_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="right_wheel_joint_motor">
+      <mechanicalReduction>15.176470588235293</mechanicalReduction>
+    </actuator>
+    <joint name="right_wheel_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+  <transmission name="trans_yaw_joint">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="yaw_joint_motor">
+      <mechanicalReduction>-1</mechanicalReduction>
+    </actuator>
+    <joint name="yaw_joint">
+      <offset>-1.571</offset>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+  <transmission name="trans_pitch_joint">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="pitch_joint_motor">
+      <mechanicalReduction>-1</mechanicalReduction>
+    </actuator>
+    <joint name="pitch_joint">
+      <offset>-2.743</offset>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+</robot>

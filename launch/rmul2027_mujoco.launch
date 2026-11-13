@@ -1,0 +1,43 @@
+<launch>
+    <arg name="robot_type" default="$(env ROBOT_TYPE)" doc="Robot type [standard, auto, hero, engineer]"/>
+
+    <arg name="x_pos" default="5.5"/>
+    <arg name="y_pos" default="-2.85"/>
+    <arg name="z_pos" default="0.17" doc="Spawn height, the field surface at the default spawn point is 0.10 m."/>
+
+    <arg name="roll" default="0.0"/>
+    <arg name="pitch" default="0.0"/>
+    <arg name="yaw" default="0.0"/>
+
+    <arg name="load_chassis" default="true"/>
+    <arg name="load_gimbal" default="true"/>
+    <arg name="load_shooter" default="true"/>
+    <arg name="load_arm" default="true"/>
+
+    <arg name="headless" default="false" doc="Set to true to disable the MuJoCo viewer window."/>
+    <arg name="base_joint" default="base_link_free_joint"
+         doc="Name of the free joint carrying the robot base in the MuJoCo model."/>
+    <arg name="modelfile" default="$(find rm_mujoco)/models/$(arg robot_type)_rmul2027.xml"
+         doc="MuJoCo xml to load. Use $(find rm_mujoco)/models/rmul2027_field.xml to load the field only."/>
+    <arg name="mujoco_plugin_config" default="$(find rm_mujoco)/config/$(arg robot_type)_mujoco.yaml"
+         doc="MujocoPlugins yaml loaded into the mujoco_ros node. Leave empty to skip plugin loading."/>
+
+    <rosparam file="$(find rm_mujoco)/config/imus.yaml" command="load" if="$(arg load_gimbal)"/>
+
+    <param name="robot_description" command="$(find xacro)/xacro $(find rm_description)/urdf/$(arg robot_type)/$(arg robot_type).urdf.xacro
+         load_chassis:=$(arg load_chassis) load_gimbal:=$(arg load_gimbal) load_shooter:=$(arg load_shooter)
+         load_arm:=$(arg load_arm)
+         use_simulation:=true roller_type:=simple
+"/>
+
+    <param name="/mujoco_server/initial_joint_positions/joint_map/$(arg base_joint)"
+           command="$(find rm_mujoco)/scripts/rpy_to_mujoco_qpos.py $(arg x_pos) $(arg y_pos) $(arg z_pos) $(arg roll) $(arg pitch) $(arg yaw)"/>
+
+    <include file="$(find mujoco_ros)/launch/launch_server.launch">
+        <arg name="use_sim_time" value="true"/>
+        <arg name="modelfile" value="$(arg modelfile)"/>
+        <arg name="headless" value="$(arg headless)"/>
+        <arg name="unpause" value="true"/>
+        <arg name="mujoco_plugin_config" value="$(arg mujoco_plugin_config)"/>
+    </include>
+</launch>

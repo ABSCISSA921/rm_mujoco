@@ -1,0 +1,23 @@
+<launch>
+  <!-- Exact CAD model copy: fixed base, zero gravity, original six motors. -->
+  <arg name="modelfile" default="$(find rm_mujoco)/models/serial_leg_complete/robot_passive_limits.xml"/>
+  <arg name="initial_joint_states" default="$(find rm_mujoco)/config/serial_leg_complete_initial.yaml"/>
+  <arg name="headless" default="false"/>
+  <arg name="unpause" default="false"/>
+  <arg name="realtime" default="1.0"/>
+
+  <group ns="serial_leg_complete">
+    <!-- Shadow any previous model's plugin list on this master. -->
+    <rosparam param="MujocoPlugins">[]</rosparam>
+    <include file="$(find mujoco_ros)/launch/launch_server.launch">
+      <arg name="use_sim_time" value="true"/>
+      <arg name="ns" value="/serial_leg_complete"/>
+      <arg name="modelfile" value="$(arg modelfile)"/>
+      <arg name="initial_joint_states" value="$(arg initial_joint_states)"/>
+      <arg name="headless" value="$(arg headless)"/>
+      <arg name="render_offscreen" value="false"/>
+      <arg name="unpause" value="$(arg unpause)"/>
+      <arg name="realtime" value="$(arg realtime)"/>
+    </include>
+  </group>
+</launch>

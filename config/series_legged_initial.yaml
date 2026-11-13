@@ -1,0 +1,35 @@
+# Closed-chain initial configuration at 0.20 m; not evidence of standing up.
+initial_joint_positions:
+  joint_map:
+    base_free: 0 0 0.26019999999999821 1 0 0 0
+    left_hip_joint: '-0.2723546102306062'
+    left_calf_joint: '0.31845078681224914'
+    left_wheel_joint: '0'
+    left_knee_joint: '0.25938765752644338'
+    left_mid_joint: '-0.31827458600524233'
+    left_long_joint: '0.1049831050604422'
+    left_short_joint: '-0.31845078681226596'
+    right_hip_joint: '-0.2723546102306062'
+    right_calf_joint: '0.31845078681224914'
+    right_wheel_joint: '0'
+    right_knee_joint: '0.25938765752644338'
+    right_mid_joint: '-0.31827458600524233'
+    right_long_joint: '0.1049831050604422'
+    right_short_joint: '-0.31845078681226596'
+initial_joint_velocities:
+  joint_map:
+    base_free: 0 0 0 0 0 0
+    left_hip_joint: '0'
+    left_calf_joint: '0'
+    left_wheel_joint: '0'
+    left_knee_joint: '0'
+    left_mid_joint: '0'
+    left_long_joint: '0'
+    left_short_joint: '0'
+    right_hip_joint: '0'
+    right_calf_joint: '0'
+    right_wheel_joint: '0'
+    right_knee_joint: '0'
+    right_mid_joint: '0'
+    right_long_joint: '0'
+    right_short_joint: '0'

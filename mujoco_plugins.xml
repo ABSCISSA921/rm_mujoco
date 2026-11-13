@@ -1,0 +1,5 @@
+<library path="lib/librm_mujoco_robot_hw_sim">
+  <class name="rm_mujoco/LegSpringPlugin" type="rm_mujoco::LegSpringPlugin" base_class_type="mujoco_ros::MujocoPlugin">
+    <description>Passive axial leg springs fitted against hip-to-wheel length.</description>
+  </class>
+</library>

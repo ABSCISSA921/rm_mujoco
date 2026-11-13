@@ -1,0 +1,23 @@
+<mujoco model="rmul2027_field">
+  <compiler angle="radian" meshdir="."/>
+
+  <option timestep="0.001" gravity="0 0 -9.81" integrator="implicitfast" cone="elliptic"/>
+
+  <visual>
+    <headlight ambient="0.3 0.3 0.3" diffuse="0.4 0.4 0.4" specular="0.0 0.0 0.0"/>
+  </visual>
+
+  <asset>
+    <mesh name="rmul_2027" file="meshes/rmul_2027.stl" scale="0.001 0.001 0.001"/>
+  </asset>
+
+  <include file="rmul2027_boxes.xml"/>
+
+  <worldbody>
+    <light name="sun" pos="0 0 10" dir="-0.5 0.1 -0.9" directional="true" castshadow="true"
+           diffuse="0.8 0.8 0.8" specular="0.2 0.2 0.2" ambient="0.1 0.1 0.1"/>
+
+    <geom name="rmul2027_visual" type="mesh" mesh="rmul_2027" pos="-6.3 -4.3 0.52"
+          quat="0.7071068 -0.7071068 0 0" group="1" contype="0" conaffinity="0"/>
+  </worldbody>
+</mujoco>

@@ -1,0 +1,7 @@
+<launch>
+  <param name="robot_description" textfile="$(find rm_mujoco)/models/series_legged/robot.urdf"/>
+  <param name="test_model" value="$(find rm_mujoco)/models/series_legged/scene.xml"/>
+  <rosparam file="$(find rm_mujoco)/config/series_legged_imus.yaml"/>
+  <rosparam file="$(find rm_mujoco)/config/series_legged_initial.yaml"/>
+  <test test-name="hardware_interface" pkg="rm_mujoco" type="hardware_interface_test" time-limit="30"/>
+</launch>

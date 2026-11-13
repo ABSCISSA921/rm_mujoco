@@ -1,0 +1,175 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="series_legged_complete_frozen_upper">
+  <compiler angle="radian" inertiafromgeom="false" fusestatic="false" />
+  <option timestep="0.001" gravity="0 0 -9.81" integrator="implicitfast" solver="Newton" iterations="100" tolerance="1e-10" cone="elliptic" />
+  <default>
+    <joint stiffness="0" damping="0" armature="0" />
+    <geom contype="1" conaffinity="2" friction="1.0 0.002 0.0001" solref="0.004 1" solimp="0.95 0.99 0.001" density="0" />
+  </default>
+  <worldbody>
+    <light name="light" pos="0 -2 4" dir="0 0 -1" />
+    <geom name="floor" type="plane" size="20 20 .1" contype="2" conaffinity="1" rgba=".8 .8 .8 1" />
+    <body name="base_link" pos="0 0 .5">
+      <inertial pos="-0.003764254620550524 -0.001623754076921864 0.01776699508755224" mass="17.13609000000001" fullinertia="0.3896564948417656 0.3800634613428645 0.5279966342410685 0.009451058309184595 0.01183168487199517 0.01118738990656709" />
+      <freejoint name="base_free" />
+      <geom name="base_link_geom_0" rgba=".28 .4 .55 1" type="box" size="0.2 0.155 0.09" pos="0 0 -0.01" quat="1 0 0 0" />
+      <body name="left_armor" pos="0 0.295 -0.07000000000000001" quat="1 0 0 0">
+        <geom name="left_armor_geom_0" rgba=".28 .4 .55 1" type="box" size="0.075 0.01 0.06" pos="0 -0.028 0.06" quat="0.9895059058723948 0.1444924297105264 0 0" />
+      </body>
+      <body name="right_armor" pos="0 -0.295 -0.07000000000000001" quat="1 0 0 0">
+        <geom name="right_armor_geom_0" rgba=".28 .4 .55 1" type="box" size="0.075 0.01 0.06" pos="0 0.028 0.06" quat="0.9895059058723948 -0.1444924297105264 0 0" />
+      </body>
+      <body name="left_thigh" pos="-0 0.1755 0" quat="0.7071067811865477 0 0.7071067811865475 0">
+        <inertial pos="0 0 -0.095" mass="0.24" fullinertia="0.001438 0.001551 0.0001253 -1.221e-06 -3.7143e-05 -1.246e-06" />
+        <joint name="left_hip_joint" type="hinge" axis="0 1 0" damping="0.0" frictionloss="0.001" limited="false" />
+        <geom name="left_thigh_geom_0" rgba=".28 .4 .55 1" contype="0" conaffinity="0" type="box" size="0.05000670626759529 0.008999999612569809 0.1417375896126032" pos="0.007539752870798111 0 -0.09924054704606533" quat="1 0 0 0" />
+        <body name="left_calf" pos="0 0 -0.21" quat="-0.281637246956949 0 0.9595209539799069 0">
+          <inertial pos="0 0 -0.1" mass="0.182675" fullinertia="0.001916 0.001972 6.3227e-05 5.1e-08 -2.71e-05 3.114e-06" />
+          <joint name="left_calf_joint" type="hinge" axis="0 1 0" damping="0.0" frictionloss="0.001" limited="true" range="-0.2 1.2681" />
+          <geom name="left_calf_geom_0" rgba=".28 .4 .55 1" type="box" size="0.03298910334706306 0.007499999832361937 0.1788471452891827" pos="-2.256408333778381e-05 0 -0.102118331938982" quat="1 0 0 0" />
+          <body name="left_wheel" pos="0 0.04750000000000001 -0.248" quat="1 0 0 0">
+            <inertial pos="1.387778780781446e-17 0 0" mass="0.803567" fullinertia="0.001752 0.003357 0.001752 -2.766e-06 -1.599e-06 2.581e-06" />
+            <joint name="left_wheel_joint" type="hinge" axis="0 1 0" limited="false" />
+            <geom name="left_wheel_geom_0" rgba=".28 .4 .55 1" type="cylinder" size="0.06 0.015" pos="0 0 0" quat="0.7071067811865477 0.7071067811865475 0 0" />
+            <site name="left_wheel_center" pos="0 0 0" size=".005" />
+          </body>
+          <site name="left_connect_joint2_b" pos="0.01976808681171995 0 0.06430999029212259" size=".003" />
+        </body>
+        <site name="left_connect_joint1_a" pos="0 0 -0.1134" size=".003" />
+      </body>
+      <body name="left_knee_link" pos="0 0.1755 0" quat="0.7071067811865477 0 -0.7071067811865475 0">
+        <inertial pos="0 0 -0.1" mass="0.182675" fullinertia="0.001916 0.001972 6.3227e-05 5.1e-08 -2.71e-05 3.114e-06" />
+        <joint name="left_knee_joint" type="hinge" axis="0 1 0" damping="0.0" frictionloss="0.001" limited="false" />
+        <geom name="left_knee_link_geom_0" rgba=".28 .4 .55 1" type="box" size="0.03273825533688068 0.01136661553755403 0.08051135949790478" pos="-0.0003472249954938889 0.00665516359731555 -0.04808627255260944" quat="1 0 0 0" />
+        <body name="left_mid_link" pos="0 0 -0.1134" quat="0.281637246956949 0 0.9595209539799069 0">
+          <inertial pos="-6.938893903907228e-18 0 -0.043" mass="0.077486" fullinertia="0.0001634 0.0001867 2.6683e-05 -1.927e-06 7.71e-07 -1e-05" />
+          <joint name="left_mid_joint" type="hinge" axis="0 1 0" damping="0.0" frictionloss="0.001" limited="false" />
+          <geom name="left_mid_link_geom_0" rgba=".28 .4 .55 1" type="box" size="0.0142312734387815 0.004000000189989808 0.07949750637635589" pos="-0.001936994958668947 0.004000000189989803 -0.0675003626383841" quat="1 0 0 0" />
+          <body name="left_long_link" pos="0 0 -0.135" quat="-0.5818487483407652 0 0.8132970146596413 0">
+            <inertial pos="0 0 -0.043" mass="0.077486" fullinertia="0.0001634 0.0001867 2.6683e-05 -1.927e-06 7.71e-07 -1e-05" />
+            <joint name="left_long_joint" type="hinge" axis="0 1 0" damping="0.0" frictionloss="0.001" limited="false" />
+            <geom name="left_long_link_geom_0" rgba=".28 .4 .55 1" type="box" size="0.01762703899294138 0.00400000018998985 0.1112295370548964" pos="-0.006645879708230495 -0.00400000018998976 0.1002617795020342" quat="1 0 0 0" />
+            <body name="left_short_link" pos="0 0 0.2" quat="0.3292413339128988 0 0.9442458070032691 0">
+              <inertial pos="0 0 -0.043" mass="0.077486" fullinertia="0.0001634 0.0001867 2.6683e-05 -1.927e-06 7.71e-07 -1e-05" />
+              <joint name="left_short_joint" type="hinge" axis="0 1 0" damping="0.0" frictionloss="0.001" limited="false" />
+              <geom name="left_short_link_geom_0" rgba=".28 .4 .55 1" type="box" size="0.01216682372614741 0.004000000189989913 0.06029962655156851" pos="0.0001696492545306683 0.004000000189989698 -0.04829970095306635" quat="1 0 0 0" />
+              <site name="left_connect_joint2_a" pos="0 0 -0.09660000000000001" size=".003" />
+            </body>
+            <site name="left_connect_joint1_b" pos="-0.01324904266185185 0 0.1340377761433635" size=".003" />
+          </body>
+        </body>
+      </body>
+      <body name="right_thigh" pos="-0 -0.1755 0" quat="0.7071067811865477 0 0.7071067811865475 0">
+        <inertial pos="0 0 -0.095" mass="0.24" fullinertia="0.001438 0.001551 0.0001253 -1.221e-06 -3.7143e-05 -1.246e-06" />
+        <joint name="right_hip_joint" type="hinge" axis="0 1 0" damping="0.0" frictionloss="0.001" limited="false" />
+        <geom name="right_thigh_geom_0" rgba=".28 .4 .55 1" contype="0" conaffinity="0" type="box" size="0.05000670626759529 0.008999999612569809 0.1417375896126032" pos="0.007539752870798111 0 -0.09924054704606533" quat="1 0 0 0" />
+        <body name="right_calf" pos="0 0 -0.21" quat="-0.281637246956949 0 0.9595209539799069 0">
+          <inertial pos="0 0 -0.1" mass="0.182675" fullinertia="0.001916 0.001972 6.3227e-05 5.1e-08 -2.71e-05 3.114e-06" />
+          <joint name="right_calf_joint" type="hinge" axis="0 1 0" damping="0.0" frictionloss="0.001" limited="true" range="-0.2 1.2681" />
+          <geom name="right_calf_geom_0" rgba=".28 .4 .55 1" type="box" size="0.03298910334706306 0.007499999832361937 0.1788471452891827" pos="-2.256408333778381e-05 0 -0.102118331938982" quat="1 0 0 0" />
+          <body name="right_wheel" pos="0 -0.04750000000000001 -0.248" quat="1 0 0 0">
+            <inertial pos="1.387778780781446e-17 0 0" mass="0.803567" fullinertia="0.001752 0.003357 0.001752 -2.766e-06 -1.599e-06 2.581e-06" />
+            <joint name="right_wheel_joint" type="hinge" axis="0 1 0" limited="false" />
+            <geom name="right_wheel_geom_0" rgba=".28 .4 .55 1" type="cylinder" size="0.06 0.015" pos="0 0 0" quat="0.7071067811865477 0.7071067811865475 0 0" />
+            <site name="right_wheel_center" pos="0 0 0" size=".005" />
+          </body>
+          <site name="right_connect_joint2_b" pos="0.01976808681171995 0 0.06430999029212259" size=".003" />
+        </body>
+        <site name="right_connect_joint1_a" pos="0 0 -0.1134" size=".003" />
+      </body>
+      <body name="right_knee_link" pos="0 -0.1755 0" quat="0.7071067811865477 0 -0.7071067811865475 0">
+        <inertial pos="0 0 -0.1" mass="0.182675" fullinertia="0.001916 0.001972 6.3227e-05 5.1e-08 -2.71e-05 3.114e-06" />
+        <joint name="right_knee_joint" type="hinge" axis="0 1 0" damping="0.0" frictionloss="0.001" limited="false" />
+        <geom name="right_knee_link_geom_0" rgba=".28 .4 .55 1" type="box" size="0.03273825533688068 0.01136661553755403 0.08051135949790478" pos="-0.0003472249954938889 0.00665516359731555 -0.04808627255260944" quat="1 0 0 0" />
+        <body name="right_mid_link" pos="0 0 -0.1134" quat="0.281637246956949 0 0.9595209539799069 0">
+          <inertial pos="-6.938893903907228e-18 0 -0.043" mass="0.077486" fullinertia="0.0001634 0.0001867 2.6683e-05 -1.927e-06 7.71e-07 -1e-05" />
+          <joint name="right_mid_joint" type="hinge" axis="0 1 0" damping="0.0" frictionloss="0.001" limited="false" />
+          <geom name="right_mid_link_geom_0" rgba=".28 .4 .55 1" type="box" size="0.0142312734387815 0.004000000189989808 0.07949750637635589" pos="-0.001936994958668947 0.004000000189989803 -0.0675003626383841" quat="1 0 0 0" />
+          <body name="right_long_link" pos="0 0 -0.135" quat="-0.5818487483407652 0 0.8132970146596413 0">
+            <inertial pos="0 0 -0.043" mass="0.077486" fullinertia="0.0001634 0.0001867 2.6683e-05 -1.927e-06 7.71e-07 -1e-05" />
+            <joint name="right_long_joint" type="hinge" axis="0 1 0" damping="0.0" frictionloss="0.001" limited="false" />
+            <geom name="right_long_link_geom_0" rgba=".28 .4 .55 1" type="box" size="0.01762703899294138 0.00400000018998985 0.1112295370548964" pos="-0.006645879708230495 -0.00400000018998976 0.1002617795020342" quat="1 0 0 0" />
+            <body name="right_short_link" pos="0 0 0.2" quat="0.3292413339128988 0 0.9442458070032691 0">
+              <inertial pos="0 0 -0.043" mass="0.077486" fullinertia="0.0001634 0.0001867 2.6683e-05 -1.927e-06 7.71e-07 -1e-05" />
+              <joint name="right_short_joint" type="hinge" axis="0 1 0" damping="0.0" frictionloss="0.001" limited="false" />
+              <geom name="right_short_link_geom_0" rgba=".28 .4 .55 1" type="box" size="0.01216682372614741 0.004000000189989913 0.06029962655156851" pos="0.0001696492545306683 0.004000000189989698 -0.04829970095306635" quat="1 0 0 0" />
+              <site name="right_connect_joint2_a" pos="0 0 -0.09660000000000001" size=".003" />
+            </body>
+            <site name="right_connect_joint1_b" pos="-0.01324904266185185 0 0.1340377761433635" size=".003" />
+          </body>
+        </body>
+      </body>
+      <body name="left_front_guide_wheel" pos="0.25 0.1 -0.12" quat="1 0 0 0">
+        <geom name="left_front_guide_wheel_geom_0" rgba=".28 .4 .55 1" type="cylinder" size="0.02 0.005" pos="0 0 0" quat="0.7071067811865477 0.7071067811865475 0 0" />
+      </body>
+      <body name="right_front_guide_wheel" pos="0.25 -0.1 -0.12" quat="1 0 0 0">
+        <geom name="right_front_guide_wheel_geom_0" rgba=".28 .4 .55 1" type="cylinder" size="0.02 0.005" pos="0 0 0" quat="0.7071067811865477 0.7071067811865475 0 0" />
+      </body>
+      <body name="left_back_guide_wheel" pos="-0.25 0.1 -0.12" quat="1 0 0 0">
+        <geom name="left_back_guide_wheel_geom_0" rgba=".28 .4 .55 1" type="cylinder" size="0.02 0.005" pos="0 0 0" quat="0.7071067811865477 0.7071067811865475 0 0" />
+      </body>
+      <body name="right_back_guide_wheel" pos="-0.25 -0.1 -0.12" quat="1 0 0 0">
+        <geom name="right_back_guide_wheel_geom_0" rgba=".28 .4 .55 1" type="cylinder" size="0.02 0.005" pos="0 0 0" quat="0.7071067811865477 0.7071067811865475 0 0" />
+      </body>
+      <body name="left_tof_link" pos="0.23 0.123 -0.025125" quat="1 0 0 0">
+        <geom name="left_tof_link_geom_0" rgba=".28 .4 .55 1" type="box" size="0.005 0.01 0.005" pos="0 0 0" quat="1 0 0 0" />
+      </body>
+      <body name="right_tof_link" pos="0.23 -0.123 -0.025125" quat="1 0 0 0">
+        <geom name="right_tof_link_geom_0" rgba=".28 .4 .55 1" type="box" size="0.005 0.01 0.005" pos="0 0 0" quat="1 0 0 0" />
+      </body>
+      <body name="base_imu" pos="0.15962 0 -0.029125" quat="-4.329780281177467e-17 0.7071067811865477 -0.7071067811865475 4.329780281177466e-17">
+        <geom name="base_imu_geom_0" rgba=".28 .4 .55 1" contype="0" conaffinity="0" type="box" size="0.01727200020104647 0.01640850026160479 0.001249999972060337" pos="-1.309905201196671e-05 -0.007985000498592854 -0.001249999972060309" quat="1 0 0 0" />
+        <site name="imu" pos="0 0 0" size=".005" rgba="1 1 0 1" />
+      </body>
+      <body name="yaw" pos="0 0 0.036125" quat="1 0 0 0">
+        <geom name="yaw_geom_0" rgba=".28 .4 .55 1" type="box" size="0.05947055574506521 0.01899999938905239 0.05885165557265287" pos="-0.03047406766563654 0 0.05885165557265277" quat="1 0 0 0" />
+        <body name="flank_frame" pos="0 0 0" quat="0.7071067811865477 0 0 0.7071067811865475" />
+        <body name="yaw_reverse_frame" pos="0 0 0" quat="6.123233995736766e-17 0 0 1" />
+        <body name="pitch" pos="0 0 0.099" quat="1 0 0 0">
+          <geom name="pitch_geom_0" rgba=".28 .4 .55 1" type="box" size="0.1639828085899353 0.07163240015506744 0.08700366877019405" pos="0.02485734224319458 0 0.05437950231134892" quat="1 0 0 0" />
+          <body name="camera_link" pos="-0.016086 0 0.107908" quat="0.9993908271949852 0 0.03489949166568454 0">
+            <geom name="camera_link_geom_0" rgba=".28 .4 .55 1" type="box" size="0.06738200224936008 0.01946838386356831 0.01948418468236923" pos="-0.007618000730872154 -3.161653876304626e-05 0" quat="1 0 0 0" />
+          </body>
+          <body name="camera_optical_frame" pos="0.06059775176285364 8.7e-05 0.09256327160978176" quat="0.5305681035332657 -0.4748655306977161 0.468263506964737 -0.523191650653349" />
+          <body name="camera2_optical_frame" pos="0.06059775176285364 8.7e-05 0.09256327160978176" quat="-0.489334628428496 0.5297683925774098 -0.5088800719470128 0.4700405769951103" />
+          <body name="gimbal_imu" pos="-0.04 0 0.0665" quat="0.02947780793111055 0.7064920798137632 0.7064920798137629 0.02947780793111055">
+            <geom name="gimbal_imu_geom_0" rgba=".28 .4 .55 1" contype="0" conaffinity="0" type="box" size="0.01727200020104647 0.01640850026160479 0.001249999972060337" pos="-1.309905201196671e-05 -0.007985000498592854 -0.001249999972060309" quat="1 0 0 0" />
+          </body>
+          <body name="left_friction_wheel" pos="0.043878 0.03665 0" quat="1 0 0 0">
+            <geom name="left_friction_wheel_geom_0" rgba=".28 .4 .55 1" type="box" size="0.03141191974282265 0.03150000050663948 0.01049999985843897" pos="0 0 0.01049999985843897" quat="1 0 0 0" />
+          </body>
+          <body name="right_friction_wheel" pos="0.043878 -0.03665 0" quat="1 0 0 0">
+            <geom name="right_friction_wheel_geom_0" rgba=".28 .4 .55 1" type="box" size="0.03141191974282265 0.03150000050663948 0.01049999985843897" pos="0 0 0.01049999985843897" quat="1 0 0 0" />
+          </body>
+        </body>
+      </body>
+      <body name="trigger" pos="0 -0 -0.06" quat="1 0 0 0">
+        <geom name="trigger_geom_0" rgba=".28 .4 .55 1" type="box" size="0.05750514380633831 0.05044972524046898 0.02899999916553497" pos="-3.026798367500305e-06 0.003550276160240173 0.02899999916553497" quat="1 0 0 0" />
+      </body>
+      <site name="base_origin" pos="0 0 0" size=".005" rgba="1 0 0 1" />
+    </body>
+  </worldbody>
+  <equality>
+    <connect name="left_connect_joint1" body1="left_thigh" body2="left_long_link" anchor="0 0 -0.1134" solref="0.002 1" solimp="0.999 0.9999 0.0001" />
+    <connect name="left_connect_joint2" body1="left_short_link" body2="left_calf" anchor="0 0 -0.09660000000000001" solref="0.002 1" solimp="0.999 0.9999 0.0001" />
+    <connect name="right_connect_joint1" body1="right_thigh" body2="right_long_link" anchor="0 0 -0.1134" solref="0.002 1" solimp="0.999 0.9999 0.0001" />
+    <connect name="right_connect_joint2" body1="right_short_link" body2="right_calf" anchor="0 0 -0.09660000000000001" solref="0.002 1" solimp="0.999 0.9999 0.0001" />
+  </equality>
+  <sensor>
+    <gyro name="base_imu_gyro" site="imu" />
+    <accelerometer name="base_imu_acc" site="imu" />
+    <framequat name="base_imu_quat" objtype="site" objname="imu" />
+    <jointpos name="left_hip_joint_position" joint="left_hip_joint" />
+    <jointvel name="left_hip_joint_velocity" joint="left_hip_joint" />
+    <jointpos name="left_knee_joint_position" joint="left_knee_joint" />
+    <jointvel name="left_knee_joint_velocity" joint="left_knee_joint" />
+    <jointpos name="right_hip_joint_position" joint="right_hip_joint" />
+    <jointvel name="right_hip_joint_velocity" joint="right_hip_joint" />
+    <jointpos name="right_knee_joint_position" joint="right_knee_joint" />
+    <jointvel name="right_knee_joint_velocity" joint="right_knee_joint" />
+    <jointpos name="left_wheel_joint_position" joint="left_wheel_joint" />
+    <jointvel name="left_wheel_joint_velocity" joint="left_wheel_joint" />
+    <jointpos name="right_wheel_joint_position" joint="right_wheel_joint" />
+    <jointvel name="right_wheel_joint_velocity" joint="right_wheel_joint" />
+  </sensor>
+</mujoco>

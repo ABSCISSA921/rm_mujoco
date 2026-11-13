@@ -1,0 +1,861 @@
+<mujoco model="jelly_sentry">
+  <compiler angle="radian" meshdir="."/>
+  <option timestep="0.005" gravity="0 0 -9.81" integrator="implicitfast" cone="elliptic"/>
+
+  <default>
+    <default class="visual">
+      <geom group="2" contype="0" conaffinity="0" density="0"/>
+    </default>
+    <default class="collision">
+      <geom group="3" contype="2" conaffinity="4" condim="3" friction="0.1 0.005 0.0001" solref="0.02 1" solimp="0.9 0.95 0.001"/>
+    </default>
+    <default class="roller">
+      <geom group="3" contype="2" conaffinity="4" condim="3" friction="2.0 0.01 0.0001" solref="0.01 1" solimp="0.9 0.95 0.001"/>
+    </default>
+  </default>
+
+  <asset>
+    <material name="orange" rgba="1 0.423529412 0.0392156863 1"/>
+    <mesh name="jelly_base" file="../../rm_description/meshes/standard/jelly_base.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="omni_wheel" file="../../rm_description/meshes/common/omni_wheel.stl" scale="1 1 1"/>
+    <mesh name="omni_roller" file="../../rm_description/meshes/common/omni_roller.stl" scale="1 1 1"/>
+    <mesh name="base_yaw" file="../../rm_description/meshes/standard/base_yaw.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="jelly_yaw" file="../../rm_description/meshes/standard/jelly_yaw.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="base_pitch" file="../../rm_description/meshes/standard/base_pitch.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="jelly_pitch" file="../../rm_description/meshes/standard/jelly_pitch.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="hk_camera" file="../../rm_description/meshes/common/hk_camera.stl" scale="1 1 1"/>
+    <mesh name="imu" file="../../rm_description/meshes/common/imu.stl" scale="1 1 1"/>
+    <mesh name="friction" file="../../rm_description/meshes/common/friction.stl" scale="1 1 1"/>
+    <mesh name="livox_mid360" file="../../rm_description/meshes/common/livox_mid360.stl" scale="1 1 1"/>
+    <mesh name="jelly_trigger" file="../../rm_description/meshes/standard/jelly_trigger.stl" scale="1 1 1"/>
+  </asset>
+
+  <worldbody>
+    <body name="base_link">
+      <freejoint name="base_link_free_joint"/>
+      <inertial pos="-0.022748 -0.024659 0.020038" mass="8.0000768" fullinertia="0.19690368 0.22553984 0.40198912 -0.0204544 0.00791104 0.0035939584"/>
+      <geom class="visual" type="mesh" mesh="jelly_base" name="base_link_visual_0"/>
+      <geom class="collision" type="mesh" mesh="jelly_base" name="base_link_collision_0"/>
+      <body name="left_front_wheel" pos="0.185969083 0.185969083 0.0085" quat="0.382683432 0 0 0.923879533">
+        <joint name="left_front_wheel_joint" type="hinge" axis="0 1 0" damping="0.1"/>
+        <inertial pos="0 0 0" mass="0.59" fullinertia="0.001416 0.002749 0.001416 0 0 0"/>
+        <geom class="visual" type="mesh" mesh="omni_wheel" name="left_front_wheel_visual_0"/>
+        <body name="left_front_roller_0" pos="4.11481325e-18 -0.009563 -0.0672">
+          <joint name="left_front_roller_0_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="left_front_roller_0_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="left_front_roller_0_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="left_front_roller_0_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="left_front_roller_1" pos="0.0160820126 0.009563 -0.0652472901" quat="0.992708874 0 -0.12053668 0">
+          <joint name="left_front_roller_1_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="left_front_roller_1_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="left_front_roller_1_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="left_front_roller_1_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="left_front_roller_2" pos="0.0312293972 -0.009563 -0.0595026449" quat="0.970941817 0 -0.239315664 0">
+          <joint name="left_front_roller_2_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="left_front_roller_2_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="left_front_roller_2_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="left_front_roller_2_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="left_front_roller_3" pos="0.0445618426 0.009563 -0.0502999223" quat="0.935016243 0 -0.354604887 0">
+          <joint name="left_front_roller_3_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="left_front_roller_3_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="left_front_roller_3_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="left_front_roller_3_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="left_front_roller_4" pos="0.0553045158 -0.009563 -0.038173951" quat="0.885456026 0 -0.464723172 0">
+          <joint name="left_front_roller_4_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="left_front_roller_4_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="left_front_roller_4_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="left_front_roller_4_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="left_front_roller_5" pos="0.0628330915 0.009563 -0.0238294484" quat="0.822983866 0 -0.568064747 0">
+          <joint name="left_front_roller_5_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="left_front_roller_5_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="left_front_roller_5_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="left_front_roller_5_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="left_front_roller_6" pos="0.0667100363 -0.009563 -0.00810006491" quat="0.748510748 0 -0.663122658 0">
+          <joint name="left_front_roller_6_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="left_front_roller_6_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="left_front_roller_6_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="left_front_roller_6_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="left_front_roller_7" pos="0.0667100363 0.009563 0.00810006491" quat="0.663122658 0 -0.748510748 0">
+          <joint name="left_front_roller_7_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="left_front_roller_7_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="left_front_roller_7_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="left_front_roller_7_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="left_front_roller_8" pos="0.0628330915 -0.009563 0.0238294484" quat="0.568064747 0 -0.822983866 0">
+          <joint name="left_front_roller_8_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="left_front_roller_8_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="left_front_roller_8_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="left_front_roller_8_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="left_front_roller_9" pos="0.0553045158 0.009563 0.038173951" quat="0.464723172 0 -0.885456026 0">
+          <joint name="left_front_roller_9_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="left_front_roller_9_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="left_front_roller_9_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="left_front_roller_9_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="left_front_roller_10" pos="0.0445618426 -0.009563 0.0502999223" quat="0.354604887 0 -0.935016243 0">
+          <joint name="left_front_roller_10_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="left_front_roller_10_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="left_front_roller_10_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="left_front_roller_10_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="left_front_roller_11" pos="0.0312293972 0.009563 0.0595026449" quat="0.239315664 0 -0.970941817 0">
+          <joint name="left_front_roller_11_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="left_front_roller_11_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="left_front_roller_11_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="left_front_roller_11_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="left_front_roller_12" pos="0.0160820126 -0.009563 0.0652472901" quat="0.12053668 0 -0.992708874 0">
+          <joint name="left_front_roller_12_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="left_front_roller_12_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="left_front_roller_12_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="left_front_roller_12_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="left_front_roller_13" pos="-2.57279817e-17 0.009563 0.0672" quat="-1.60812265e-16 0 -1 0">
+          <joint name="left_front_roller_13_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="left_front_roller_13_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="left_front_roller_13_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="left_front_roller_13_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="left_front_roller_14" pos="-0.0160820126 -0.009563 0.0652472901" quat="-0.12053668 0 -0.992708874 0">
+          <joint name="left_front_roller_14_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="left_front_roller_14_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="left_front_roller_14_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="left_front_roller_14_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="left_front_roller_15" pos="-0.0312293972 0.009563 0.0595026449" quat="-0.239315664 0 -0.970941817 0">
+          <joint name="left_front_roller_15_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="left_front_roller_15_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="left_front_roller_15_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="left_front_roller_15_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="left_front_roller_16" pos="-0.0445618426 -0.009563 0.0502999223" quat="-0.354604887 0 -0.935016243 0">
+          <joint name="left_front_roller_16_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="left_front_roller_16_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="left_front_roller_16_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="left_front_roller_16_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="left_front_roller_17" pos="-0.0553045158 0.009563 0.038173951" quat="-0.464723172 0 -0.885456026 0">
+          <joint name="left_front_roller_17_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="left_front_roller_17_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="left_front_roller_17_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="left_front_roller_17_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="left_front_roller_18" pos="-0.0628330915 -0.009563 0.0238294484" quat="-0.568064747 0 -0.822983866 0">
+          <joint name="left_front_roller_18_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="left_front_roller_18_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="left_front_roller_18_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="left_front_roller_18_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="left_front_roller_19" pos="-0.0667100363 0.009563 0.00810006491" quat="-0.663122658 0 -0.748510748 0">
+          <joint name="left_front_roller_19_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="left_front_roller_19_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="left_front_roller_19_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="left_front_roller_19_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="left_front_roller_20" pos="-0.0667100363 -0.009563 -0.00810006491" quat="-0.748510748 0 -0.663122658 0">
+          <joint name="left_front_roller_20_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="left_front_roller_20_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="left_front_roller_20_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="left_front_roller_20_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="left_front_roller_21" pos="-0.0628330915 0.009563 -0.0238294484" quat="-0.822983866 0 -0.568064747 0">
+          <joint name="left_front_roller_21_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="left_front_roller_21_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="left_front_roller_21_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="left_front_roller_21_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="left_front_roller_22" pos="-0.0553045158 -0.009563 -0.038173951" quat="-0.885456026 0 -0.464723172 0">
+          <joint name="left_front_roller_22_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="left_front_roller_22_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="left_front_roller_22_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="left_front_roller_22_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="left_front_roller_23" pos="-0.0445618426 0.009563 -0.0502999223" quat="-0.935016243 0 -0.354604887 0">
+          <joint name="left_front_roller_23_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="left_front_roller_23_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="left_front_roller_23_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="left_front_roller_23_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="left_front_roller_24" pos="-0.0312293972 -0.009563 -0.0595026449" quat="-0.970941817 0 -0.239315664 0">
+          <joint name="left_front_roller_24_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="left_front_roller_24_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="left_front_roller_24_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="left_front_roller_24_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="left_front_roller_25" pos="-0.0160820126 0.009563 -0.0652472901" quat="-0.992708874 0 -0.12053668 0">
+          <joint name="left_front_roller_25_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="left_front_roller_25_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="left_front_roller_25_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="left_front_roller_25_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+      </body>
+      <body name="right_front_wheel" pos="0.185969083 -0.185969083 0.0085" quat="0.923879533 0 0 0.382683432">
+        <joint name="right_front_wheel_joint" type="hinge" axis="0 1 0" damping="0.1"/>
+        <inertial pos="0 0 0" mass="0.59" fullinertia="0.001416 0.002749 0.001416 0 0 0"/>
+        <geom class="visual" type="mesh" mesh="omni_wheel" name="right_front_wheel_visual_0"/>
+        <body name="right_front_roller_0" pos="4.11481325e-18 -0.009563 -0.0672">
+          <joint name="right_front_roller_0_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="right_front_roller_0_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="right_front_roller_0_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="right_front_roller_0_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="right_front_roller_1" pos="0.0160820126 0.009563 -0.0652472901" quat="0.992708874 0 -0.12053668 0">
+          <joint name="right_front_roller_1_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="right_front_roller_1_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="right_front_roller_1_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="right_front_roller_1_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="right_front_roller_2" pos="0.0312293972 -0.009563 -0.0595026449" quat="0.970941817 0 -0.239315664 0">
+          <joint name="right_front_roller_2_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="right_front_roller_2_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="right_front_roller_2_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="right_front_roller_2_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="right_front_roller_3" pos="0.0445618426 0.009563 -0.0502999223" quat="0.935016243 0 -0.354604887 0">
+          <joint name="right_front_roller_3_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="right_front_roller_3_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="right_front_roller_3_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="right_front_roller_3_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="right_front_roller_4" pos="0.0553045158 -0.009563 -0.038173951" quat="0.885456026 0 -0.464723172 0">
+          <joint name="right_front_roller_4_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="right_front_roller_4_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="right_front_roller_4_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="right_front_roller_4_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="right_front_roller_5" pos="0.0628330915 0.009563 -0.0238294484" quat="0.822983866 0 -0.568064747 0">
+          <joint name="right_front_roller_5_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="right_front_roller_5_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="right_front_roller_5_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="right_front_roller_5_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="right_front_roller_6" pos="0.0667100363 -0.009563 -0.00810006491" quat="0.748510748 0 -0.663122658 0">
+          <joint name="right_front_roller_6_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="right_front_roller_6_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="right_front_roller_6_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="right_front_roller_6_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="right_front_roller_7" pos="0.0667100363 0.009563 0.00810006491" quat="0.663122658 0 -0.748510748 0">
+          <joint name="right_front_roller_7_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="right_front_roller_7_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="right_front_roller_7_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="right_front_roller_7_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="right_front_roller_8" pos="0.0628330915 -0.009563 0.0238294484" quat="0.568064747 0 -0.822983866 0">
+          <joint name="right_front_roller_8_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="right_front_roller_8_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="right_front_roller_8_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="right_front_roller_8_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="right_front_roller_9" pos="0.0553045158 0.009563 0.038173951" quat="0.464723172 0 -0.885456026 0">
+          <joint name="right_front_roller_9_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="right_front_roller_9_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="right_front_roller_9_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="right_front_roller_9_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="right_front_roller_10" pos="0.0445618426 -0.009563 0.0502999223" quat="0.354604887 0 -0.935016243 0">
+          <joint name="right_front_roller_10_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="right_front_roller_10_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="right_front_roller_10_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="right_front_roller_10_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="right_front_roller_11" pos="0.0312293972 0.009563 0.0595026449" quat="0.239315664 0 -0.970941817 0">
+          <joint name="right_front_roller_11_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="right_front_roller_11_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="right_front_roller_11_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="right_front_roller_11_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="right_front_roller_12" pos="0.0160820126 -0.009563 0.0652472901" quat="0.12053668 0 -0.992708874 0">
+          <joint name="right_front_roller_12_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="right_front_roller_12_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="right_front_roller_12_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="right_front_roller_12_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="right_front_roller_13" pos="-2.57279817e-17 0.009563 0.0672" quat="-1.60812265e-16 0 -1 0">
+          <joint name="right_front_roller_13_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="right_front_roller_13_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="right_front_roller_13_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="right_front_roller_13_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="right_front_roller_14" pos="-0.0160820126 -0.009563 0.0652472901" quat="-0.12053668 0 -0.992708874 0">
+          <joint name="right_front_roller_14_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="right_front_roller_14_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="right_front_roller_14_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="right_front_roller_14_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="right_front_roller_15" pos="-0.0312293972 0.009563 0.0595026449" quat="-0.239315664 0 -0.970941817 0">
+          <joint name="right_front_roller_15_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="right_front_roller_15_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="right_front_roller_15_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="right_front_roller_15_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="right_front_roller_16" pos="-0.0445618426 -0.009563 0.0502999223" quat="-0.354604887 0 -0.935016243 0">
+          <joint name="right_front_roller_16_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="right_front_roller_16_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="right_front_roller_16_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="right_front_roller_16_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="right_front_roller_17" pos="-0.0553045158 0.009563 0.038173951" quat="-0.464723172 0 -0.885456026 0">
+          <joint name="right_front_roller_17_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="right_front_roller_17_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="right_front_roller_17_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="right_front_roller_17_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="right_front_roller_18" pos="-0.0628330915 -0.009563 0.0238294484" quat="-0.568064747 0 -0.822983866 0">
+          <joint name="right_front_roller_18_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="right_front_roller_18_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="right_front_roller_18_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="right_front_roller_18_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="right_front_roller_19" pos="-0.0667100363 0.009563 0.00810006491" quat="-0.663122658 0 -0.748510748 0">
+          <joint name="right_front_roller_19_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="right_front_roller_19_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="right_front_roller_19_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="right_front_roller_19_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="right_front_roller_20" pos="-0.0667100363 -0.009563 -0.00810006491" quat="-0.748510748 0 -0.663122658 0">
+          <joint name="right_front_roller_20_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="right_front_roller_20_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="right_front_roller_20_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="right_front_roller_20_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="right_front_roller_21" pos="-0.0628330915 0.009563 -0.0238294484" quat="-0.822983866 0 -0.568064747 0">
+          <joint name="right_front_roller_21_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="right_front_roller_21_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="right_front_roller_21_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="right_front_roller_21_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="right_front_roller_22" pos="-0.0553045158 -0.009563 -0.038173951" quat="-0.885456026 0 -0.464723172 0">
+          <joint name="right_front_roller_22_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="right_front_roller_22_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="right_front_roller_22_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="right_front_roller_22_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="right_front_roller_23" pos="-0.0445618426 0.009563 -0.0502999223" quat="-0.935016243 0 -0.354604887 0">
+          <joint name="right_front_roller_23_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="right_front_roller_23_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="right_front_roller_23_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="right_front_roller_23_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="right_front_roller_24" pos="-0.0312293972 -0.009563 -0.0595026449" quat="-0.970941817 0 -0.239315664 0">
+          <joint name="right_front_roller_24_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="right_front_roller_24_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="right_front_roller_24_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="right_front_roller_24_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="right_front_roller_25" pos="-0.0160820126 0.009563 -0.0652472901" quat="-0.992708874 0 -0.12053668 0">
+          <joint name="right_front_roller_25_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="right_front_roller_25_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="right_front_roller_25_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="right_front_roller_25_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+      </body>
+      <body name="left_back_wheel" pos="-0.185969083 0.185969083 0.0085" quat="0.382683432 0 0 -0.923879533">
+        <joint name="left_back_wheel_joint" type="hinge" axis="0 1 0" damping="0.1"/>
+        <inertial pos="0 0 0" mass="0.59" fullinertia="0.001416 0.002749 0.001416 0 0 0"/>
+        <geom class="visual" type="mesh" mesh="omni_wheel" name="left_back_wheel_visual_0"/>
+        <body name="left_back_roller_0" pos="4.11481325e-18 -0.009563 -0.0672">
+          <joint name="left_back_roller_0_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="left_back_roller_0_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="left_back_roller_0_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="left_back_roller_0_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="left_back_roller_1" pos="0.0160820126 0.009563 -0.0652472901" quat="0.992708874 0 -0.12053668 0">
+          <joint name="left_back_roller_1_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="left_back_roller_1_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="left_back_roller_1_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="left_back_roller_1_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="left_back_roller_2" pos="0.0312293972 -0.009563 -0.0595026449" quat="0.970941817 0 -0.239315664 0">
+          <joint name="left_back_roller_2_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="left_back_roller_2_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="left_back_roller_2_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="left_back_roller_2_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="left_back_roller_3" pos="0.0445618426 0.009563 -0.0502999223" quat="0.935016243 0 -0.354604887 0">
+          <joint name="left_back_roller_3_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="left_back_roller_3_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="left_back_roller_3_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="left_back_roller_3_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="left_back_roller_4" pos="0.0553045158 -0.009563 -0.038173951" quat="0.885456026 0 -0.464723172 0">
+          <joint name="left_back_roller_4_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="left_back_roller_4_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="left_back_roller_4_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="left_back_roller_4_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="left_back_roller_5" pos="0.0628330915 0.009563 -0.0238294484" quat="0.822983866 0 -0.568064747 0">
+          <joint name="left_back_roller_5_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="left_back_roller_5_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="left_back_roller_5_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="left_back_roller_5_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="left_back_roller_6" pos="0.0667100363 -0.009563 -0.00810006491" quat="0.748510748 0 -0.663122658 0">
+          <joint name="left_back_roller_6_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="left_back_roller_6_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="left_back_roller_6_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="left_back_roller_6_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="left_back_roller_7" pos="0.0667100363 0.009563 0.00810006491" quat="0.663122658 0 -0.748510748 0">
+          <joint name="left_back_roller_7_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="left_back_roller_7_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="left_back_roller_7_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="left_back_roller_7_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="left_back_roller_8" pos="0.0628330915 -0.009563 0.0238294484" quat="0.568064747 0 -0.822983866 0">
+          <joint name="left_back_roller_8_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="left_back_roller_8_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="left_back_roller_8_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="left_back_roller_8_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="left_back_roller_9" pos="0.0553045158 0.009563 0.038173951" quat="0.464723172 0 -0.885456026 0">
+          <joint name="left_back_roller_9_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="left_back_roller_9_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="left_back_roller_9_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="left_back_roller_9_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="left_back_roller_10" pos="0.0445618426 -0.009563 0.0502999223" quat="0.354604887 0 -0.935016243 0">
+          <joint name="left_back_roller_10_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="left_back_roller_10_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="left_back_roller_10_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="left_back_roller_10_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="left_back_roller_11" pos="0.0312293972 0.009563 0.0595026449" quat="0.239315664 0 -0.970941817 0">
+          <joint name="left_back_roller_11_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="left_back_roller_11_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="left_back_roller_11_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="left_back_roller_11_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="left_back_roller_12" pos="0.0160820126 -0.009563 0.0652472901" quat="0.12053668 0 -0.992708874 0">
+          <joint name="left_back_roller_12_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="left_back_roller_12_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="left_back_roller_12_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="left_back_roller_12_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="left_back_roller_13" pos="-2.57279817e-17 0.009563 0.0672" quat="-1.60812265e-16 0 -1 0">
+          <joint name="left_back_roller_13_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="left_back_roller_13_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="left_back_roller_13_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="left_back_roller_13_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="left_back_roller_14" pos="-0.0160820126 -0.009563 0.0652472901" quat="-0.12053668 0 -0.992708874 0">
+          <joint name="left_back_roller_14_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="left_back_roller_14_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="left_back_roller_14_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="left_back_roller_14_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="left_back_roller_15" pos="-0.0312293972 0.009563 0.0595026449" quat="-0.239315664 0 -0.970941817 0">
+          <joint name="left_back_roller_15_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="left_back_roller_15_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="left_back_roller_15_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="left_back_roller_15_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="left_back_roller_16" pos="-0.0445618426 -0.009563 0.0502999223" quat="-0.354604887 0 -0.935016243 0">
+          <joint name="left_back_roller_16_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="left_back_roller_16_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="left_back_roller_16_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="left_back_roller_16_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="left_back_roller_17" pos="-0.0553045158 0.009563 0.038173951" quat="-0.464723172 0 -0.885456026 0">
+          <joint name="left_back_roller_17_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="left_back_roller_17_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="left_back_roller_17_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="left_back_roller_17_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="left_back_roller_18" pos="-0.0628330915 -0.009563 0.0238294484" quat="-0.568064747 0 -0.822983866 0">
+          <joint name="left_back_roller_18_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="left_back_roller_18_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="left_back_roller_18_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="left_back_roller_18_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="left_back_roller_19" pos="-0.0667100363 0.009563 0.00810006491" quat="-0.663122658 0 -0.748510748 0">
+          <joint name="left_back_roller_19_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="left_back_roller_19_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="left_back_roller_19_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="left_back_roller_19_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="left_back_roller_20" pos="-0.0667100363 -0.009563 -0.00810006491" quat="-0.748510748 0 -0.663122658 0">
+          <joint name="left_back_roller_20_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="left_back_roller_20_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="left_back_roller_20_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="left_back_roller_20_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="left_back_roller_21" pos="-0.0628330915 0.009563 -0.0238294484" quat="-0.822983866 0 -0.568064747 0">
+          <joint name="left_back_roller_21_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="left_back_roller_21_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="left_back_roller_21_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="left_back_roller_21_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="left_back_roller_22" pos="-0.0553045158 -0.009563 -0.038173951" quat="-0.885456026 0 -0.464723172 0">
+          <joint name="left_back_roller_22_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="left_back_roller_22_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="left_back_roller_22_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="left_back_roller_22_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="left_back_roller_23" pos="-0.0445618426 0.009563 -0.0502999223" quat="-0.935016243 0 -0.354604887 0">
+          <joint name="left_back_roller_23_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="left_back_roller_23_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="left_back_roller_23_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="left_back_roller_23_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="left_back_roller_24" pos="-0.0312293972 -0.009563 -0.0595026449" quat="-0.970941817 0 -0.239315664 0">
+          <joint name="left_back_roller_24_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="left_back_roller_24_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="left_back_roller_24_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="left_back_roller_24_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="left_back_roller_25" pos="-0.0160820126 0.009563 -0.0652472901" quat="-0.992708874 0 -0.12053668 0">
+          <joint name="left_back_roller_25_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="left_back_roller_25_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="left_back_roller_25_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="left_back_roller_25_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+      </body>
+      <body name="right_back_wheel" pos="-0.185969083 -0.185969083 0.0085" quat="0.923879533 0 0 -0.382683432">
+        <joint name="right_back_wheel_joint" type="hinge" axis="0 1 0" damping="0.1"/>
+        <inertial pos="0 0 0" mass="0.59" fullinertia="0.001416 0.002749 0.001416 0 0 0"/>
+        <geom class="visual" type="mesh" mesh="omni_wheel" name="right_back_wheel_visual_0"/>
+        <body name="right_back_roller_0" pos="4.11481325e-18 -0.009563 -0.0672">
+          <joint name="right_back_roller_0_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="right_back_roller_0_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="right_back_roller_0_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="right_back_roller_0_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="right_back_roller_1" pos="0.0160820126 0.009563 -0.0652472901" quat="0.992708874 0 -0.12053668 0">
+          <joint name="right_back_roller_1_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="right_back_roller_1_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="right_back_roller_1_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="right_back_roller_1_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="right_back_roller_2" pos="0.0312293972 -0.009563 -0.0595026449" quat="0.970941817 0 -0.239315664 0">
+          <joint name="right_back_roller_2_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="right_back_roller_2_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="right_back_roller_2_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="right_back_roller_2_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="right_back_roller_3" pos="0.0445618426 0.009563 -0.0502999223" quat="0.935016243 0 -0.354604887 0">
+          <joint name="right_back_roller_3_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="right_back_roller_3_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="right_back_roller_3_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="right_back_roller_3_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="right_back_roller_4" pos="0.0553045158 -0.009563 -0.038173951" quat="0.885456026 0 -0.464723172 0">
+          <joint name="right_back_roller_4_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="right_back_roller_4_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="right_back_roller_4_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="right_back_roller_4_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="right_back_roller_5" pos="0.0628330915 0.009563 -0.0238294484" quat="0.822983866 0 -0.568064747 0">
+          <joint name="right_back_roller_5_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="right_back_roller_5_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="right_back_roller_5_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="right_back_roller_5_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="right_back_roller_6" pos="0.0667100363 -0.009563 -0.00810006491" quat="0.748510748 0 -0.663122658 0">
+          <joint name="right_back_roller_6_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="right_back_roller_6_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="right_back_roller_6_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="right_back_roller_6_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="right_back_roller_7" pos="0.0667100363 0.009563 0.00810006491" quat="0.663122658 0 -0.748510748 0">
+          <joint name="right_back_roller_7_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="right_back_roller_7_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="right_back_roller_7_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="right_back_roller_7_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="right_back_roller_8" pos="0.0628330915 -0.009563 0.0238294484" quat="0.568064747 0 -0.822983866 0">
+          <joint name="right_back_roller_8_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="right_back_roller_8_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="right_back_roller_8_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="right_back_roller_8_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="right_back_roller_9" pos="0.0553045158 0.009563 0.038173951" quat="0.464723172 0 -0.885456026 0">
+          <joint name="right_back_roller_9_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="right_back_roller_9_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="right_back_roller_9_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="right_back_roller_9_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="right_back_roller_10" pos="0.0445618426 -0.009563 0.0502999223" quat="0.354604887 0 -0.935016243 0">
+          <joint name="right_back_roller_10_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="right_back_roller_10_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="right_back_roller_10_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="right_back_roller_10_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="right_back_roller_11" pos="0.0312293972 0.009563 0.0595026449" quat="0.239315664 0 -0.970941817 0">
+          <joint name="right_back_roller_11_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="right_back_roller_11_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="right_back_roller_11_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="right_back_roller_11_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="right_back_roller_12" pos="0.0160820126 -0.009563 0.0652472901" quat="0.12053668 0 -0.992708874 0">
+          <joint name="right_back_roller_12_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="right_back_roller_12_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="right_back_roller_12_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="right_back_roller_12_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="right_back_roller_13" pos="-2.57279817e-17 0.009563 0.0672" quat="-1.60812265e-16 0 -1 0">
+          <joint name="right_back_roller_13_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="right_back_roller_13_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="right_back_roller_13_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="right_back_roller_13_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="right_back_roller_14" pos="-0.0160820126 -0.009563 0.0652472901" quat="-0.12053668 0 -0.992708874 0">
+          <joint name="right_back_roller_14_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="right_back_roller_14_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="right_back_roller_14_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="right_back_roller_14_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="right_back_roller_15" pos="-0.0312293972 0.009563 0.0595026449" quat="-0.239315664 0 -0.970941817 0">
+          <joint name="right_back_roller_15_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="right_back_roller_15_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="right_back_roller_15_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="right_back_roller_15_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="right_back_roller_16" pos="-0.0445618426 -0.009563 0.0502999223" quat="-0.354604887 0 -0.935016243 0">
+          <joint name="right_back_roller_16_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="right_back_roller_16_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="right_back_roller_16_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="right_back_roller_16_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="right_back_roller_17" pos="-0.0553045158 0.009563 0.038173951" quat="-0.464723172 0 -0.885456026 0">
+          <joint name="right_back_roller_17_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="right_back_roller_17_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="right_back_roller_17_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="right_back_roller_17_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="right_back_roller_18" pos="-0.0628330915 -0.009563 0.0238294484" quat="-0.568064747 0 -0.822983866 0">
+          <joint name="right_back_roller_18_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="right_back_roller_18_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="right_back_roller_18_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="right_back_roller_18_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="right_back_roller_19" pos="-0.0667100363 0.009563 0.00810006491" quat="-0.663122658 0 -0.748510748 0">
+          <joint name="right_back_roller_19_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="right_back_roller_19_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="right_back_roller_19_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="right_back_roller_19_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="right_back_roller_20" pos="-0.0667100363 -0.009563 -0.00810006491" quat="-0.748510748 0 -0.663122658 0">
+          <joint name="right_back_roller_20_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="right_back_roller_20_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="right_back_roller_20_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="right_back_roller_20_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="right_back_roller_21" pos="-0.0628330915 0.009563 -0.0238294484" quat="-0.822983866 0 -0.568064747 0">
+          <joint name="right_back_roller_21_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="right_back_roller_21_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="right_back_roller_21_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="right_back_roller_21_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="right_back_roller_22" pos="-0.0553045158 -0.009563 -0.038173951" quat="-0.885456026 0 -0.464723172 0">
+          <joint name="right_back_roller_22_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="right_back_roller_22_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="right_back_roller_22_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="right_back_roller_22_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="right_back_roller_23" pos="-0.0445618426 0.009563 -0.0502999223" quat="-0.935016243 0 -0.354604887 0">
+          <joint name="right_back_roller_23_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="right_back_roller_23_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="right_back_roller_23_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="right_back_roller_23_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="right_back_roller_24" pos="-0.0312293972 -0.009563 -0.0595026449" quat="-0.970941817 0 -0.239315664 0">
+          <joint name="right_back_roller_24_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="right_back_roller_24_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="right_back_roller_24_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="right_back_roller_24_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+        <body name="right_back_roller_25" pos="-0.0160820126 0.009563 -0.0652472901" quat="-0.992708874 0 -0.12053668 0">
+          <joint name="right_back_roller_25_joint" type="hinge" axis="1 0 0"/>
+          <inertial pos="0 0 0" mass="0.0058" fullinertia="2.70867e-07 2.91412e-07 2.91412e-07 1.547e-19 2.133e-19 0"/>
+          <geom class="visual" type="mesh" mesh="omni_roller" name="right_back_roller_25_visual_0"/>
+          <geom class="roller" type="sphere" size="0.009" name="right_back_roller_25_collision_0"/>
+          <geom class="roller" type="cylinder" size="0.0086 0.0095" name="right_back_roller_25_collision_1" quat="0.707388269 0 0.706825181 0"/>
+        </body>
+      </body>
+      <body name="base_yaw" pos="0 0 0.02">
+        <joint name="base_yaw_joint" type="hinge" axis="0 0 1" damping="0.1"/>
+        <inertial pos="-0.040771 0.041502 0.07166" mass="3.624" fullinertia="0.05635 0.04211 0.0677 -0.002533 0.008279 -0.009558"/>
+        <geom class="visual" type="mesh" mesh="base_yaw" name="base_yaw_visual_0"/>
+        <geom class="collision" type="box" size="0.205 0.17 0.0775" name="base_yaw_collision_0" pos="-0.045 -0.01 0.0775"/>
+        <body name="yaw" pos="0.09 0 0.056">
+          <joint name="yaw_joint" type="hinge" axis="0 0 1" range="-0.8 0.45"/>
+          <inertial pos="0.000906 -0.044628 0.026121" mass="0.6002" fullinertia="0.0009951 0.0003204 0.001015 -1.307e-05 3.071e-06 8.794e-05"/>
+          <geom class="visual" type="mesh" mesh="jelly_yaw" name="yaw_visual_0"/>
+          <geom class="collision" type="box" size="0.029 0.06185 0.0295" name="yaw_collision_0" pos="0 -0.0229 0.0295"/>
+          <body name="base_pitch" pos="0 0 0.03">
+            <joint name="base_pitch_joint" type="hinge" axis="0 1 0" range="-0.1 0.6"/>
+            <inertial pos="-0.086864 -0.041131 0.033116" mass="0.6413" fullinertia="0.001994 0.0009967 0.002478 -0.000491 0.0002787 0.000256"/>
+            <geom class="visual" type="mesh" mesh="base_pitch" name="base_pitch_visual_0"/>
+            <geom class="collision" type="box" size="0.08365 0.0025 0.0402" name="base_pitch_collision_0" pos="-0.0647 0.0475 0.0212"/>
+            <body name="pitch" pos="-0.103845 0 0.041956">
+              <joint name="pitch_joint" type="hinge" axis="0 1 0" range="-1.5 0.1"/>
+              <inertial pos="0.151777 -0.008377 5.8e-05" mass="2.605" fullinertia="0.007317 0.03672 0.04241 0.01002 0.0006043 1.662e-05"/>
+              <geom class="visual" type="mesh" mesh="jelly_pitch" name="pitch_visual_0"/>
+              <geom class="collision" type="box" size="0.1552 0.1118 0.0307" name="pitch_collision_0" pos="0.0852 0.0074 0.0007"/>
+              <body name="camera_link" pos="0.177252 -0.054633 -0.003254">
+                <inertial pos="0.022 0 0" mass="0.17671" fullinertia="2.129e-05 0.0002198 0.0002197 7.329e-08 -1.11e-07 -8.04e-07"/>
+                <geom class="visual" type="mesh" mesh="hk_camera" name="camera_link_visual_0"/>
+                <geom class="collision" type="mesh" mesh="hk_camera" name="camera_link_collision_0"/>
+              </body>
+              <body name="camera_optical_frame" pos="0.177252 -0.054633 -0.003254" quat="0.485883715 -0.50641659 0.527594573 -0.478647281">
+                <inertial pos="0 0 0" mass="0.001" diaginertia="2.129e-09 2.198e-09 2.197e-09"/>
+              </body>
+              <body name="camera3_optical_frame" pos="0.177252 -0.054633 -0.003254" quat="0.49686831 -0.499660707 0.516899417 -0.486082352">
+                <inertial pos="0 0 0" mass="0.001" diaginertia="2.129e-09 2.198e-09 2.197e-09"/>
+              </body>
+              <body name="gimbal_imu" pos="-0.03 0 0.02" quat="0.999557058 -0.0112353235 0.0154608149 -0.0228126713">
+                <inertial pos="0 0 0" mass="0.01" fullinertia="1e-06 1e-06 1e-06 0 0 0"/>
+                <geom class="visual" type="mesh" mesh="imu" name="gimbal_imu_visual_0"/>
+                <site name="gimbal_imu_site"/>
+              </body>
+              <body name="left_friction_wheel" pos="0.094596 0.0365 -0.008741">
+                <joint name="left_friction_wheel_joint" type="hinge" axis="0 0 1"/>
+                <inertial pos="0 0 -0.004" mass="0.15269" fullinertia="4.776e-05 4.759e-05 6.148e-05 2.192e-07 -1.28e-07 -1.683e-07"/>
+                <geom class="visual" type="mesh" mesh="friction" name="left_friction_wheel_visual_0"/>
+                <geom class="collision" type="mesh" mesh="friction" name="left_friction_wheel_collision_0"/>
+              </body>
+              <body name="right_friction_wheel" pos="0.094596 -0.0365 -0.008741">
+                <joint name="right_friction_wheel_joint" type="hinge" axis="0 0 1"/>
+                <inertial pos="0 0 -0.004" mass="0.15269" fullinertia="4.776e-05 4.759e-05 6.148e-05 2.192e-07 -1.28e-07 -1.683e-07"/>
+                <geom class="visual" type="mesh" mesh="friction" name="right_friction_wheel_visual_0"/>
+                <geom class="collision" type="mesh" mesh="friction" name="right_friction_wheel_collision_0"/>
+              </body>
+            </body>
+          </body>
+        </body>
+        <body name="back_camera_optical_frame" pos="-0.173519 -0.1735 0.07889" quat="0.497450317 -0.506039314 0.527841227 -0.466745148">
+          <inertial pos="0 0 0" mass="0.001" diaginertia="2.129e-09 2.198e-09 2.197e-09"/>
+        </body>
+        <body name="livox_frame" pos="0 -0.157 0.077" quat="5.65713056e-17 -2.3432602e-17 -0.382683432 0.923879533">
+          <inertial pos="0 0 0" mass="0.114" fullinertia="0.001 0.001 0.001 0 0 0"/>
+          <geom class="visual" type="mesh" mesh="livox_mid360" name="livox_frame_visual_0"/>
+          <geom class="collision" type="cylinder" size="0.05 0.039" name="livox_frame_collision_0" pos="0 -0.005657 -0.005657"/>
+        </body>
+        <body name="trigger" pos="-0.1031 0 0.05">
+          <joint name="trigger_joint" type="hinge" axis="0 0 1"/>
+          <inertial pos="-0.012227 -5.5e-05 0.010137" mass="0.952" fullinertia="0.00089 0.001768 0.002067 2.012e-06 0.0001911 -7.72e-07"/>
+          <geom class="visual" type="mesh" mesh="jelly_trigger" name="trigger_visual_0"/>
+          <geom class="collision" type="box" size="0.034 0.034 0.0155" name="trigger_collision_0" pos="0 0 -0.0155"/>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+
+  <sensor>
+    <framequat name="gimbal_imu_quat" objtype="site" objname="gimbal_imu_site"/>
+    <gyro name="gimbal_imu_gyro" site="gimbal_imu_site"/>
+    <accelerometer name="gimbal_imu_acc" site="gimbal_imu_site"/>
+  </sensor>
+</mujoco>

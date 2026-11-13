@@ -1,0 +1,11 @@
+<library path="lib/librm_mujoco_robot_hw_sim">
+  <class
+      name="rm_mujoco/RmMujocoRobotHWSim"
+      type="rm_mujoco::RmMujocoRobotHWSim"
+      base_class_type="mujoco_ros::control::RobotHWSim">
+    <description>
+      The RoboMaster robot simulation interface for mujoco_ros which constructs joint handles from a MJCF model and
+      exposes the rm_control hardware interfaces.
+    </description>
+  </class>
+</library>

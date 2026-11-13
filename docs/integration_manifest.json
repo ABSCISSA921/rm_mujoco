@@ -1,0 +1,44 @@
+{
+  "date": "2026-11-09",
+  "upstream": {
+    "mujoco_ros_pkgs_source": "/home/hzb/Documents/mujoco_ros_pkgs",
+    "mujoco_ros_pkgs_branch": "noetic-devel",
+    "mujoco_ros_pkgs_head": "aadba6308975ec14bb4f008c1b86f8177dc4f71a",
+    "rm_mujoco_source": "/home/hzb/Documents/rm_mujoco",
+    "rm_mujoco_git_head": null,
+    "preserved_local_difference": "mujoco_ros_sensors/test/mujoco_env_fixture.h was already a regular file rather than the Git symlink in the supplied local checkout."
+  },
+  "runtime": {
+    "mujoco": "3.3.5",
+    "glfw": "3.3.10",
+    "ros": "noetic",
+    "master_uri": "http://127.0.0.1:11321"
+  },
+  "files": {
+    "src/rm_config/config/rm_controllers/series_legged2.yaml": "c850372eaec641cb6033b9060a078a796096456357dc1c427863834529ecc32b",
+    "src/rm_config/config/rm_manual/series_legged2.yaml": "859b77586deb57652d6ff54906eb8e2cbacad8f7b3b373a620e5ed78c9539000",
+    "src/rm_mujoco/models/series_legged/scene.xml": "d30712cfb82dcbee2d2b3cd8acf8e22f88d796313a15feae254a3b7411e5ca9a",
+    "src/rm_mujoco/models/series_legged/robot.urdf": "34f9bcfadc5e90ea070e4f35847d70cc7669fad363e4bf7f0dd9a789bfce57f5",
+    "src/rm_mujoco/config/series_legged_initial.yaml": "d4a72a91c635aaaec1a8d7b3a1927ec665a3087a05ca62921d87d3296a77737b",
+    ".local/downloads/mujoco-3.3.5-linux-x86_64.tar.gz": "b553458606a66ac0cf4dcdff9c168b757a6e85db1b1936d7dd9290d2eb0abfa0",
+    ".local/downloads/glfw-3.3.10.tar.gz": "4ff18a3377da465386374d8127e7b7349b685288cb8e17122f7e1179f73769d5"
+  },
+  "repositories": {
+    "src/rm_controllers": {
+      "head": "8e0265470a3cdef8730ff31b0628f95c2c2a971c",
+      "status_before": " M rm_chassis_controllers/src/bipedal_wheel_controller/controller_mode/normal.cpp\n"
+    },
+    "src/rm_config": {
+      "head": "b610f6781c05ed31cda06c153202641680d804cc",
+      "status_before": " M config/rm_controllers/series_legged2.yaml\n M config/rm_manual/series_legged2.yaml\n"
+    },
+    "src/rm_control": {
+      "head": "b7bc8e4b2fd908ba116d9f49a9ba96b5d2a5ccae",
+      "status_before": " M rm_referee/include/rm_referee/common/data.h\n"
+    },
+    "src/rm_description": {
+      "head": "89341504259567b4335b83f47d35749a43c034c3",
+      "status_before": " M urdf/series_legged2/chassis.urdf.xacro\n M urdf/series_legged2/gimbal.transmission.urdf.xacro\n M urdf/series_legged2/gimbal.urdf.xacro\n M urdf/series_legged2/series_legged2.urdf.xacro\n"
+    }
+  }
+}

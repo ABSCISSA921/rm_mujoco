@@ -1,0 +1,17 @@
+# Catkin build artifacts
+/build/
+/devel/
+/install/
+/logs/
+/.catkin_tools/
+
+# Python caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Editor and OS temporary files
+*~
+*.swp
+*.swo
+.DS_Store

@@ -1,0 +1,6 @@
+MujocoPlugins:
+  - type: rm_mujoco/LegSpringPlugin
+  - type: mujoco_ros_control/MujocoRosControlPlugin
+    hardware:
+      type: rm_mujoco/RmMujocoRobotHWSim
+      control_period: 0.001

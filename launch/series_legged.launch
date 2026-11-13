@@ -1,0 +1,37 @@
+<launch>
+  <!-- Linkage: series_legged; interfaces/gimbal: series_legged2; inertials: complete CAD. -->
+  <arg name="robot_type" default="series_legged2"/>
+  <arg name="modelfile" default="$(find rm_mujoco)/models/series_legged2/scene.xml"/>
+  <arg name="initial_joint_states" default="$(find rm_mujoco)/config/series_legged2_initial.yaml"/>
+  <arg name="robot_description_file" default="$(find rm_mujoco)/models/series_legged2/robot.urdf"/>
+  <arg name="imu_config" default="$(find rm_mujoco)/config/imus.yaml"/>
+  <arg name="mujoco_plugin_config" default="$(find rm_mujoco)/config/series_legged2_mujoco.yaml"/>
+  <arg name="headless" default="false"/>
+  <arg name="unpause" default="true"/>
+  <arg name="realtime" default="1.0"/>
+  <arg name="controllers" default="true"/>
+  <arg name="manual" default="true"/>
+
+  <param name="robot_description" textfile="$(arg robot_description_file)"/>
+  <rosparam file="$(arg imu_config)"/>
+  <rosparam file="$(find rm_config)/config/rm_controllers/$(arg robot_type).yaml"/>
+
+  <include file="$(find mujoco_ros)/launch/launch_server.launch">
+    <arg name="use_sim_time" value="true"/>
+    <arg name="modelfile" value="$(arg modelfile)"/>
+    <arg name="initial_joint_states" value="$(arg initial_joint_states)"/>
+    <arg name="mujoco_plugin_config" value="$(arg mujoco_plugin_config)"/>
+    <arg name="headless" value="$(arg headless)"/>
+    <arg name="render_offscreen" value="false"/>
+    <arg name="unpause" value="$(arg unpause)"/>
+    <arg name="realtime" value="$(arg realtime)"/>
+  </include>
+
+  <!-- Sequential loading lets RobotStateController register its handle before chassis init. -->
+  <node if="$(eval arg('controllers') and not arg('manual'))" pkg="controller_manager" type="spawner"
+        name="mujoco_controller_spawner" output="screen"
+         args="controllers/joint_state_controller controllers/robot_state_controller controllers/chassis_controller controllers/gimbal_controller"/>
+  <include if="$(arg manual)" file="$(find rm_mujoco)/launch/series_legged_manual.launch">
+    <arg name="robot_type" value="$(arg robot_type)"/>
+  </include>
+</launch>
