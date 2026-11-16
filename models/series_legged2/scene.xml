@@ -213,7 +213,7 @@
       <body name="right_back_guide_wheel" pos="-0.2 -0.1 -0.12" quat="1 0 0 0" />
       <body name="left_tof_link" pos="0.285 0.123 -0.08" quat="1 0 0 0" />
       <body name="right_tof_link" pos="0.285 -0.123 -0.08" quat="1 0 0 0" />
-      <body name="base_imu" pos="0.15962 0 -0.099125" quat="-0.003664990175961452 -3.44509178009819e-06 0.9999928420980174 -0.0009399935484315858">
+      <body name="base_imu" pos="0.15962 0 -0.099125" quat="6.123233995736766e-17 0 1 0">
         <site name="base_imu_site" size=".004" group="5" />
       </body>
       <body name="yaw" pos="0 0 0.036125" quat="0.7071067811865477 0 0 -0.7071067811865475">

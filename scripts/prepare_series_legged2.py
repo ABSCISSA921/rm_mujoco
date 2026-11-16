@@ -2,7 +2,8 @@
 """Build the agreed ROS/MuJoCo model without modifying its three source descriptions.
 
 Run after sourcing mujoco_env.sh. Geometry/closed chains: series_legged;
-IMUs, gimbal, transmissions and leg limits: series_legged2;
+IMU positions, gimbal, transmissions and leg limits: series_legged2;
+IMU rotations retain nominal mounting directions without small installation offsets;
 individual rigid-body mass, COM, inertia and meshes: serial_leg_complete.
 """
 import copy
@@ -156,6 +157,8 @@ def prepare(package, description):
             robot.append(copy.deepcopy(transmission))
 
     joints = {j.get('name'): j for j in robot.findall('joint')}
+    # Ideal mounting for simulation; gimbal_imu is already nominal at (0, 0, -pi/2).
+    joints['base_imu_joint'].find('origin').set('rpy', f'0 {math.pi} 0')
     links = {link.get('name'): link for link in robot.findall('link')}
     children = {}
     for joint in joints.values():

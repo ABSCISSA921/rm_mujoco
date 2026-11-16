@@ -1,7 +1,7 @@
 {
   "sources_sha256": {
     "rm_mujoco/models/serial_leg_complete/robot_passive_limits.xml": "53cf8e7d6686b1ae716359fbff5b2059ab04f11a3ea3e9b463737b59a1f2c926",
-    "rm_mujoco/scripts/prepare_series_legged2.py": "3975206bcf8c1e0d3e57a3d3a8a9a06029064ee56e32d269c3f9b5e8af94bbd4",
+    "rm_mujoco/scripts/prepare_series_legged2.py": "24a5ded3d00155f760b8b8055b9cf125a5e570705db0367d3ccf2c2449f55ef2",
     "rm_description/urdf/series_legged/chassis.urdf.xacro": "518fadb03af64c3aab669529b4849b4e5c28ff42fd9436229c80923d3446930e",
     "rm_description/urdf/series_legged/gimbal.transmission.urdf.xacro": "40e436ddd2a597315346ec3fda6f11764a582744254b3f42a40bad42a8614a8d",
     "rm_description/urdf/series_legged/gimbal.urdf.xacro": "37829e88632c92659bb6e465e9a1414374ce238017e6ccb69fd04cbdee3abd3c",

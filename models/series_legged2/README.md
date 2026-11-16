@@ -9,7 +9,8 @@
 | 内容 | 来源 |
 |---|---|
 | 腿部连杆尺寸、关节原点/轴、两处闭链连接、轮距与轮半径 | `rm_description/urdf/series_legged` |
-| 腿部关节限制；云台 yaw/pitch 安装、关节定义；base/gimbal IMU 外参 | `rm_description/urdf/series_legged2` |
+| 腿部关节限制；云台 yaw/pitch 安装、关节定义；base/gimbal IMU 安装位置 | `rm_description/urdf/series_legged2` |
+| base/gimbal IMU 安装方向 | 保留名义安装方向，去掉小角度安装偏置：base 为 `(0, π, 0)`，gimbal 为 `(0, 0, −π/2)` |
 | 八路 transmission，包括 chassis 宏调用中的 reduction/offset | `rm_description/urdf/series_legged2` |
 | 17 个刚体的质量、质心、惯量、完整网格及碰撞包络 | [serial_leg_complete](../serial_leg_complete/README.md) |
 | 每侧弹簧的等效轴向力 | 用户提供的三次拟合曲线 |
@@ -29,7 +30,7 @@ CAD 长杆两端间距与指定 URDF 的 0.20 m 相差约 **0.50961 mm**；运�
 - `hip_joint` 驱动大腿；`knee_joint` 驱动与髋同轴的 output 杆。两者父链接均为 `base_link`；`calf_joint` 为被动膝关节。
 - 髋/膝驱动限制为 **40 N·m、10.46 rad/s**；pitch 位置范围为 **[−0.60, 0.30] rad**。限值来自 `series_legged2`。没有沿用 CAD 预览模型的被动关节范围和相对角限位 tendon。
 - 传动数据完整保存在 [robot.urdf](robot.urdf)。当前官方 `DefaultRobotHWSim` 接收的是关节空间命令，直接写入 `qfrc_applied`；不再次乘 reduction 或加硬件标定 offset。模型没有另一组 motor actuator。
-- base/gimbal IMU 各有 quaternion、gyro、accelerometer。位姿、frame 名称在 MJCF、URDF 和 [IMU 配置](../../config/imus.yaml) 中一致。
+- base/gimbal IMU 各有 quaternion、gyro、accelerometer。XYZ 与源 `series_legged2` URDF 一致；base IMU 的 RPY 由 `(0.00188, π + 0.00733, 0)` 简化为 `(0, π, 0)`，gimbal IMU 保留 `(0, 0, −π/2)`。MJCF 与本目录供 ROS TF 使用的 URDF 同步采用这些名义安装方向，[IMU 配置](../../config/imus.yaml) 使用相同的 frame 名称；源 URDF 保留实机安装偏置。
 - 拨弹和摩擦轮不单独驱动，其 CAD 质量与外观已经包含在相应刚体中；辅助 ROS frame 不重复增加质量。
 - 浮动基座、四个闭链 connect、重力 −9.81 m/s²、平地接触、0.001 s 物理步长。碰撞采用 CAD 近似包络，机器人自身不同碰撞体之间不启用自碰撞。
 - 左右腿各有一个 `spatial tendon`，复用 `*_spring_hip` 和 `*_spring_wheel` 两个端点，以 `limited="true" range="0 0.40"` 限制髋轴到轮心的平面距离（不含轮半径）。0 是距离的自然下界，没有额外规定最小腿长。限位由 MuJoCo 约束求解器产生反力；区间内部不增加弹簧力或阻尼。`solreflimit="0.002 1"`、`solimplimit="0.999 0.9999 0.0001"` 定义限位的数值柔度，受载或冲击时允许少量越界。该距离上限不能单独保证六连杆始终处于正确装配分支。参见 [MuJoCo tendon 限位](https://mujoco.readthedocs.io/en/3.3.5/XMLreference.html#tendon-spatial)。

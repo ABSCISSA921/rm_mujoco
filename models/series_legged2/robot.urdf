@@ -710,7 +710,7 @@
     <origin rpy="0 0 0" xyz="0.285 -0.123 -0.08" />
   </joint>
   <joint name="base_imu_joint" type="fixed">
-    <origin rpy="0.00188 3.148922653589793 0.0" xyz="0.15962 0 -0.099125" />
+    <origin rpy="0 3.141592653589793 0" xyz="0.15962 0 -0.099125" />
     <parent link="base_link" />
     <child link="base_imu" />
   </joint>
