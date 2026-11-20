@@ -193,6 +193,7 @@ target_link_libraries(rm_mujoco_robot_hw_sim
 catkin_install_python(PROGRAMS
   scripts/prepare_series_legged.py
   scripts/prepare_series_legged2.py
+  scripts/prepare_series_legged_world.py
   scripts/mujoco_odom_bridge.py
   scripts/rpy_to_mujoco_qpos.py
   scripts/stl_to_boxes.py
@@ -229,7 +230,7 @@ install(FILES
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
 
-install(DIRECTORY launch config models
+install(DIRECTORY launch config models worlds
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
 
@@ -248,6 +249,9 @@ install(DIRECTORY launch config models
 
 if(CATKIN_ENABLE_TESTING)
   find_package(rostest REQUIRED)
+  catkin_add_gtest(series_legged_world_test tests/series_legged_world_test.cpp)
+  target_compile_definitions(series_legged_world_test PRIVATE RM_MUJOCO_SOURCE_DIR="${CMAKE_CURRENT_SOURCE_DIR}")
+  target_link_libraries(series_legged_world_test ${catkin_LIBRARIES})
   add_rostest_gtest(hardware_interface_test tests/hardware_interface.test tests/hardware_interface_test.cpp)
   target_link_libraries(hardware_interface_test rm_mujoco_robot_hw_sim ${catkin_LIBRARIES})
   add_rostest_gtest(complete_model_test tests/complete_model.test tests/complete_model_test.cpp)

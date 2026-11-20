@@ -1,0 +1,4 @@
+<mujoco model="series_legged2_complete_world">
+  <include file="scene.xml"/>
+  <include file="../../worlds/series_legged/terrain.xml"/>
+</mujoco>

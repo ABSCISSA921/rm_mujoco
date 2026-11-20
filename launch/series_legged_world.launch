@@ -1,0 +1,24 @@
+<launch>
+  <arg name="robot_type" default="series_legged2"/>
+  <arg name="modelfile" default="$(find rm_mujoco)/models/series_legged2/series_legged_world.xml"/>
+  <arg name="initial_joint_states" default="$(find rm_mujoco)/config/series_legged2_world_initial.yaml"/>
+  <arg name="mujoco_plugin_config" default="$(find rm_mujoco)/config/series_legged2_mujoco.yaml"/>
+  <arg name="headless" default="false"/>
+  <arg name="unpause" default="true"/>
+  <arg name="realtime" default="1.0"/>
+  <!-- Start rm_config manual.launch separately; it manages controller loading. -->
+  <arg name="controllers" default="false"/>
+  <arg name="manual" default="false"/>
+
+  <include file="$(find rm_mujoco)/launch/series_legged.launch">
+    <arg name="robot_type" value="$(arg robot_type)"/>
+    <arg name="modelfile" value="$(arg modelfile)"/>
+    <arg name="initial_joint_states" value="$(arg initial_joint_states)"/>
+    <arg name="mujoco_plugin_config" value="$(arg mujoco_plugin_config)"/>
+    <arg name="headless" value="$(arg headless)"/>
+    <arg name="unpause" value="$(arg unpause)"/>
+    <arg name="realtime" value="$(arg realtime)"/>
+    <arg name="controllers" value="$(arg controllers)"/>
+    <arg name="manual" value="$(arg manual)"/>
+  </include>
+</launch>

@@ -30,6 +30,8 @@ mujoco_ros / mujoco_server
 
 ## 启动
 
+Gazebo `series_legged_world.launch` 引用的台阶／坡面场地已迁入 [worlds/series_legged](worlds/series_legged/README.md)。加载环境后，在两个终端分别执行`mon launch rm_mujoco series_legged_world.launch`和`mon launch rm_config manual.launch`。世界入口自动采用平台高程对应的初态，默认`manual=false/controllers=false`，由第二条命令加载和管理控制器。下文`series_legged.launch`仍是原平地入口，默认内置Manual。
+
 每个终端先执行：
 
 ```bash

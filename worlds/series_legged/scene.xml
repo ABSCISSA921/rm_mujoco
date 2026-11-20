@@ -1,0 +1,12 @@
+<mujoco model="series_legged_world">
+  <compiler angle="radian" inertiafromgeom="false"/>
+  <option timestep="0.001" gravity="0 0 -9.81" integrator="implicitfast"
+          solver="Newton" iterations="100" tolerance="1e-10" cone="elliptic"/>
+  <include file="terrain.xml"/>
+  <worldbody>
+    <light name="sun" pos="0 0 10" dir="-.5 .1 -.9" directional="true"
+           diffuse=".8 .8 .8" specular=".2 .2 .2" castshadow="true"/>
+    <geom name="floor" type="plane" size="20 20 .1" group="0" contype="2" conaffinity="1"
+          friction="1 .005 .0001" solref=".004 1" solimp=".95 .99 .001" rgba=".8 .8 .8 1"/>
+  </worldbody>
+</mujoco>

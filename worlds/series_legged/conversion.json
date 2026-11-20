@@ -1,0 +1,33 @@
+{
+  "source_world": "src/rm_control/rm_gazebo/worlds/series_legged.world",
+  "source_mesh": "src/rm_control/rm_gazebo/worlds/place/series_legged_world.stl",
+  "translation_m": [
+    -2.0,
+    -0.6,
+    0.0
+  ],
+  "scale": [
+    1,
+    1,
+    1
+  ],
+  "triangles": 172,
+  "connected_solids": 3,
+  "convex_collision_geoms": 26,
+  "world_bounds_m": [
+    [
+      -7.0,
+      -1.7342563629150392,
+      -5.024468555347994e-05
+    ],
+    [
+      9.304611206054688,
+      7.04300012588501,
+      0.6265931725502014
+    ]
+  ],
+  "source_volume_m3": 12.527711602115351,
+  "collision_volume_m3": 12.527711639294578,
+  "algorithm": "source face-plane partition, winding classification, convex neighbor merge",
+  "coplanar_plane_tolerance": 1e-06
+}
